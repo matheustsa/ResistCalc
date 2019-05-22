@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">ResistCalc</string>
+    <string name="fbk_title">Resistência Característica de Blocos Cerâmicos</string>
+    <string name="fbk_description">Informe os resultados dos ensaios de compressão sobre os blocos, separando-os por
+        ponto e vírgula ou novo parágrafo. Depois clique em calcular.
+    </string>
+    <string name="fbk_bt_calcular">Calcular</string>
+    <string name="fbk_example">Exemplo: \n6,5; 6,6; 6,7; 6,8; 6,9; ... \n\nou \n\n6,5\n6,6\n6,7\n6,8\n6,9\n...</string>
+    <string name="main_act_calcular">O que você quer calcular?</string>
+    <string name="mainact_bt_fbk">fbk,est</string>
+    <string name="mainact_bt_fpk">fpk,est</string>
+</resources>
