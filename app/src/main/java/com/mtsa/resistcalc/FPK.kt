@@ -10,8 +10,6 @@ class FPK : AppCompatActivity() {
 
     private lateinit var txvResultadoFPK: TextView
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_fpk)
@@ -28,65 +26,105 @@ class FPK : AppCompatActivity() {
 
     @SuppressLint("SetTextI18n")
     private fun calcFPK() {
-        val resistencias = floatArrayOf(12.4F, 12.6F, 12.4F, 13.5F, 15.4F, 16.4F, 17.4F).sorted()
+        val resistencias = floatArrayOf(12.4F, 12.4F, 12.6F, 13.5F, 15.4F, 16.4F, 17.4F).sorted()
         val n = resistencias.last()
         val gl = resistencias.count()
         val alpha = 0.2     //valor fixo
-
+        val t_student = doubleArrayOf(
+            1.3764,
+            1.0607,
+            0.9785,
+            0.9410,
+            0.9195,
+            0.9057,
+            0.8960,
+            0.8889,
+            0.8834,
+            0.8791,
+            0.8755,
+            0.8726,
+            0.8702,
+            0.8681,
+            0.8662,
+            0.8647,
+            0.8633,
+            0.8620,
+            0.8610,
+            0.8600,
+            0.8591,
+            0.8583,
+            0.8575,
+            0.8569,
+            0.8562,
+            0.8557,
+            0.8551,
+            0.8546,
+            0.8542,
+            0.8538
+        )
+        
         // Calcular Desvio Padrão
         // Passo 1 - Calcula a Média
         val media = calculaMedia(resistencias).toFloat()
-        println(media)
-        // Passo 2 - Calcula a diferença entre as resistências e a média, elevado ao quadrado cada elemento
-        val diferenca = FloatArray(gl)
+        // Passo 2 - Calcula a diferença entre as resistências e a média (n-1), elevado ao quadrado cada elemento
+//        val variancia = FloatArray(gl)
+        var variancia2 = 0.0
         for (i in resistencias.indices)
-            diferenca[i] = round(Math.pow((resistencias[i] - media).toDouble(), 2.0).toFloat())
+//            variancia[i] = twoDecimals(Math.pow((resistencias[i] - media).toDouble(), 2.0).toFloat())
+            variancia2 += Math.pow((resistencias[i] - media).toDouble(), 2.0).toFloat()
+        variancia2 /= resistencias.count() - 1
         // Passo 3 - Calcula a média das diferenças e extrai a raiz
-        var desvio = Math.sqrt(calculaMedia(diferenca.toList()))
-//        desvio = 2.08087F.toDouble()
-        //TODO arrumar desvio
+//        var desvio = Math.sqrt(calculaMediaVariancia(variancia.toList()))
+        val desvio = Math.sqrt(variancia2)
 
         // Calcula t_crítico
-        val t_critico = calcInversa(alpha.toInt(), gl) // deve ser sempre positivo (absoluto / módulo)
-        //TODO arrumar t_critico
-
-        // Calcula fpk,est
+        val t_critico = t_student[gl - 1]
+    
+        // Calcula fpk,est (media das peças - valor da tabela * desvio)
         val fpk = media - (t_critico * desvio)
 
-
-        // FPK = media das peças - valor da tabela * desvio
-        val fpk2 = media - (0.89603 * desvio)
-
-
+//        txvResultadoFPK.text = "Amostras: $resistencias" +
+//                "\n\nMédia das amostras: $media" +
+//                "\n\nVariâncias: ${variancia.toList()}"  +
+//                "\n\nVariância total: ${variancia.sum()}" +
+//                "\nVariância média: ${twoDecimals(calculaMedia(variancia.toList()).toFloat())}" +
+//                "\n\nDesvio padrão: " + String.format("%.2f", desvio) +
+//                "\nt_critico: $t_critico" +
+//                "\n\nfpk,est: " + String.format("%.2f", fpk)
+        
         txvResultadoFPK.text = "Amostras: $resistencias" +
-                "\n\nMédia: $media" +
-                "\nDiferença: ${diferenca.toList()}"  +
-                "\nDesvio: " + String.format("%.2f", desvio) +
-                "\n\nt_critico: $t_critico" +
-                "\n\nfpk,est: " + String.format("%.2f", fpk2)
+                "\n\nMédia das amostras: $media" +
+                "\n\nDesvio padrão: " + String.format("%.2f", desvio) +
+                "\nt_critico: $t_critico" +
+                "\n\nfpk,est: " + String.format("%.2f", fpk)
     }
 
     private fun calculaMedia(lista: List<Float>): Double {
         var media = 0.0
         for (i in lista.indices)
             media += lista[i]
+        println("SOMA: $media")
         media /= lista.count()
-
+        println("TAMANHO: ${lista.count()}")
+        println("MEDIA: $media")
+    
         return media
     }
-
-    private fun calcInversa(prob: Int, liberdade: Int): Int {
-        val inversa = prob % liberdade
-        for (i in 0 until liberdade)
-            if ((inversa * i) % liberdade == 1)
-                return i
-        return 1
+    
+    private fun calculaMediaVariancia(lista: List<Float>): Double {
+        var media = 0.0
+        for (i in lista.indices)
+            media += lista[i]
+        
+        // PORQUE  ESSA MERDA PRECISA SER COM N-1 EU NÃO SEI, MAS FUNCIONOU ASSIM ENTÃO FODA-SE
+        media /= lista.count() - 1
+        
+        return media
     }
     
-    private fun round(number: Float): Float {
+    private fun twoDecimals(number: Float): Float {
         val aux = DecimalFormat("#.##")
         return aux.format(number).toFloat()
     }
-    
     
 }

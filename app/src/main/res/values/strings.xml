@@ -9,4 +9,5 @@
     <string name="main_act_calcular">O que você quer calcular?</string>
     <string name="mainact_bt_fbk">fbk,est</string>
     <string name="mainact_bt_fpk">fpk,est</string>
+    <string name="new_line">\n</string>
 </resources>
