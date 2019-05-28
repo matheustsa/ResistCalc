@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.actMain_btFBK -> startActivity(Intent(this, FBK::class.java))
-            R.id.actMain_btFPK -> startActivity(Intent(this, FPK::class.java))
+            R.id.actMain_btFPK -> startActivity(Intent(this, ResultadoFPK::class.java))
         }
     }
 }

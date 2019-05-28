@@ -34,6 +34,8 @@
             app:layout_constraintTop_toBottomOf="@+id/actMain_btFBK"
             app:layout_constraintStart_toStartOf="@+id/actMain_btFBK"
             app:layout_constraintEnd_toEndOf="@+id/actMain_btFBK" android:textSize="18sp"
-            android:visibility="visible"/>
+            android:visibility="visible"
+            android:backgroundTint="@color/royal_blue"
+            android:textColor="@color/white"/>
 
 </android.support.constraint.ConstraintLayout>

@@ -9,11 +9,11 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme" tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ResultadoFPK">
+        <activity android:name=".FPK">
         </activity>
         <activity android:name=".ResultadoFBK">
         </activity>
-        <activity android:name=".FPK">
+        <activity android:name=".ResultadoFPK">
         </activity>
         <activity android:name=".FBK">
         </activity>

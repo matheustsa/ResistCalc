@@ -7,5 +7,74 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+    
+    <!-- FBK / FPK Title's Style -->
+    <style name="FBK_FPK_Title">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Display1</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:layout_marginEnd">16dp</item>
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:padding">16dp</item>
+        <item name="android:textSize">30sp</item>
+    </style>
+    
+    <!-- Description style -->
+    <style name="FBK_FPK_description">
+        <item name="android:textAlignment">center</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:layout_marginStart">8dp</item>
+        <item name="android:layout_marginEnd">8dp</item>
+        <item name="android:padding">16dp</item>
+    </style>
+    
+    <!-- Multiline EditText style -->
+    <style name="FBKP_FPK_edtxEntradas">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:inputType">textMultiLine|textNoSuggestions|number</item>
+        <item name="android:digits">1234567890,.-\n</item>
+        <item name="android:gravity">start|top</item>
+        <item name="android:ems">10</item>
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_marginEnd">16dp</item>
+        <item name="android:hint">@string/fbk_example</item>
+        <item name="android:lineSpacingExtra">4sp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textAlignment">textStart</item>
+    </style>
+    
+    <!-- FBK Button style -->
+    <style name="FBK_btCalcular">
+        <item name="android:text">Calcular</item>
+        <item name="android:layout_width">210dp</item>
+        <item name="android:layout_height">51dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_margin">16dp</item>
+        <item name="android:backgroundTint">@color/fire_brick</item>
+        <item name="android:textColor">@color/white</item>
+    
+    </style>
+    
+    <!-- FBK Button style -->
+    <style name="FPK_btCalcular">
+        <item name="android:text">Calcular</item>
+        <item name="android:layout_width">210dp</item>
+        <item name="android:layout_height">51dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_margin">16dp</item>
+        <item name="android:backgroundTint">@color/royal_blue</item>
+        <item name="android:textColor">@color/white</item>
+    
+    </style>
 
 </resources>
