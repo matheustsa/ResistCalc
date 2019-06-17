@@ -98,9 +98,11 @@
     <color name="light_sky_blue">#87CEFA</color>
     <color name="sky_blue">#87CEEB</color>
     <color name="gray">#808080</color>
+    <color name="gray2">#777777</color>
     <color name="olive">#808000</color>
     <color name="purple">#800080</color>
     <color name="maroon">#800000</color>
+    <color name="dark_wood">#4E2E3A</color>
     <color name="aquamarine">#7FFFD4</color>
     <color name="chartreuse">#7FFF00</color>
     <color name="lawn_green">#7CFC00</color>

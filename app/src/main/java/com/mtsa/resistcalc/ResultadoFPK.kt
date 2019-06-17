@@ -1,14 +1,18 @@
 package com.mtsa.resistcalc
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.View
+import android.widget.ImageButton
 import android.widget.TextView
 import java.text.DecimalFormat
 
-class ResultadoFPK : AppCompatActivity() {
+class ResultadoFPK : AppCompatActivity(), View.OnClickListener {
     
-    private lateinit var txvResultadoFPK: TextView
+    private lateinit var txvResultado: TextView
+    private lateinit var btShare: ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,15 +24,17 @@ class ResultadoFPK : AppCompatActivity() {
     
     
     private fun initViews() {
-        txvResultadoFPK = findViewById(R.id.actResFPK_txvResultado)
+        txvResultado = findViewById(R.id.actResFPK_txvResultado)
+        btShare = findViewById(R.id.actResFPK_btShare)
+        btShare.setOnClickListener(this)
     }
     
     @SuppressLint("SetTextI18n")
     private fun calcFPK() {
-        val resistencias = floatArrayOf(12.4F, 12.4F, 12.6F, 13.5F, 15.4F, 16.4F, 17.4F).sorted()
-        val n = resistencias.last()
-        val gl = resistencias.count()
-        val alpha = 0.2     //valor fixo
+        val amostras = intent.getFloatArrayExtra("Amostras")
+//        val n = amostras.last()
+        val gl = amostras.count()
+//        val alpha = 0.2     //valor fixo
         val t_student = doubleArrayOf(
             1.3764,
             1.0607,
@@ -63,42 +69,51 @@ class ResultadoFPK : AppCompatActivity() {
         )
         
         // Calcular Desvio Padrão
-        // Passo 1 - Calcula a Média
-        val media = calculaMedia(resistencias).toFloat()
-        // Passo 2 - Calcula a diferença entre as resistências e a média (n-1), elevado ao quadrado cada elemento
-//        val variancia = FloatArray(gl)
-        var variancia2 = 0.0
-        for (i in resistencias.indices)
-//            variancia[i] = twoDecimals(Math.pow((resistencias[i] - media).toDouble(), 2.0).toFloat())
-            variancia2 += Math.pow((resistencias[i] - media).toDouble(), 2.0).toFloat()
-        variancia2 /= resistencias.count() - 1
-        // Passo 3 - Calcula a média das diferenças e extrai a raiz
-//        var desvio = Math.sqrt(calculaMediaVariancia(variancia.toList()))
-        val desvio = Math.sqrt(variancia2)
+        // Passo 1 - Calcular a Média
+        val media = calculaMedia(amostras)
+        // Passo 2 - Calcular a da diferença entre as resistências e a média (n-1), elevando ao quadrado cada elemento
+        val variancia = calculaVariancia(amostras, media)
+        // Passo 3 - Extrair a raiz da média das variâncias
+        val desvio = Math.sqrt(variancia)
         
         // Calcula t_crítico
         val t_critico = t_student[gl - 1]
         
         // Calcula fpk,est (media das peças - valor da tabela * desvio)
         val fpk = media - (t_critico * desvio)
-
-//        txvResultadoFPK.text = "Amostras: $resistencias" +
-//                "\n\nMédia das amostras: $media" +
-//                "\n\nVariâncias: ${variancia.toList()}"  +
-//                "\n\nVariância total: ${variancia.sum()}" +
-//                "\nVariância média: ${twoDecimals(calculaMedia(variancia.toList()).toFloat())}" +
-//                "\n\nDesvio padrão: " + String.format("%.2f", desvio) +
-//                "\nt_critico: $t_critico" +
-//                "\n\nfpk,est: " + String.format("%.2f", fpk)
-        
-        txvResultadoFPK.text = "Amostras: $resistencias" +
-                "\n\nMédia das amostras: $media" +
+    
+        txvResultado.text = "Amostras: ${amostras.toList()}" +
+                "\n\nQuantidade: ${amostras.size} elementos" +
+                "\nMédia das amostras: " + String.format("%.2f", media) +
                 "\n\nDesvio padrão: " + String.format("%.2f", desvio) +
-                "\nt_critico: $t_critico" +
-                "\n\nfpk,est: " + String.format("%.2f", fpk)
+                "\nt_crítico: $t_critico" +
+                "\n\nfpk,est: " + String.format("%.2f", fpk) + " MPa"
     }
     
-    private fun calculaMedia(lista: List<Float>): Double {
+    /**
+     * Called when a view has been clicked.
+     *
+     * @param v The view that was clicked.
+     */
+    override fun onClick(v: View?) {
+        when (v?.id) {
+            R.id.actResFPK_btShare -> {
+                val shareMsg = "-[ ResistCalc App ]-\n\n" +
+                        "Os resultados obtidos foram:\n\n" +
+                        txvResultado.text.toString() +
+                        "\n\nDownload via: * GooglePlay link *"
+                
+                val sendIntent: Intent = Intent().apply {
+                    action = Intent.ACTION_SEND
+                    putExtra(Intent.EXTRA_TEXT, shareMsg)
+                    type = "text/plain"
+                }
+                startActivity(Intent.createChooser(sendIntent, "Enviar para..."))
+            }
+        }
+    }
+    
+    private fun calculaMedia(lista: FloatArray): Double {
         var media = 0.0
         for (i in lista.indices)
             media += lista[i]
@@ -107,15 +122,13 @@ class ResultadoFPK : AppCompatActivity() {
         return media
     }
     
-    private fun calculaMediaVariancia(lista: List<Float>): Double {
-        var media = 0.0
-        for (i in lista.indices)
-            media += lista[i]
+    private fun calculaVariancia(amostras: FloatArray, media: Double): Double {
+        var variancia = 0.0
+        for (i in amostras.indices)
+            variancia += Math.pow((amostras[i] - media), 2.0).toFloat()
+        variancia /= amostras.count() - 1
         
-        // PORQUE  ESSA MERDA PRECISA SER COM N-1 EU NÃO SEI, MAS FUNCIONOU ASSIM ENTÃO FODA-SE
-        media /= lista.count() - 1
-        
-        return media
+        return variancia
     }
     
     private fun twoDecimals(number: Float): Float {

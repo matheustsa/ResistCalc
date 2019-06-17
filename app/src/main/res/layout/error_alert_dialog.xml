@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content" android:orientation="vertical"
+              android:background="@drawable/error_alert_dialog" android:gravity="center" android:padding="4dp"
+              android:id="@+id/errorDialog_layout">
+    
+    <TextView
+            android:text="ERRO!"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/errorDialog_title" android:layout_weight="1"
+            android:textStyle="bold" android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/white"/>
+    <TextView
+            android:text="Você deve informar ao menos 6 valores\n\n:("
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/errorDialog_body" android:layout_weight="1"
+            android:textColor="@color/white" android:layout_marginTop="8dp" android:layout_marginBottom="4dp"/>
+</LinearLayout>

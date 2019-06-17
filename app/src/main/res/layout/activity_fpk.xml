@@ -4,7 +4,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".FPK">
+        tools:context=".FPK" android:background="@drawable/bg_entries">
     
     <LinearLayout
             android:orientation="vertical"
@@ -18,17 +18,18 @@
                 android:id="@+id/textView10"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/FBK_FPK_Title"/>
+                style="@style/FBK_FPK_Title" android:background="@drawable/transparent_wood_box"
+                android:textAllCaps="false"/>
         <TextView
                 android:text="@string/fpk_description"
                 android:id="@+id/textView11"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/FBK_FPK_description"/>
+                style="@style/FBK_FPK_description" android:textColor="@color/dark_wood"/>
         <EditText
                 android:id="@+id/actFPK_edtxEntradas"
                 style="@style/FBKP_FPK_edtxEntradas"
-        />
+                android:textColorHint="@color/gray2"/>
         <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"

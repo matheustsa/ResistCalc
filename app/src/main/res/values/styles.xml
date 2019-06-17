@@ -19,6 +19,8 @@
         <item name="android:layout_marginTop">8dp</item>
         <item name="android:padding">16dp</item>
         <item name="android:textSize">30sp</item>
+        <item name="android:textColor">@color/dark_wood</item>
+        <item name="android:background">@drawable/transparent_wood_box</item>
     </style>
     
     <!-- Description style -->
@@ -37,7 +39,7 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:inputType">textMultiLine|textNoSuggestions|number</item>
-        <item name="android:digits">1234567890,.-\n</item>
+        <item name="android:digits">1234567890,.;-\n</item>
         <item name="android:gravity">start|top</item>
         <item name="android:ems">10</item>
         <item name="android:layout_marginStart">16dp</item>
@@ -60,7 +62,6 @@
         <item name="android:layout_margin">16dp</item>
         <item name="android:backgroundTint">@color/fire_brick</item>
         <item name="android:textColor">@color/white</item>
-    
     </style>
     
     <!-- FBK Button style -->
@@ -74,7 +75,18 @@
         <item name="android:layout_margin">16dp</item>
         <item name="android:backgroundTint">@color/royal_blue</item>
         <item name="android:textColor">@color/white</item>
+    </style>
     
+    
+    <style name="act_title">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Display1</item>
+        <item name="android:textColor">@color/dark_wood</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:background">@drawable/transparent_wood_box</item>
+        <item name="android:layout_margin">16dp</item>
+        <item name="android:padding">8dp</item>
     </style>
 
 </resources>

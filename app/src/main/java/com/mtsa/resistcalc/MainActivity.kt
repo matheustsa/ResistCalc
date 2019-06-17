@@ -4,26 +4,25 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
-import android.widget.Button
+import kotlinx.android.synthetic.main.activity_main.*
+import org.jetbrains.anko.toast
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
-
-    private lateinit var btFBK: Button
-    private lateinit var btFPK: Button
-
+    
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        initViews()
+        
+        //Esconder AppTitleBar
+        supportActionBar?.hide()
+        
+        setListeners()
     }
-
-    private fun initViews() {
-        btFBK = findViewById(R.id.actMain_btFBK)
-        btFPK = findViewById(R.id.actMain_btFPK)
-
-        btFBK.setOnClickListener(this)
-        btFPK.setOnClickListener(this)
+    
+    private fun setListeners() {
+        actMain_btFBK.setOnClickListener(this)
+        actMain_btFPK.setOnClickListener(this)
+        actMain_btSobre.setOnClickListener(this)
     }
 
     /**
@@ -32,9 +31,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
      * @param v The view that was clicked.
      */
     override fun onClick(v: View?) {
-        when (v?.id) {
-            R.id.actMain_btFBK -> startActivity(Intent(this, FBK::class.java))
-            R.id.actMain_btFPK -> startActivity(Intent(this, ResultadoFPK::class.java))
+        when (v) {
+            actMain_btFBK -> startActivity(Intent(this, FBK::class.java))
+            actMain_btFPK -> startActivity(Intent(this, FPK::class.java))
+            actMain_btSobre -> toast("Em desenvolvimento...")
         }
     }
 }

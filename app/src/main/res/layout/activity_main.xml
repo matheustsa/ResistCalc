@@ -5,24 +5,32 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity">
-
+        tools:context=".MainActivity" android:background="@drawable/bg_main" android:paddingLeft="16dp"
+        android:paddingEnd="16dp">
+    
+    <TextView
+            android:text="ResistCalc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/textView2" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="32dp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display3" android:textStyle="bold"
+            android:textColor="@color/dark_wood" android:background="@drawable/transparent_wood_box"/>
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/main_act_calcular"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:text="Qual resistência você quer calcular?"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" android:id="@+id/textView"
-            app:layout_constraintVertical_bias="0.22000003"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1" android:padding="16dp"
-            android:textAlignment="center"/>
+            android:id="@+id/textView"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:layout_marginTop="32dp" app:layout_constraintTop_toBottomOf="@+id/textView2"
+            android:textColor="@color/dark_wood" android:textAlignment="center" android:padding="8dp"/>
     <Button
             android:text="@string/mainact_bt_fbk"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/actMain_btFBK" android:layout_marginTop="24dp"
+            android:id="@+id/actMain_btFBK" android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@+id/textView" app:layout_constraintStart_toStartOf="@+id/textView"
             app:layout_constraintEnd_toEndOf="@+id/textView" android:textSize="18sp"
             style="@style/Widget.AppCompat.Button.Colored"/>
@@ -37,5 +45,13 @@
             android:visibility="visible"
             android:backgroundTint="@color/royal_blue"
             android:textColor="@color/white"/>
+    <Button
+            android:text="Sobre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/actMain_btSobre"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored" android:textColor="@color/dark_wood"/>
 
 </android.support.constraint.ConstraintLayout>

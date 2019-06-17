@@ -4,12 +4,12 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".FBK">
+        tools:context=".FBK" android:background="@drawable/bg_entries">
     <LinearLayout
             android:layout_height="wrap_content"
             android:layout_width="match_parent" android:orientation="vertical"
             android:focusableInTouchMode="true">
-        
+    
         <TextView
                 android:text="@string/fbk_title"
                 android:id="@+id/textView4"
@@ -17,10 +17,11 @@
         <TextView
                 android:text="@string/fbk_description"
                 android:id="@+id/textView3"
-                style="@style/FBK_FPK_description"/>
+                style="@style/FBK_FPK_description" android:textColor="@color/dark_wood"/>
         <EditText
                 android:id="@+id/actFBK_edtxEntrada"
-                style="@style/FBKP_FPK_edtxEntradas"/>
+                style="@style/FBKP_FPK_edtxEntradas"
+                android:textColorHint="@color/gray2"/>
         <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
