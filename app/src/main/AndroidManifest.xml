@@ -1,27 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          xmlns:tools="http://schemas.android.com/tools" package="com.mtsa.resistcalc">
-
+        xmlns:tools="http://schemas.android.com/tools"
+        package="com.mtsa.resistcalc">
+    
     <application
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
-            android:theme="@style/AppTheme" tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".FPK">
-        </activity>
-        <activity android:name=".ResultadoFBK">
-        </activity>
-        <activity android:name=".ResultadoFPK">
-        </activity>
-        <activity android:name=".FBK">
-        </activity>
+            android:theme="@style/AppTheme"
+            tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".DetalharFPK"></activity>
+        <activity android:name=".DetalharFBK" />
+        <activity android:name=".Resultado" />
+        <activity android:name=".Entrada" />
+        <activity android:name=".Amostras" />
+        <activity android:name=".FPK" />
+        <activity android:name=".ResultadoFBK" />
+        <activity android:name=".ResultadoFPK" />
+        <activity android:name=".FBK" />
         <activity android:name=".MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+    
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
     </application>

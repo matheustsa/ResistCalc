@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".FBK"
+        android:background="@drawable/bg_entries">
+    
+    <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:focusableInTouchMode="true">
+        
+        <TextView
+                android:text="@string/fbk_title"
+                android:id="@+id/actAmos_title"
+                style="@style/FBK_FPK_Title" />
+        
+        <TextView
+                android:text="@string/fbk_description"
+                android:id="@+id/actAmos_description"
+                style="@style/FBK_FPK_description"
+                android:textColor="@color/dark_wood" />
+        
+        <EditText
+                android:id="@+id/actAmos_edtxEntradas"
+                style="@style/FBKP_FPK_edtxEntradas"
+                android:textColorHint="@color/gray2" />
+        
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="16dp"
+                android:gravity="center">
+            
+            <Button
+                    android:id="@+id/actAmos_btCalcular"
+                    style="@style/FBK_btCalcular" />
+            
+            <Button
+                    android:id="@+id/actAmos_btExemplo"
+                    android:text="Exemplo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@android:style/Widget.Holo.Button"
+                    android:textSize="14sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

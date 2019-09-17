@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Entrada"
+        android:background="@drawable/bg_entries">
+    
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="true">
+        
+        <!--        android:ems="10"-->
+        <TextView
+                android:id="@+id/actENTRY_txvTitle"
+                style="@style/FBK_FPK_Title"
+                android:text="TITLE"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/transparent_wood_box"
+                android:textAllCaps="false" />
+        
+        <TextView
+                android:text="@string/fpk_description"
+                android:id="@+id/textView11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/FBK_FPK_description"
+                android:textColor="@color/dark_wood" />
+        
+        <EditText
+                android:id="@+id/actENTRY_edtxEntradas"
+                style="@style/FBKP_FPK_edtxEntradas"
+                android:textColorHint="@color/gray2" />
+        
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="16dp"
+                android:gravity="center">
+            
+            <Button
+                    android:id="@+id/actENTRY_btCalcular"
+                    android:text="Calcular"
+                    android:layout_width="210dp"
+                    android:layout_height="51dp"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:layout_gravity="center"
+                    android:layout_margin="16dp"
+                    android:textColor="@color/white" />
+            
+            <Button
+                    android:id="@+id/actENTRY_btExemplo"
+                    android:text="Exemplo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@android:style/Widget.Holo.Button"
+                    android:textSize="14sp" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

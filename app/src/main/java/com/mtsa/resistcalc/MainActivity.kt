@@ -32,8 +32,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
      */
     override fun onClick(v: View?) {
         when (v) {
-            actMain_btFBK -> startActivity(Intent(this, FBK::class.java))
-            actMain_btFPK -> startActivity(Intent(this, FPK::class.java))
+            actMain_btFBK -> startActivity(Intent(this, Entrada::class.java).putExtra("OP", "FBK"))
+            actMain_btFPK -> startActivity(Intent(this, Entrada::class.java).putExtra("OP", "FPK"))
             actMain_btSobre -> toast("Em desenvolvimento...")
         }
     }

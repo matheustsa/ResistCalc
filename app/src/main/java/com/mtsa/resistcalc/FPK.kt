@@ -32,19 +32,24 @@ class FPK : AppCompatActivity(), View.OnClickListener {
     }
     
     private fun getValues(entrada: String): FloatArray {
+    
+        if (!entrada.isBlank()) {
+            val lista = entrada.split(";", "\n").sorted()
         
-        val lista = entrada.split(";", "\n").sorted()
+            val amostras = FloatArray(lista.count())
+            for ((index, value) in lista.withIndex()) {
+                if (value.contains(","))
+                    amostras[index] = value.replace(",", ".").toFloat()
+                else
+                    amostras[index] = value.toFloat()
+            }
         
-        val amostras = FloatArray(lista.count())
-        for ((index, value) in lista.withIndex()) {
-            if (value.contains(","))
-                amostras[index] = value.replace(",", ".").toFloat()
-            else
-                amostras[index] = value.toFloat()
+            // por algum motivo essa bosta joga o primeiro valor pra última posição, então tem que dar sort() de novo
+            return amostras.sortedArray()
+        } else {
+            return FloatArray(entrada.count())
         }
         
-        // por algum motivo essa bosta joga o primeiro valor pra última posição, então tem que dar sort() de novo
-        return amostras.sortedArray()
     }
     
     private fun showResults() {
@@ -74,11 +79,6 @@ class FPK : AppCompatActivity(), View.OnClickListener {
                         title = "ERRO!"
                         positiveButton("CORRIGIR") {}
                     }.show()
-
-//                    // custom dialog
-//                    val dialog = Dialog(this)
-//                    dialog.setContentView(R.layout.error_alert_dialog)
-//                    dialog.show()
                 }
                 
             }
