@@ -2,12 +2,14 @@ package com.mtsa.resistcalc
 
 import android.content.Intent
 import android.os.Bundle
+import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import kotlinx.android.synthetic.main.act_entrada.*
 import org.jetbrains.anko.alert
+
 
 class Entrada : AppCompatActivity(), View.OnClickListener {
     
@@ -28,13 +30,17 @@ class Entrada : AppCompatActivity(), View.OnClickListener {
         when (OPERATION) {
             "FBK" -> {
                 actENTRY_txvTitle.text = resources.getString(R.string.fbk_title)
-                btCalcular.setBackgroundResource(R.drawable.fbk_calcular)
+                actENTRY_txvTitle.background =
+                    ContextCompat.getDrawable(this, R.drawable.fbk_entrada_title)
+                btCalcular.setBackgroundResource(R.drawable.entrada_fbk_calcular)
                 exemplo =
                     "12,4; 12,4; 12,4; 12,6; 13,5; 13,5; 13,9; 14,2; 14,2; 15,1; 15,4; 16,2; 16,4; 17,4"
             }
             "FPK" -> {
                 actENTRY_txvTitle.text = resources.getString(R.string.fpk_title)
-                btCalcular.setBackgroundResource(R.drawable.fpk_calcular)
+                actENTRY_txvTitle.background =
+                    ContextCompat.getDrawable(this, R.drawable.fpk_entrada_title)
+                btCalcular.setBackgroundResource(R.drawable.entrada_fpk_calcular)
                 exemplo = "12,4; 12,4; 12,6; 13,5; 15,4; 16,4; 17,4"
             }
             
@@ -43,7 +49,7 @@ class Entrada : AppCompatActivity(), View.OnClickListener {
     }
     
     private fun initViews() {
-        edtxEntradas = findViewById(R.id.actENTRY_edtxEntradas) as EditText
+        edtxEntradas = findViewById(R.id.actENTRY_edtxEntradas)
         btCalcular = findViewById(R.id.actENTRY_btCalcular)
         btExemplo = findViewById(R.id.actENTRY_btExemplo)
         
@@ -52,8 +58,8 @@ class Entrada : AppCompatActivity(), View.OnClickListener {
     }
     
     private fun getValues(entrada: String): FloatArray {
-        
-        if (!entrada.isBlank()) {
+    
+        if (entrada.isNotBlank()) {
             val lista = entrada.split(";", "\n").sorted()
             
             val amostras = FloatArray(lista.count())
@@ -74,8 +80,9 @@ class Entrada : AppCompatActivity(), View.OnClickListener {
     
     private fun showResults() {
         startActivity(
-            Intent(this, ResultadoFBK::class.java)
-                .putExtra("Amostras", getValues(edtxEntradas.text.toString()))
+            Intent(this, Resultado::class.java)
+                .putExtra("OP", OPERATION)
+                .putExtra("AMOSTRAS", getValues(edtxEntradas.text.toString()))
         )
     }
     
@@ -103,13 +110,13 @@ class Entrada : AppCompatActivity(), View.OnClickListener {
                     "FBK" -> startActivity(
                         Intent(this, Resultado::class.java)
                             .putExtra("OP", "FBK")
-                            .putExtra("Amostras", getValues(exemplo))
+                            .putExtra("AMOSTRAS", getValues(exemplo))
                     )
                     
                     "FPK" -> startActivity(
                         Intent(this, Resultado::class.java)
                             .putExtra("OP", "FPK")
-                            .putExtra("Amostras", getValues(exemplo))
+                            .putExtra("AMOSTRAS", getValues(exemplo))
                     )
                 }
             }

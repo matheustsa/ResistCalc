@@ -1,8 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".DetalharFPK">
+    
+    <LinearLayout
+            android:id="@+id/LinearLayout01"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:padding="32dp">
+        
+        <ViewFlipper
+                android:id="@+id/ViewFlipper"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="16dp">
+            <!--adding views to ViewFlipper-->
+            
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/fpk_passo1"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="8dp" />
+                
+                <TextView
+                        android:id="@+id/actDetFPK_txvP1Desc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/fpk_passo1_descr" />
+            </LinearLayout>
+            
+            
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/fpk_passo2"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="8dp" />
+                
+                <TextView
+                        android:id="@+id/actDetFPK_txvP2Desc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/fpk_passo2_descr" />
+            </LinearLayout>
+            
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/fpk_passo3"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="8dp" />
+                
+                <TextView
+                        android:id="@+id/actDetFPK_txvP3Desc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/fpk_passo3_descr" />
+            </LinearLayout>
+            
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/fpk_passo4"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="8dp" />
+                
+                <TextView
+                        android:id="@+id/actDetFPK_txvP4Desc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/fpk_passo4_descr" />
+            </LinearLayout>
+            
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/fpk_passo5"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="8dp" />
+                
+                <TextView
+                        android:id="@+id/actDetFPK_txvP5Desc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/fpk_passo5_descr" />
+            </LinearLayout>
+        </ViewFlipper>
+        
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center">
+            
+            <Button
+                    android:id="@+id/actDetFPK_btVoltar"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:text="@string/voltar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:layout_gravity="center"
+                    android:enabled="false"
+                    android:textSize="18sp" />
+            
+            <Button
+                    android:id="@+id/actDetFPK_btAvancar"
+                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                    android:text="@string/avancar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:layout_gravity="center"
+                    android:textSize="18sp" />
+        </LinearLayout>
+    
+    </LinearLayout>
 
-</android.support.constraint.ConstraintLayout>
+</android.support.v4.widget.NestedScrollView>

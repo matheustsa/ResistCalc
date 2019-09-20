@@ -14,6 +14,9 @@ class Resultado : AppCompatActivity(), View.OnClickListener {
     
     private lateinit var txvResultado: TextView
     private lateinit var AMOSTRAS: FloatArray
+    private var MEDIA: Float = 0f
+    private var TCRITICO = 0f
+    private var VARIANCIA = 0f
     
     
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,8 +24,8 @@ class Resultado : AppCompatActivity(), View.OnClickListener {
         setContentView(R.layout.act_resultado)
         
         initViews()
-        
-        AMOSTRAS = intent.getFloatArrayExtra("Amostras")
+    
+        AMOSTRAS = intent.getFloatArrayExtra("AMOSTRAS")
         
         when (intent.getStringExtra("OP")) {
             "FBK" -> {
@@ -144,16 +147,19 @@ class Resultado : AppCompatActivity(), View.OnClickListener {
         
         // Calcular Desvio Padrão
         // Passo 1 - Calcular a Média
-        val media = calculaMedia(amostras)
+        val media = (amostras.sum() / amostras.size).toDouble()
+        MEDIA = media.toFloat()
         
         // Passo 2 - Calcular a diferença entre as resistências e a média (n-1), elevando ao quadrado cada elemento
         val variancia = calculaVariancia(amostras, media)
+        VARIANCIA = variancia.toFloat()
         
         // Passo 3 - Extrair a raiz da média das variâncias
         val desvio = sqrt(variancia)
         
         // Calcula t_crítico
         val t_critico = t_student[gl - 1]
+        TCRITICO = t_critico.toFloat()
         
         // Calcula fpk,est (media das peças - (valor da tabela * desvio))
         val fpk = media - (t_critico * desvio)
@@ -164,15 +170,6 @@ class Resultado : AppCompatActivity(), View.OnClickListener {
                 "\n\nDesvio padrão: " + String.format("%.2f", desvio) +
                 "\nt_crítico: $t_critico" +
                 "\n\nfpk,est: " + String.format("%.2f", fpk) + " MPa"
-    }
-    
-    private fun calculaMedia(lista: FloatArray): Double {
-        var media = 0.0
-        for (i in lista.indices)
-            media += lista[i]
-        media /= lista.count()
-        
-        return media
     }
     
     private fun calculaVariancia(amostras: FloatArray, media: Double): Double {
@@ -208,10 +205,10 @@ class Resultado : AppCompatActivity(), View.OnClickListener {
                 )
             )
             "FPK" -> startActivity(
-                Intent(this, DetalharFPK::class.java).putExtra(
-                    "AMOSTRAS",
-                    amostras
-                )
+                Intent(this, DetalharFPK::class.java).putExtra("AMOSTRAS", amostras)
+                    .putExtra("MEDIA", MEDIA)
+                    .putExtra("TCRITICO", TCRITICO)
+                    .putExtra("VARIANCIA", VARIANCIA)
             )
         }
     }
