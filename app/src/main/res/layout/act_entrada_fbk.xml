@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:background="@drawable/bg_entries"
+        
+        tools:context=".Entrada">
+    
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/transparent_white_box"
+            android:layout_margin="2dp"
+            android:padding="4dp"
+            android:focusableInTouchMode="true">
+        <!-- essa propriedade serve pra não abrir direto o teclado quando abrir a activity -->
+    
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+    
+            <TextView
+                    android:id="@+id/textView1"
+                    style="@style/FBK_FPK_Title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:background="@drawable/fbk_entrada_title"
+                    android:text="@string/fbk_title" />
+    
+            <TextView
+                    android:id="@+id/textView2"
+                    style="@style/FBK_FPK_description"
+                    android:text="@string/act_entrada_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/dark_wood" />
+        
+            <EditText
+                    android:id="@+id/actENTRY_edtxEntradas_fbk"
+                    style="@style/FBKP_FPK_edtxEntradas"
+                    android:textColorHint="@color/gray2"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp" />
+        </LinearLayout>
+    
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+    
+            <Button
+                    android:id="@+id/actENTRY_btCalcular_fbk"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:text="@string/calcular"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:background="@drawable/entrada_fbk_calcular"
+                    android:layout_weight="1" />
+        
+            <Button
+                    android:id="@+id/actENTRY_btExemplo_fbk"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:text="@string/exemplo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:background="@drawable/entrada_bt_exemplo"
+                    android:layout_weight="2" />
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

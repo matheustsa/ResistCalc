@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:fillViewport="true"
+        
+        tools:context=".Entrada">
+    
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:focusableInTouchMode="true"
+            android:background="@color/light_gray">
+        <!-- essa propriedade serve pra não abrir direto o teclado quando abrir a activity -->
+    
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+    
+            <TextView
+                    android:id="@+id/textView1"
+                    style="@style/FBK_FPK_Title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:background="@color/fire_brick"
+                    android:text="@string/fbk_title" />
+    
+<!--            <hakobastvatsatryan.DropdownTextView-->
+<!--                    android:id="@+id/actENTRY_ddtxvIntrucoes"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    app:title_text="Instruções"-->
+<!--                    app:title_text_color="@color/dark_wood"-->
+<!--                    app:title_text_color_expanded="@color/dark_wood"-->
+<!--                    app:title_text_size="@dimen/title_text_size"-->
+<!--                    app:content_padding="@dimen/descr_content_padding"-->
+<!--                    app:content_text="@string/act_entrada_description"-->
+<!--                    app:content_text_color="@color/dark_wood"-->
+<!--                    app:content_text_size="@dimen/content_text_size"-->
+<!--                    app:bg_drawable_regular="@drawable/detalhar_fbk_buttons"-->
+<!--                    app:bg_drawable_expanded="@drawable/detalhar_fbk_buttons"-->
+<!--                    app:expand_duration="@integer/expand_duration"-->
+<!--                    app:panel_padding="@dimen/descr_pannel_padding"-->
+<!--                    />-->
+    
+            <EditText
+                    android:id="@+id/actENTRY_edtxEntradas_fbk2"
+                    style="@style/FBKP_FPK_edtxEntradas"
+                    android:textColorHint="@color/gray2"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:elevation="4dp"
+                    android:layout_marginTop="8dp" />
+        </LinearLayout>
+    
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+        
+            <Button
+                    android:id="@+id/actENTRY_btCalcular_fbk2"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:text="@string/calcular"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:background="@drawable/entrada_fbk_calcular"
+                    android:layout_weight="1" />
+        
+            <Button
+                    android:id="@+id/actENTRY_btExemplo_fbk2"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:text="@string/exemplo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:background="@drawable/entrada_bt_exemplo"
+                    android:layout_weight="2" />
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

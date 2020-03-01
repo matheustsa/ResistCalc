@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape android:shape="rectangle" xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <solid android:color="@color/fbk_main"/>
+    <corners android:bottomLeftRadius="12dp"/>
+
+</shape>

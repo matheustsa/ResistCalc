@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="8dp"
+        android:background="@drawable/bg_resultados"
         tools:context=".Resultado">
     
     <LinearLayout
@@ -13,13 +14,14 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-        
+    
         <TextView
-                android:text="Resultados"
                 android:id="@+id/textView5"
                 style="@style/FBK_FPK_Title"
+                android:text="Resultados"
                 android:layout_width="match_parent"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textColor="@color/dark_wood" />
         
         <TextView
                 android:id="@+id/actRes_txvResultado"
@@ -55,4 +57,4 @@
         </LinearLayout>
     
     </LinearLayout>
-</android.support.v4.widget.NestedScrollView>
+</androidx.core.widget.NestedScrollView>

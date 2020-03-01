@@ -2,7 +2,7 @@ package com.mtsa.resistcalc
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.toast
@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     private fun setListeners() {
         actMain_btFBK.setOnClickListener(this)
         actMain_btFPK.setOnClickListener(this)
+        actMain_btADIC.setOnClickListener(this)
         actMain_btSobre.setOnClickListener(this)
     }
 
@@ -34,6 +35,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         when (v) {
             actMain_btFBK -> startActivity(Intent(this, Entrada::class.java).putExtra("OP", "FBK"))
             actMain_btFPK -> startActivity(Intent(this, Entrada::class.java).putExtra("OP", "FPK"))
+            actMain_btADIC -> startActivity(Intent(this, ADIC_Entrada::class.java))
             actMain_btSobre -> toast("Em desenvolvimento...")
         }
     }

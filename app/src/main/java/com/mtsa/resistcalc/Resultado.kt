@@ -3,7 +3,7 @@ package com.mtsa.resistcalc
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.view.View
 import android.widget.TextView
 import kotlinx.android.synthetic.main.act_resultado.*
@@ -18,6 +18,8 @@ class Resultado : AppCompatActivity(), View.OnClickListener {
     private var TCRITICO = 0f
     private var VARIANCIA = 0f
     
+    private lateinit var FBK_CLASSE: FBK
+    
     
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +33,7 @@ class Resultado : AppCompatActivity(), View.OnClickListener {
             "FBK" -> {
                 actRes_btShare.setBackgroundResource(R.drawable.fbk_share)
                 getFBK(AMOSTRAS)
+                FBK_CLASSE = FBK(AMOSTRAS)
             }
             "FPK" -> {
                 actRes_btShare.setBackgroundResource(R.drawable.fpk_share)
@@ -199,10 +202,9 @@ class Resultado : AppCompatActivity(), View.OnClickListener {
         
         when (intent.getStringExtra("OP")) {
             "FBK" -> startActivity(
-                Intent(this, DetalharFBK::class.java).putExtra(
-                    "AMOSTRAS",
-                    amostras
-                )
+                Intent(this, DetalharFBK::class.java)
+                    .putExtra("AMOSTRAS", amostras)
+                    .putExtra("FBK", FBK_CLASSE)
             )
             "FPK" -> startActivity(
                 Intent(this, DetalharFPK::class.java).putExtra("AMOSTRAS", amostras)

@@ -2,12 +2,10 @@ package com.mtsa.resistcalc
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.v4.content.ContextCompat
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
-import kotlinx.android.synthetic.main.act_entrada.*
 import org.jetbrains.anko.alert
 
 
@@ -21,60 +19,59 @@ class Entrada : AppCompatActivity(), View.OnClickListener {
     
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.act_entrada)
         
         OPERATION = intent.getStringExtra("OP")
         
-        initViews()
+        initViews(OPERATION)
         
-        when (OPERATION) {
+    }
+    
+    private fun initViews(opt: String) {
+        
+        when (opt) {
             "FBK" -> {
-                actENTRY_txvTitle.text = resources.getString(R.string.fbk_title)
-                actENTRY_txvTitle.background =
-                    ContextCompat.getDrawable(this, R.drawable.fbk_entrada_title)
-                btCalcular.setBackgroundResource(R.drawable.entrada_fbk_calcular)
+                setContentView(R.layout.act_entrada_fbk)
+                edtxEntradas = findViewById(R.id.actENTRY_edtxEntradas_fbk)
+                btCalcular = findViewById(R.id.actENTRY_btCalcular_fbk)
+                btExemplo = findViewById(R.id.actENTRY_btExemplo_fbk)
+                
+                btCalcular.setOnClickListener(this)
+                btExemplo.setOnClickListener(this)
+                
                 exemplo =
                     "12,4; 12,4; 12,4; 12,6; 13,5; 13,5; 13,9; 14,2; 14,2; 15,1; 15,4; 16,2; 16,4; 17,4"
+                
             }
             "FPK" -> {
-                actENTRY_txvTitle.text = resources.getString(R.string.fpk_title)
-                actENTRY_txvTitle.background =
-                    ContextCompat.getDrawable(this, R.drawable.fpk_entrada_title)
-                btCalcular.setBackgroundResource(R.drawable.entrada_fpk_calcular)
+                setContentView(R.layout.act_entrada_fpk)
+                edtxEntradas = findViewById(R.id.actENTRY_edtxEntradas_fpk)
+                btCalcular = findViewById(R.id.actENTRY_btCalcular_fpk)
+                btExemplo = findViewById(R.id.actENTRY_btExemplo_fpk)
+                
+                btCalcular.setOnClickListener(this)
+                btExemplo.setOnClickListener(this)
+                
                 exemplo = "12,4; 12,4; 12,6; 13,5; 15,4; 16,4; 17,4"
+                
             }
-            
         }
         
     }
     
-    private fun initViews() {
-        edtxEntradas = findViewById(R.id.actENTRY_edtxEntradas)
-        btCalcular = findViewById(R.id.actENTRY_btCalcular)
-        btExemplo = findViewById(R.id.actENTRY_btExemplo)
-        
-        btCalcular.setOnClickListener(this)
-        btExemplo.setOnClickListener(this)
-    }
-    
     private fun getValues(entrada: String): FloatArray {
+        
+        val lista = ArrayList<String>(entrada.trim().split(";", "\n").sorted())
+        lista.removeAll(listOf("", null))
+        println(lista)
     
-        if (entrada.isNotBlank()) {
-            val lista = entrada.split(";", "\n").sorted()
-            
-            val amostras = FloatArray(lista.count())
+        val amostras = FloatArray(lista.count())
             for ((index, value) in lista.withIndex()) {
                 if (value.contains(","))
                     amostras[index] = value.replace(",", ".").toFloat()
                 else
                     amostras[index] = value.toFloat()
             }
-            
-            // por algum motivo essa bosta joga o primeiro valor pra última posição, então tem que dar sort() de novo
-            return amostras.sortedArray()
-        } else {
-            return FloatArray(entrada.count())
-        }
+        return amostras.sortedArray()
         
     }
     
@@ -86,10 +83,9 @@ class Entrada : AppCompatActivity(), View.OnClickListener {
         )
     }
     
-    
     override fun onClick(v: View?) {
-        when (v?.id) {
-            R.id.actENTRY_btCalcular -> {
+        when (v) {
+            btCalcular -> {
                 val quantidade = getValues(edtxEntradas.text.toString()).count()
                 if (quantidade > 5) {
                     alert("Você digitou $quantidade elementos.\nEsse é o tamanho correto da sua amostra?") {
@@ -105,7 +101,7 @@ class Entrada : AppCompatActivity(), View.OnClickListener {
                 }
                 
             }
-            R.id.actENTRY_btExemplo -> {
+            btExemplo -> {
                 when (OPERATION) {
                     "FBK" -> startActivity(
                         Intent(this, Resultado::class.java)
