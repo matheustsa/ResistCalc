@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         when (v) {
             actMain_btFBK -> startActivity(Intent(this, Entrada::class.java).putExtra("OP", "FBK"))
             actMain_btFPK -> startActivity(Intent(this, Entrada::class.java).putExtra("OP", "FPK"))
-            actMain_btADIC -> startActivity(Intent(this, ADIC_Entrada::class.java))
+            actMain_btADIC -> startActivity(Intent(this, DICEntrada1::class.java))
             actMain_btSobre -> toast("Em desenvolvimento...")
         }
     }

@@ -11,7 +11,9 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ADIC_Entrada"></activity>
+        <activity android:name=".DICResultado"></activity>
+        <activity android:name=".DICEntrada2" />
+        <activity android:name=".DICEntrada1" />
         <activity android:name=".DetalharFPK" />
         <activity android:name=".DetalharFBK" />
         <activity android:name=".Resultado" />

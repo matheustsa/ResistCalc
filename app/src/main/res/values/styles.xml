@@ -58,4 +58,32 @@
         <item name="android:padding">8dp</item>
     </style>
 
+    <!-- Description style -->
+    <style name="DIC_description">
+        <item name="android:textAlignment">center</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:layout_marginStart">8dp</item>
+        <item name="android:layout_marginEnd">8dp</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:padding">16dp</item>
+    </style>
+
+    <!-- Multiline EditText style -->
+    <style name="DIC_edtxEntradas">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:inputType">textMultiLine|textNoSuggestions|number</item>
+        <item name="android:digits">1234567890,.;-\n</item>
+        <item name="android:ems">12</item>
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_marginEnd">16dp</item>
+        <item name="android:hint">@string/fbk_example</item>
+        <item name="android:lineSpacingExtra">4sp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textAlignment">textStart</item>
+    </style>
+
 </resources>
