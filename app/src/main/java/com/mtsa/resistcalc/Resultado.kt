@@ -6,9 +6,8 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import android.view.View
 import android.widget.TextView
+import com.mtsa.utils.Utils
 import kotlinx.android.synthetic.main.act_resultado.*
-import kotlin.math.pow
-import kotlin.math.sqrt
 
 class Resultado : AppCompatActivity(), View.OnClickListener {
     
@@ -150,15 +149,15 @@ class Resultado : AppCompatActivity(), View.OnClickListener {
         
         // Calcular Desvio Padrão
         // Passo 1 - Calcular a Média
-        val media = (amostras.sum() / amostras.size).toDouble()
+        val media = amostras.average()
         MEDIA = media.toFloat()
         
         // Passo 2 - Calcular a diferença entre as resistências e a média (n-1), elevando ao quadrado cada elemento
-        val variancia = calculaVariancia(amostras, media)
+        val variancia = Utils.variancia(amostras)
         VARIANCIA = variancia.toFloat()
         
         // Passo 3 - Extrair a raiz da média das variâncias
-        val desvio = sqrt(variancia)
+        val desvio = Utils.desvioPadrao(amostras)
         
         // Calcula t_crítico
         val t_critico = t_student[gl - 1]
@@ -173,15 +172,6 @@ class Resultado : AppCompatActivity(), View.OnClickListener {
                 "\n\nDesvio padrão: " + String.format("%.2f", desvio) +
                 "\nt_crítico: $t_critico" +
                 "\n\nfpk,est: " + String.format("%.2f", fpk) + " MPa"
-    }
-    
-    private fun calculaVariancia(amostras: FloatArray, media: Double): Double {
-        var variancia = 0.0
-        for (i in amostras.indices)
-            variancia += (amostras[i] - media).pow(2.0).toFloat()
-        variancia /= amostras.count() - 1
-        
-        return variancia
     }
     
     private fun shareResults() {

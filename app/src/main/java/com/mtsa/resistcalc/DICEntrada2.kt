@@ -10,7 +10,6 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import org.jetbrains.anko.alert
-import org.jetbrains.anko.toast
 
 class DICEntrada2 : AppCompatActivity(), View.OnClickListener {
 
@@ -20,19 +19,43 @@ class DICEntrada2 : AppCompatActivity(), View.OnClickListener {
     private lateinit var btCalcular : Button
     private lateinit var txvValores : TextView
 
-    private var _K : Int = intent.getIntExtra("DIC_K", 0)
-    private var _N : Int = intent.getIntExtra("DIC_N", 0)
-    private var _ALFA : Float = intent.getFloatExtra("DIC_ALFA", 0f)
+    private var _K : Int = 0
+    private var _N : Int = 0
+    private var _ALFA : Float = 0f
     
     private val LISTA: MutableList<FloatArray> = mutableListOf()
+    private val LISTA2: List<List<Double>> = mutableListOf(mutableListOf())
+    private val subLista: MutableList<Double> = mutableListOf()
 
-    private var count : Int = 0
+    private var count : Int = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.act_dic__entrada2)
 
         initViews()
+    }
+
+    override fun onClick(v: View?) {
+        when (v) {
+            btAdicionar -> {
+                val entrada = trataEntrada(edtxEntrada.text.toString())
+                if (entrada.count() == _N) {
+                    alert("Você digitou: ${entrada.asList()}.\n\nTodos os valores estão corretos?") {
+                        title = "Só confirmando..."
+                        positiveButton("Está correto") { addValues(entrada) }
+                        negativeButton("Preciso corrigir") {}
+                    }.show()
+                } else {
+                    alert("Você digitou ${entrada.count()} valores! Seu tratamento precisa ter exatamente $_N elementos.") {
+                        title = "ERRO!"
+                        positiveButton("CORRIGIR") {}
+                    }.show()
+                }
+            }
+
+            btCalcular -> calcular()
+        }
     }
 
     private fun trataEntrada(entrada: String): FloatArray {
@@ -52,21 +75,42 @@ class DICEntrada2 : AppCompatActivity(), View.OnClickListener {
         return amostras
     }
 
-    @SuppressLint("SetTextI18n")
-    private fun addValues() {
-        val tratamento = trataEntrada(edtxEntrada.text.toString())
-        LISTA.add(tratamento)
-        txvValores.text = txvValores.text.toString() + "\n\nT$count - $tratamento"
+    private fun trataEntrada2(entrada: String): DoubleArray {
 
+        val array = ArrayList<String>(entrada.trim().split(";", "\n").sorted())
+        array.removeAll(listOf("", null))
+        println(array)
+
+        val amostras = DoubleArray(array.count())
+        for ((index, value) in array.withIndex()) {
+            if (value.contains(","))
+                amostras[index] = value.replace(",", ".").toDouble()
+            else
+                amostras[index] = value.toDouble()
+        }
+
+        return amostras
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun addValues(entrada: FloatArray) {
+        LISTA.add(entrada)
+        txvValores.text = txvValores.text.toString() + "\n\nT${count} - ${entrada.asList()}"
         edtxEntrada.text.clear()
         edtxEntrada.onEditorAction(EditorInfo.IME_ACTION_DONE)
 
-//        TODO: seguir passos do doc
+        count++
 
+        if (count > _K)
+            btAdicionar.isEnabled = false
+        else
+            txvValoresParaT.text = "Valores para T${count}"
+
+//        TODO: seguir passos do doc
     }
 
     private fun calcular() {
-        val DIC = DIC(_K, _N, _ALFA, LISTA)
+        val DIC = DIC(_K, _N, _ALFA, LISTA.toList())
 
         startActivity(
             Intent(this, DICResultado::class.java)
@@ -80,42 +124,17 @@ class DICEntrada2 : AppCompatActivity(), View.OnClickListener {
         btCalcular = findViewById(R.id.actDIC_btCalcular)
         txvValores = findViewById(R.id.actDIC_txvValores)
 
+        _K = intent.getIntExtra("DIC_K", 0)
+        _N = intent.getIntExtra("DIC_N", 0)
+        _ALFA = intent.getFloatExtra("DIC_ALFA", 0f)
+
         setListeners()
     }
 
+
+
     private fun setListeners() {
         btAdicionar.setOnClickListener(this)
-        btAdicionar.setOnClickListener(this)
-    }
-
-    /**
-     * Called when a view has been clicked.
-     *
-     * @param v The view that was clicked.
-     */
-    override fun onClick(v: View?) {
-        when (v) {
-            btAdicionar -> {
-                if (count < _K) {
-                    count++
-                    val entrada = trataEntrada(edtxEntrada.text.toString())
-                    if (entrada.count() == _N) {
-                        alert("Você digitou: $entrada.\n\nTodos os valores estão corretos?") {
-                            title = "Só confirmando..."
-                            positiveButton("Está correto") { addValues() }
-                            negativeButton("Preciso corrigir") {}
-                        }.show()
-                    } else {
-                        alert("Você digitou apenas ${entrada.count()} valores! Seu tratamento precisa ter exatamente $_N elementos.") {
-                            title = "ERRO!"
-                            positiveButton("CORRIGIR") {}
-                        }.show()
-                    }
-                } else
-                btAdicionar.isEnabled = false
-            }
-
-            btCalcular -> toast("CALCULAR")
-        }
+        btCalcular.setOnClickListener(this)
     }
 }

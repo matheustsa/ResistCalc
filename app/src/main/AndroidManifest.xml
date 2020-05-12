@@ -3,6 +3,8 @@
         xmlns:tools="http://schemas.android.com/tools"
         package="com.mtsa.resistcalc">
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
@@ -11,7 +13,8 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".DICResultado"></activity>
+        <activity android:name=".Testes"></activity>
+        <activity android:name=".DICResultado" />
         <activity android:name=".DICEntrada2" />
         <activity android:name=".DICEntrada1" />
         <activity android:name=".DetalharFPK" />

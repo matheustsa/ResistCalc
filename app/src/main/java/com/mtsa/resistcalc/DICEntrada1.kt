@@ -18,9 +18,9 @@ class DICEntrada1 : AppCompatActivity(), View.OnClickListener {
     private lateinit var edtxK : EditText
     private lateinit var edtxN : EditText
     private lateinit var edtxALFA : EditText
-    private lateinit var _K : String
-    private lateinit var _N : String
-    private lateinit var _ALFA : String
+    private var _K : Int = 1
+    private var _N : Int = 1
+    private var _ALFA : Float = 1f
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,9 +42,12 @@ class DICEntrada1 : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun getValues() {
-        _K = edtxK.text.toString()
-        _N = edtxN.text.toString()
-        _ALFA = edtxALFA.text.toString()
+        if (!edtxK.text.isNullOrBlank())
+            _K = edtxK.text.toString().toInt()
+        if (!edtxN.text.isNullOrBlank())
+            _N = edtxN.text.toString().toInt()
+        if (!edtxALFA.text.isNullOrBlank())
+            _ALFA = edtxALFA.text.toString().toFloat()
 
     }
 
@@ -52,6 +55,7 @@ class DICEntrada1 : AppCompatActivity(), View.OnClickListener {
         when (v) {
             actADIC_btAvancar -> {
                 getValues()
+                println("K: $_K  -  N: $_N  -  ALFA: $_ALFA")
                 startActivity(Intent(this, DICEntrada2::class.java)
                     .putExtra("DIC_K", _K)
                     .putExtra("DIC_N", _N)

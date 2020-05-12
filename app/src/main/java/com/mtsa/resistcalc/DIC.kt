@@ -2,13 +2,14 @@ package com.mtsa.resistcalc
 
 import java.io.Serializable
 
-class DIC(_K: Int, _N: Int, _ALFA: Float, _Tratamentos: MutableList<FloatArray>) : Serializable {
+class DIC(_K: Int, _N: Int, _ALFA: Float, LIST: List<FloatArray>) : Serializable {
 
 
     val sK = _K.toString()
     val sN = _N.toString()
     val sALFA = _ALFA.toString()
-    val sTs = _Tratamentos.forEach { it.asList() }
+    val sLIST = LIST
+
 
     /*
 
