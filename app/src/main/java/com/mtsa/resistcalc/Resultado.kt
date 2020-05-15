@@ -8,10 +8,15 @@ import android.view.View
 import android.widget.TextView
 import com.mtsa.utils.Utils
 import kotlinx.android.synthetic.main.act_resultado.*
+import org.w3c.dom.Text
 
 class Resultado : AppCompatActivity(), View.OnClickListener {
     
-    private lateinit var txvResultado: TextView
+    private lateinit var txvAmostras: TextView
+    private lateinit var txvFBK: TextView
+    private lateinit var txvFBM: TextView
+    private lateinit var txvResistLote: TextView
+
     private lateinit var AMOSTRAS: FloatArray
     private var MEDIA: Float = 0f
     private var TCRITICO = 0f
@@ -30,19 +35,23 @@ class Resultado : AppCompatActivity(), View.OnClickListener {
         
         when (intent.getStringExtra("OP")) {
             "FBK" -> {
-                actRes_btShare.setBackgroundResource(R.drawable.fbk_share)
+//                actRes_btShare.setBackgroundResource(R.drawable.fbk_share)
                 getFBK(AMOSTRAS)
                 FBK_CLASSE = FBK(AMOSTRAS)
             }
             "FPK" -> {
-                actRes_btShare.setBackgroundResource(R.drawable.fpk_share)
+//                actRes_btShare.setBackgroundResource(R.drawable.fpk_share)
                 getFPK(AMOSTRAS)
             }
         }
     }
     
     private fun initViews() {
-        txvResultado = findViewById(R.id.actRes_txvResultado)
+        txvAmostras = findViewById(R.id.actRes_txvAmostras)
+        txvFBK = findViewById(R.id.actRes_txvFBK)
+        txvFBM = findViewById(R.id.actRes_txvFBM)
+        txvResistLote = findViewById(R.id.actRes_txvResistenciaLote)
+
         actRes_btShare.setOnClickListener(this)
         actRes_btDetalhar.setOnClickListener(this)
     }
@@ -103,11 +112,12 @@ class Resultado : AppCompatActivity(), View.OnClickListener {
             else -> fbk
         }
         
-        txvResultado.text = "Amostras: ${amostras.toList()}" +
-                "\n\nQuantidade: $n elementos" +
-                "\n\nfbk,est = " + String.format("%.2f", fbk) + " MPa" +
-                "\nfbm = " + String.format("%.2f", fbm) + " MPa (resistência média)" +
-                "\n\nResistência do lote = " + String.format("%.2f", resistencia) + " MPa"
+        txvAmostras.text = "Amostras: ${amostras.toList()}" +
+                "\n\nQuantidade: $n elementos"
+
+        txvFBK.text = Utils.roundTo(fbk.toDouble(), 2).toString()
+        txvFBM.text = Utils.roundTo(fbm.toDouble(), 2).toString()
+        txvResistLote.text = Utils.roundTo(resistencia.toDouble(), 2).toString()
     }
     
     @SuppressLint("SetTextI18n")
@@ -166,7 +176,7 @@ class Resultado : AppCompatActivity(), View.OnClickListener {
         // Calcula fpk,est (media das peças - (valor da tabela * desvio))
         val fpk = media - (t_critico * desvio)
         
-        txvResultado.text = "Amostras: ${amostras.toList()}" +
+        txvAmostras.text = "Amostras: ${amostras.toList()}" +
                 "\n\nQuantidade: ${amostras.size} elementos" +
                 "\nMédia das amostras: " + String.format("%.2f", media) +
                 "\n\nDesvio padrão: " + String.format("%.2f", desvio) +
@@ -177,7 +187,7 @@ class Resultado : AppCompatActivity(), View.OnClickListener {
     private fun shareResults() {
         val shareMsg = "-[ ResistCalc App ]-\n\n" +
                 "Os resultados obtidos foram:\n\n" +
-                txvResultado.text.toString() +
+                txvAmostras.text.toString() +
                 "\n\nDownload via: * GooglePlay link *"
         
         val sendIntent: Intent = Intent().apply {

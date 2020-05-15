@@ -46,7 +46,7 @@
             <EditText
                     android:id="@+id/actENTRY_edtxEntradas_fpk"
                     style="@style/FBKP_FPK_edtxEntradas"
-                    android:textColorHint="@color/gray2"
+                    android:textColorHint="@color/gray_darker"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp" />
         </LinearLayout>

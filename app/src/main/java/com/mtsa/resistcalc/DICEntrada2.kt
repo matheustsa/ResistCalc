@@ -24,8 +24,7 @@ class DICEntrada2 : AppCompatActivity(), View.OnClickListener {
     private var _ALFA : Float = 0f
     
     private val LISTA: MutableList<FloatArray> = mutableListOf()
-    private val LISTA2: List<List<Double>> = mutableListOf(mutableListOf())
-    private val subLista: MutableList<Double> = mutableListOf()
+    private val LISTA2: MutableList<List<Double>> = mutableListOf()
 
     private var count : Int = 1
 
@@ -39,9 +38,9 @@ class DICEntrada2 : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v) {
             btAdicionar -> {
-                val entrada = trataEntrada(edtxEntrada.text.toString())
+                val entrada = trataEntrada2(edtxEntrada.text.toString())
                 if (entrada.count() == _N) {
-                    alert("Você digitou: ${entrada.asList()}.\n\nTodos os valores estão corretos?") {
+                    alert("Você digitou: ${entrada}.\n\nTodos os valores estão corretos?") {
                         title = "Só confirmando..."
                         positiveButton("Está correto") { addValues(entrada) }
                         negativeButton("Preciso corrigir") {}
@@ -58,44 +57,27 @@ class DICEntrada2 : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-    private fun trataEntrada(entrada: String): FloatArray {
+    private fun trataEntrada2(entrada: String): List<Double> {
 
-        val array = ArrayList<String>(entrada.trim().split(";", "\n").sorted())
-        array.removeAll(listOf("", null))
-        println(array)
+       val arrayList = ArrayList<String> (entrada.trim().split(";", "\n").sorted())
+        arrayList.removeAll(listOf("", null))
+        println(arrayList)
 
-        val amostras = FloatArray(array.count())
-        for ((index, value) in array.withIndex()) {
+        val subList = mutableListOf<Double>()
+        for ((index, value) in arrayList.withIndex()) {
             if (value.contains(","))
-                amostras[index] = value.replace(",", ".").toFloat()
+                subList.add(value.replace(",", ".").toDouble())
             else
-                amostras[index] = value.toFloat()
+                subList.add(value.toDouble())
         }
 
-        return amostras
-    }
-
-    private fun trataEntrada2(entrada: String): DoubleArray {
-
-        val array = ArrayList<String>(entrada.trim().split(";", "\n").sorted())
-        array.removeAll(listOf("", null))
-        println(array)
-
-        val amostras = DoubleArray(array.count())
-        for ((index, value) in array.withIndex()) {
-            if (value.contains(","))
-                amostras[index] = value.replace(",", ".").toDouble()
-            else
-                amostras[index] = value.toDouble()
-        }
-
-        return amostras
+        return subList.toList()
     }
 
     @SuppressLint("SetTextI18n")
-    private fun addValues(entrada: FloatArray) {
-        LISTA.add(entrada)
-        txvValores.text = txvValores.text.toString() + "\n\nT${count} - ${entrada.asList()}"
+    private fun addValues(entrada: List<Double>) {
+        LISTA2.add(entrada)
+        txvValores.text = txvValores.text.toString() + "\n\nT${count} - $entrada"
         edtxEntrada.text.clear()
         edtxEntrada.onEditorAction(EditorInfo.IME_ACTION_DONE)
 
@@ -110,11 +92,14 @@ class DICEntrada2 : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun calcular() {
-        val DIC = DIC(_K, _N, _ALFA, LISTA.toList())
+        val DIC2 = DIC2(_K, _N, _ALFA, LISTA2.toList())
+
+        println("k: ${DIC2.k}  -  n: ${DIC2.n}  -  alfa: ${DIC2.alfa}\n"
+            + "${DIC2.lista}")
 
         startActivity(
             Intent(this, DICResultado::class.java)
-                .putExtra("DIC", DIC))
+                .putExtra("DIC", DIC2))
     }
 
     private fun initViews() {

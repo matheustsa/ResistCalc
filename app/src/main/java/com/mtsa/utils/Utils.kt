@@ -80,6 +80,9 @@ object Utils {
         return roundTo((desvioPadrao/media)*100, 4)!!
     }
 
+
+
+
     /**
      * Lança uma Exception com a mensagem passada no parâmetro
      *

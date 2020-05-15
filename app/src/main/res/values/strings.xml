@@ -3,7 +3,7 @@
     <string name="fbk_title">Resistência Característica de Blocos Cerâmicos</string>
     <string name="fpk_title">Resistência Característica para Peças de Pisos Intertravados</string>
     <string name="act_entrada_description">Informe abaixo os resultados dos ensaios de compressão sobre os blocos, separando-os por
-        ponto e vírgula ou novo parágrafo. \n\nDepois clique em calcular.
+        ponto e vírgula ou novo parágrafo.
     </string>
     <string name="fpk_description">Informe os resultados dos ensaios de compressão sobre as peças, separando-os por
         ponto e vírgula ou novo parágrafo. Depois clique em calcular.
@@ -11,11 +11,11 @@
     <string name="calcular">Calcular</string>
     <string name="fbk_example">Exemplo: \n6,5; 6,6; 6,7; 6,8; 6,9; … \n\nou \n\n6,5\n6,6\n6,7\n6,8\n6,9\n…</string>
     <string name="main_act_calcular">O que você quer calcular?</string>
-    <string name="mainact_bt_fbk">fbk estimado</string>
-    <string name="mainact_bt_fpk">fpk estimado</string>
+    <string name="mainact_bt_fbk">FBK estimado</string>
+    <string name="mainact_bt_fpk">FPK estimado</string>
 
 
-    <string name="fbk_introducao_description">Para calcular o valor de fbk,est precisamos apenas utlizar a fórmula:\n\nfbk,est  =  2 X (soma dos valores até i / i-1 ) - fbi</string>
+    <string name="fbk_introducao_description">Para calcular o valor de fbk,est precisamos apenas utlizar a fórmula:\n\nfbk,est  =  2 X ( (soma dos valores até i) / i-1 ) - fbi</string>
     <string name="fbk_passo1">Passo 1 - Determinar o valor de \'i\'</string>
     <string name="fbk_passo1_descr">Este valor depende da quantidade de amostras.\nquantidade / 2, se for par\n(quantidade - 1) / 2, se for ímpar.\n\n-> No nosso caso:\n i = %1$s</string>
     <string name="fbk_passo2">Passo 2 - Somar valores até a posição de \'i\' e multiplicar o total por 2</string>
@@ -71,6 +71,8 @@
         ponto e vírgula ou novo parágrafo. Depois, clique em calcular.</string>
     <string name="DIC_example">Exemplo: \n6,5; 6,6; 6,7; 6,8; 6,9; … \n\nou \n\n6,5\n6,6\n6,7\n…</string>
     <string name="valores">Valores:</string>
+    <string name="interrogacao">\?</string>
+    <string name="mpa">MPa</string>
 
 
 </resources>

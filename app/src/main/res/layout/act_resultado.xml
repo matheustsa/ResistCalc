@@ -3,58 +3,192 @@
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
+        android:fillViewport="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="8dp"
-        android:background="@drawable/bg_resultados"
         tools:context=".Resultado">
-    
-    <LinearLayout
-            android:gravity="center"
-            android:orientation="vertical"
+
+    <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-    
+
         <TextView
-                android:id="@+id/textView5"
-                style="@style/FBK_FPK_Title"
-                android:text="Resultados"
-                android:layout_width="match_parent"
-                android:textStyle="bold"
-                android:textColor="@color/dark_wood" />
-        
-        <TextView
-                android:id="@+id/actRes_txvResultado"
-                android:text="..."
+                android:id="@+id/textView28"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/open_sans_bold"
+                android:text="Resultados:"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textColor="@color/fbk_orange"
+                android:textSize="40sp"
+                app:layout_constraintStart_toStartOf="@+id/actRes_txvAmostras"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+                android:id="@+id/actRes_txvAmostras"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:background="@drawable/bg__input_entrada_2"
+                android:fontFamily="@font/open_sans_light"
+                android:textColor="@color/darker_gray"
                 android:textSize="20sp"
-                android:padding="32dp"
-                android:background="@drawable/transparent_wood_box"
-                android:layout_margin="16dp"
-                android:textColor="@color/dark_wood" />
-        
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView28" />
+
         <LinearLayout
-                android:orientation="horizontal"
+                android:id="@+id/linearLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center">
-            
-            <ImageButton
-                    android:id="@+id/actRes_btShare"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:scaleType="center"
-                    android:layout_margin="4dp"
-                    app:srcCompat="@drawable/ic_share_white_24dp" />
-            
+                android:layout_marginTop="24dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/actRes_txvAmostras">
+
+            <!--        FBK,EST -->
+            <LinearLayout
+                    android:id="@+id/actRes_layoutFBK"
+                    style="@style/actRes__layout_valores">
+
+                <TextView
+                        android:id="@+id/textView25"
+                        style="@style/actRes__titulo_resultados"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="fbk,est" />
+
+                <LinearLayout style="@style/actRes__layout_valor_completo">
+
+                    <TextView
+                            android:id="@+id/actRes_txvFBK"
+                            style="@style/actRes__valor_resultados"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="11,70" />
+
+                    <TextView
+                            android:id="@+id/textView20"
+                            style="@style/actRes__MPa"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="@string/mpa" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!--        FBM-->
+            <LinearLayout
+                    android:id="@+id/actRes_layoutFBM"
+                    style="@style/actRes__layout_valores">
+
+                <TextView
+                        android:id="@+id/textView26"
+                        style="@style/actRes__titulo_resultados"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="fbm (resistência média)" />
+
+                <LinearLayout style="@style/actRes__layout_valor_completo">
+
+                    <TextView
+                            android:id="@+id/actRes_txvFBM"
+                            style="@style/actRes__valor_resultados"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="14,26" />
+
+                    <TextView
+                            android:id="@+id/textView21"
+                            style="@style/actRes__MPa"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="@string/mpa" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!--        RESISTÊNCIA DO LOTE-->
+            <LinearLayout
+                    android:id="@+id/actRes_layoutResistenciaLote"
+                    style="@style/actRes__layout_valores">
+
+                <TextView
+                        android:id="@+id/textView27"
+                        style="@style/actRes__titulo_resultados"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Resistência do lote" />
+
+                <LinearLayout style="@style/actRes__layout_valor_completo">
+
+                    <TextView
+                            android:id="@+id/actRes_txvResistenciaLote"
+                            style="@style/actRes__valor_resultados"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="12,40" />
+
+                    <TextView
+                            android:id="@+id/textView22"
+                            style="@style/actRes__MPa"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="@string/mpa" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
             <Button
                     android:id="@+id/actRes_btDetalhar"
-                    android:text="Detalhar"
+                    style="@style/Widget.AppCompat.Button.Borderless"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="4dp" />
+                    android:layout_margin="4dp"
+                    android:text="Detalhar" />
+
+            <ImageButton
+                    android:id="@+id/actRes_btShare"
+                    style="@style/Widget.AppCompat.ImageButton"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_margin="4dp"
+                    android:alpha="0.8"
+                    android:background="@drawable/bt__exemplo_entrada"
+                    android:elevation="4dp"
+                    android:scaleType="centerInside"
+                    app:srcCompat="@drawable/ic_share_white_24dp" />
         </LinearLayout>
-    
-    </LinearLayout>
+
+        <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="0.2"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/bg_city" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 </androidx.core.widget.NestedScrollView>

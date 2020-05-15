@@ -2,6 +2,7 @@ package com.mtsa.resistcalc
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.InputType
 import android.view.View
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
@@ -34,12 +35,14 @@ class DICEntrada1 : AppCompatActivity(), View.OnClickListener {
         edtxN = findViewById(R.id.actADIC_edtxN)
         edtxALFA = findViewById(R.id.actADIC_edtxAlfa)
 
-        setListeners()
+        edtxALFA.inputType = InputType.TYPE_CLASS_NUMBER or
+                InputType.TYPE_NUMBER_FLAG_DECIMAL or
+                InputType.TYPE_NUMBER_FLAG_SIGNED
+
+        actADIC_btAvancar.setOnClickListener(this)
+        actADIC_btExemplo.setOnClickListener(this)
     }
 
-    private fun setListeners() {
-        actADIC_btAvancar.setOnClickListener(this)
-    }
 
     private fun getValues() {
         if (!edtxK.text.isNullOrBlank())
@@ -60,6 +63,23 @@ class DICEntrada1 : AppCompatActivity(), View.OnClickListener {
                     .putExtra("DIC_K", _K)
                     .putExtra("DIC_N", _N)
                     .putExtra("DIC_ALFA", _ALFA))
+            }
+
+            actADIC_btExemplo -> {
+                val lista = listOf(
+                    listOf(20.4, 22.6, 23.4, 24.6, 22.4, 22.6, 34.6, 25.6, 26.1, 29.2),
+                    listOf(18.6, 18.9, 19.6, 19.2, 20.4, 24.6, 23.1, 22.1, 18.5, 19.1),
+                    listOf(18.6, 18.9, 19.6, 22.4, 22.6, 26.4, 27.4, 26.4, 26.4, 22.4),
+                    listOf(17.5, 18.5, 16.2, 14.3, 18.9, 19.6, 14.6, 22.5, 21.3, 19.5),
+                    listOf(21.4, 21.8, 22.6, 22.4, 22.6, 34.6, 26.8, 24.6, 24.6, 24.5),
+                    listOf(22.4, 22.6, 34.6, 24.6, 22.6, 23.6, 18.6, 18.9, 19.6, 24.6)
+                )
+
+//                val DIC2 = DIC2(6, 10, 0.05F, lista)
+
+                startActivity(
+                    Intent(this, DICResultado::class.java)
+                        .putExtra("DIC", DIC2(6, 10, 0.05F, lista)))
             }
         }
     }

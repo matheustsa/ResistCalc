@@ -6,17 +6,17 @@
             android:color="@color/white" />
     
     <corners
-            android:radius="6dp"/>
+            android:radius="8dp"/>
     
     <padding
-            android:top="8dp"
-            android:right="8dp"
-            android:bottom="8dp"
-            android:left="8dp" />
+            android:top="12dp"
+            android:right="12dp"
+            android:bottom="12dp"
+            android:left="12dp" />
     
     <stroke
-            android:color="@color/indian_red"
-            android:width="2dp" />
+            android:color="@color/fbk_orange"
+            android:width="4dp" />
         
     
 </shape>
