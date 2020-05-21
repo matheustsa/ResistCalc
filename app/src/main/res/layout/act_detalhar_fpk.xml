@@ -1,176 +1,207 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/bg_detalhar2"
+        android:background="@drawable/bg__gradient_gray"
+        android:fillViewport="true"
         tools:context=".DetalharFPK">
-    
-    <LinearLayout
-            android:id="@+id/LinearLayout01"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:orientation="vertical"
-            android:padding="24dp"
-            android:layout_gravity="center"
-            android:layout_margin="24dp">
-    
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
         <ViewFlipper
                 android:id="@+id/ViewFlipper"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:layout_gravity="center"
-                android:background="@drawable/detalhar_fpk_text"
-                android:padding="18dp">
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="24dp"
+                android:padding="18dp"
+                app:layout_constraintBottom_toTopOf="@+id/actDetFPK_btAvancar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
             <!--adding views to ViewFlipper-->
-        
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                <TextView
+                        android:id="@+id/textView6"
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/open_sans_bold"
+                        android:text="Olá,"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="@color/gray2"
+                        android:textSize="36sp" />
+
+                <TextView
+                        android:id="@+id/textView12"
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/open_sans_bold"
+                        android:text="vamos entender como esse cálculo funciona?"
+                        android:textAlignment="textStart"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="@color/gray2"
+                        android:textSize="30sp" />
+            </LinearLayout>
+
             <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:orientation="vertical">
-            
+
                 <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/fpk_passo1"
-                        android:textStyle="bold"
-                        android:layout_marginBottom="8dp"
-                        android:textColor="@color/white"
-                        android:textSize="16sp" />
-            
+                        style="@style/act_resultado_title"
+                        android:text="@string/fpk_passo1" />
+
                 <TextView
                         android:id="@+id/actDetFPK_txvP1Desc"
+                        style="@style/act_resultado_description"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/fpk_passo1_descr"
-                        android:textColor="@color/white"
-                        android:textSize="16sp" />
+                        android:text="@string/fpk_passo1_descr" />
             </LinearLayout>
-        
-        
+
             <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
-            
+
                 <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/fpk_passo2"
-                        android:textStyle="bold"
-                        android:layout_marginBottom="8dp"
-                        android:textColor="@color/white"
-                        android:textSize="16sp" />
-            
-                <TextView
-                        android:id="@+id/actDetFPK_txvP2Desc"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/fpk_passo2_descr"
-                        android:textColor="@color/white"
-                        android:textSize="16sp" />
+                        style="@style/act_resultado_title"
+                        android:text="@string/fpk_passo2" />
+
+                <ScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                    <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical" >
+
+                        <TextView
+                                android:id="@+id/actDetFPK_txvP2Desc"
+                                style="@style/act_resultado_description"
+                                android:layout_width="wrap_content"
+                                android:text="@string/fpk_passo2_descr" />
+                    </LinearLayout>
+                </ScrollView>
+
             </LinearLayout>
-        
+
             <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
-            
+
                 <TextView
+                        style="@style/act_resultado_title"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/fpk_passo3"
-                        android:textStyle="bold"
-                        android:layout_marginBottom="8dp"
-                        android:textColor="@color/white"
-                        android:textSize="16sp" />
-            
+                        android:text="@string/fpk_passo3" />
+
                 <TextView
                         android:id="@+id/actDetFPK_txvP3Desc"
+                        style="@style/act_resultado_description"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/fpk_passo3_descr"
-                        android:textColor="@color/white"
-                        android:textSize="16sp" />
+                        android:text="@string/fpk_passo3_descr" />
             </LinearLayout>
-        
+
             <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
-            
+
                 <TextView
+                        style="@style/act_resultado_title"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/fpk_passo4"
-                        android:textStyle="bold"
-                        android:layout_marginBottom="8dp"
-                        android:textColor="@color/white"
-                        android:textSize="16sp" />
-            
+                        android:text="@string/fpk_passo4" />
+
                 <TextView
                         android:id="@+id/actDetFPK_txvP4Desc"
+                        style="@style/act_resultado_description"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/fpk_passo4_descr"
-                        android:textColor="@color/white"
-                        android:textSize="16sp" />
+                        android:text="@string/fpk_passo4_descr" />
             </LinearLayout>
-        
+
             <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
-            
+
                 <TextView
+                        style="@style/act_resultado_title"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/fpk_passo5"
-                        android:textStyle="bold"
-                        android:layout_marginBottom="8dp"
-                        android:textColor="@color/white"
-                        android:textSize="16sp" />
-            
+                        android:text="@string/fpk_passo5" />
+
                 <TextView
                         android:id="@+id/actDetFPK_txvP5Desc"
+                        style="@style/act_resultado_description"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/fpk_passo5_descr"
-                        android:textColor="@color/white"
-                        android:textSize="16sp" />
+                        android:text="@string/fpk_passo5_descr" />
             </LinearLayout>
-        </ViewFlipper>
-    
-        <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:gravity="center"
-                android:background="@drawable/detalhar_fbk_buttons">
-        
-            <Button
-                    android:id="@+id/actDetFPK_btVoltar"
-                    style="@style/Widget.AppCompat.Button.Borderless"
-                    android:text="@string/voltar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
-                    android:layout_gravity="center"
-                    android:enabled="false"
-                    android:textSize="18sp" />
-        
-            <Button
-                    android:id="@+id/actDetFPK_btAvancar"
-                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
-                    android:text="@string/avancar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
-                    android:layout_gravity="center"
-                    android:textSize="18sp"
-                    android:textColor="@color/royal_blue" />
-        </LinearLayout>
-    
-    </LinearLayout>
 
+
+        </ViewFlipper>
+
+        <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:alpha="0.2"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/bg_city" />
+
+        <ImageButton
+                android:id="@+id/actDetFPK_btVoltar"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:alpha="0.8"
+                android:background="@drawable/square_gray"
+                android:elevation="4dp"
+                app:layout_constraintBottom_toBottomOf="@+id/actDetFPK_btAvancar"
+                app:layout_constraintEnd_toStartOf="@+id/actDetFPK_btAvancar"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/actDetFPK_btAvancar"
+                app:srcCompat="@drawable/ic_chevron_left_white_24dp" />
+
+        <Button
+                android:id="@+id/actDetFPK_btAvancar"
+                style="@style/primary_button"
+                android:layout_width="250dp"
+                android:layout_height="75dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/square_green"
+                android:text="@string/avancar"
+                app:layout_constraintBottom_toTopOf="@+id/actDetFPK_txvPassos"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+                android:id="@+id/actDetFPK_txvPassos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:text="0 de 1"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:visibility="visible" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

@@ -6,7 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
 
-        android:background="@drawable/bg__main_gradient"
+        android:background="@drawable/bg__gradient_gray"
         android:fillViewport="true"
         tools:context=".Entrada">
 
@@ -72,10 +72,11 @@
             android:layout_marginTop="16dp"
             android:layout_weight="1"
             android:alpha="0.8"
-            android:background="@drawable/bt__fbk_main2"
+            android:background="@drawable/square_orange"
             android:text="@string/calcular"
             android:textAllCaps="true"
             android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.30"
             app:layout_constraintStart_toStartOf="parent"
@@ -88,7 +89,7 @@
             android:layout_height="65dp"
             android:layout_weight="2"
             android:alpha="0.7"
-            android:background="@drawable/bt__interrogacao"
+            android:background="@drawable/circle_gray"
             android:text="@string/interrogacao"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="@+id/actENTRY_btCalcular_fbk"

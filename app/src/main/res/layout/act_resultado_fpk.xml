@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        tools:context=".ResultadoFPK">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="0.2"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/bg_city" />
+
+        <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/open_sans_bold"
+                android:text="Amostras:"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textColor="@color/fpk_green"
+                android:textSize="40sp"
+                app:layout_constraintStart_toStartOf="@+id/actResFPK2_txvAmostras"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+                android:id="@+id/actResFPK2_txvAmostras"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:background="@drawable/bg__input_entrada_2"
+                android:fontFamily="@font/open_sans_light"
+                android:textColor="@color/darker_gray"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+        <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/actResFPK2_txvAmostras">
+
+            <!--        MÉDIA DAS AMOSTRAS -->
+            <LinearLayout
+                    style="@style/actRes__layout_valores"
+                    android:background="@drawable/square_green">
+
+                <TextView
+                        android:id="@+id/textView25"
+                        style="@style/actRes__titulo_resultados"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="média das amostras" />
+
+                <LinearLayout style="@style/actRes__layout_valor_completo">
+
+                    <TextView
+                            android:id="@+id/actResFPK2_txvMediaAmostras"
+                            style="@style/actRes__valor_resultados"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="14,30" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!--        DESVIO PADRÃO -->
+            <LinearLayout
+                    style="@style/actRes__layout_valores"
+                    android:background="@drawable/square_green">
+
+                <TextView
+                        android:id="@+id/textView26"
+                        style="@style/actRes__titulo_resultados"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="desvio padrão" />
+
+                <LinearLayout style="@style/actRes__layout_valor_completo">
+
+                    <TextView
+                            android:id="@+id/actResFPK2_txvDesvioPadrao"
+                            style="@style/actRes__valor_resultados"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="2,08" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!--        T CRITICO -->
+            <LinearLayout
+                    style="@style/actRes__layout_valores"
+                    android:background="@drawable/square_green">
+
+                <TextView
+                        android:id="@+id/textView27"
+                        style="@style/actRes__titulo_resultados"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="T Crítico" />
+
+                <LinearLayout style="@style/actRes__layout_valor_completo">
+
+                    <TextView
+                            android:id="@+id/actResFPK2_txvTCritico"
+                            style="@style/actRes__valor_resultados"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="0,896" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!--        T CRITICO -->
+            <LinearLayout
+                    android:id="@+id/actResFPK2_layoutFPK"
+                    style="@style/actRes__layout_valores"
+                    android:background="@drawable/square_green">
+
+                <TextView
+                        android:id="@+id/textView29"
+                        style="@style/actRes__titulo_resultados"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="fpk,est" />
+
+                <LinearLayout style="@style/actRes__layout_valor_completo">
+
+                    <TextView
+                            android:id="@+id/actResFPK2_txvFPK"
+                            style="@style/actRes__valor_resultados"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="12,44" />
+
+                    <TextView
+                            android:id="@+id/textView23"
+                            style="@style/actRes__MPa"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="@string/mpa" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+            <Button
+                    android:id="@+id/actResFPK2_btDetalhar"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp"
+                    android:text="Detalhar" />
+
+            <ImageButton
+                    android:id="@+id/actResFPK2_btShare"
+                    style="@style/Widget.AppCompat.ImageButton"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_margin="4dp"
+                    android:alpha="0.8"
+                    android:background="@drawable/square_gray"
+                    android:elevation="4dp"
+                    android:scaleType="centerInside"
+                    app:srcCompat="@drawable/ic_share_white_24dp" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

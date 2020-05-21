@@ -1,5 +1,6 @@
 package com.mtsa.resistcalc
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.text.BoringLayout
 import android.text.Html
@@ -69,6 +70,7 @@ class DetalharFBK : AppCompatActivity(), View.OnClickListener {
     }
     
     
+    @SuppressLint("SetTextI18n")
     private fun changeStep(option: Boolean) {
 
         when (option) {
@@ -159,7 +161,7 @@ class DetalharFBK : AppCompatActivity(), View.OnClickListener {
         txvTitle.text = getString(stringXML)
     }
 
-    // TODO: Precisa descobrir como utilizar um array para as variáveis
+    //  TODO: Precisa descobrir como utilizar um array para as variáveis
     private fun changeDescription(stringXML: Int, vararg varibles: Any) {
         txvDescr.text = getString(stringXML, varibles)
     }

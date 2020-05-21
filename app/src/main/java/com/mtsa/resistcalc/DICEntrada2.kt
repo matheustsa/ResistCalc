@@ -88,7 +88,6 @@ class DICEntrada2 : AppCompatActivity(), View.OnClickListener {
         else
             txvValoresParaT.text = "Valores para T${count}"
 
-//        TODO: seguir passos do doc
     }
 
     private fun calcular() {

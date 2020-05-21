@@ -4,7 +4,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/bg__main_gradient"
+        android:background="@drawable/bg__gradient_gray"
         tools:context=".MainActivity">
 
     <ImageView
@@ -25,6 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
+            android:elevation="8dp"
             android:fontFamily="@font/open_sans_bold"
             android:text="ResistCalc"
             android:textAlignment="viewStart"
@@ -40,6 +41,7 @@
             android:id="@+id/textView"
             android:layout_width="275dp"
             android:layout_height="wrap_content"
+            android:elevation="8dp"
             android:fontFamily="@font/open_sans_light"
             android:padding="8dp"
             android:text="Qual resistência você quer calcular?"
@@ -57,17 +59,12 @@
             android:layout_width="0dp"
             android:layout_height="80dp"
             android:layout_marginTop="80dp"
-            android:alpha="0.8"
-            android:background="@drawable/bt__fbk_main2"
-            android:elevation="4dp"
-            android:fontFamily="@font/open_sans_bold"
+            android:background="@drawable/square_orange"
             android:text="@string/mainact_bt_fbk"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="28sp"
             app:layout_constraintEnd_toEndOf="@+id/textView2"
             app:layout_constraintStart_toStartOf="@+id/textView2"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            style="@style/primary_button" />
 
     <Button
             android:id="@+id/actMain_btFPK"
@@ -75,7 +72,8 @@
             android:layout_height="80dp"
             android:layout_marginTop="8dp"
             android:alpha="0.8"
-            android:background="@drawable/bt__fpk_main"
+            android:background="@drawable/square_green"
+            android:elevation="8dp"
             android:fontFamily="@font/open_sans_bold"
             android:text="@string/mainact_bt_fpk"
             android:textAllCaps="false"
@@ -92,7 +90,8 @@
             android:layout_height="80dp"
             android:layout_marginTop="8dp"
             android:alpha="0.8"
-            android:background="@drawable/bt__dic_main"
+            android:background="@drawable/square_yellow"
+            android:elevation="8dp"
             android:fontFamily="@font/open_sans_bold"
             android:text="ANOVA - DIC"
             android:textAllCaps="false"
@@ -111,6 +110,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
+            android:elevation="8dp"
             android:fontFamily="@font/open_sans_light"
             android:text="Informações"
             android:textAlignment="center"

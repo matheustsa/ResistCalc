@@ -25,40 +25,24 @@
 
         <TextView
                 android:id="@+id/actDetFBK_txvTitle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="32dp"
-                android:fontFamily="@font/open_sans_bold"
                 android:text="@string/introducao"
-                android:textAlignment="center"
-                android:textColor="@color/gray3"
-                android:textSize="30sp"
                 android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:visibility="visible" />
+                tools:visibility="visible"
+                style="@style/act_resultado_title" />
 
         <TextView
                 android:id="@+id/actDetFBK_txvDescr"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="32dp"
-                android:layout_marginBottom="32dp"
-                android:fontFamily="@font/open_sans_light"
                 android:text="@string/fbk_introducao_description"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textSize="18sp"
                 app:layout_constraintBottom_toTopOf="@+id/actDetFBK_btNext"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/actDetFBK_txvTitle"
                 app:layout_constraintVertical_bias="0.0"
-                tools:visibility="visible" />
+                tools:visibility="visible"
+                style="@style/act_resultado_description" />
 
         <TextView
                 android:id="@+id/actDetFBK_txvOla"
@@ -100,7 +84,7 @@
                 android:layout_gravity="center"
                 android:layout_margin="16dp"
                 android:alpha="0.8"
-                android:background="@drawable/bt__fbk_main2"
+                android:background="@drawable/square_orange"
                 android:fontFamily="@font/open_sans_bold"
                 android:text="@string/avancar"
                 android:textAllCaps="false"
@@ -130,7 +114,7 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:alpha="0.8"
-                android:background="@drawable/bt__exemplo_entrada"
+                android:background="@drawable/square_gray"
                 android:elevation="4dp"
                 app:layout_constraintBottom_toBottomOf="@+id/actDetFBK_btNext"
                 app:layout_constraintEnd_toStartOf="@+id/actDetFBK_btNext"

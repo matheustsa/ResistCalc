@@ -36,9 +36,9 @@
     <string name="fpk_passo1_descr">Some todos os valores das amostras coletadas e divida pela quantidade total de elementos dessa amostra\n\nmédia = %1$.2f / %2$d\nmédia = %3$.2f</string>
 
     <string name="fpk_passo2">Passo 2 - calcular a variância</string>
-    <string name="fpk_passo2_descr"><![CDATA[A variância é a diferença entre a amostra e a média, elevada ao quadrado\n
+    <string name="fpk_passo2_descr"><![CDATA[A variância é a diferença entre a amostra e a média, elevada ao quadrado\n\n
         variância = (amostra[n] - media)² / i-1\n
-        onde, "n" é a posição do elemento e "i" é a quantidade de elementos da amostra\n\n
+        onde, "n" é a posição do elemento e "i" é a quantidade de elementos da amostra\n\n\n
         Exemplo:\n
         v1 = (%1$.2f - %2$.2f)² = %3$.2f\n
         v2 = (%4$.2f - %5$.2f)² = %6$.2f\n
@@ -51,8 +51,9 @@
         desvio padrão = ²√ variância total\n\n
         -> desvio padrão = %1$.2f</string>
 
-    <string name="fpk_passo4">Pass 4 - Buscar o valor correspondente na tabela de tStudent</string>
-    <string name="fpk_passo4_descr">-> t crítico = %1$.2f</string>
+    <string name="fpk_passo4">Pass 4 - Buscar o valor correspondente na tabela T de Student</string>
+    <string name="fpk_passo4_descr">Para o nosso cálculo o valor correspondente é:\n\n
+        -> t crítico = %1$.2f</string>
 
     <string name="fpk_passo5">Passo 5 (final) - Calcular o fpk,est</string>
     <string name="fpk_passo5_descr">Para calcular o fpk,est é só usar a fórmula:\n
@@ -73,6 +74,7 @@
     <string name="valores">Valores:</string>
     <string name="interrogacao">\?</string>
     <string name="mpa">MPa</string>
+    <string name="city_background">City background</string>
 
 
 </resources>
