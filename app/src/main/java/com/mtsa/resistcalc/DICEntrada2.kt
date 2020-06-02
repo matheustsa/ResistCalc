@@ -13,18 +13,17 @@ import org.jetbrains.anko.alert
 
 class DICEntrada2 : AppCompatActivity(), View.OnClickListener {
 
-    private lateinit var txvValoresParaT : TextView
-    private lateinit var edtxEntrada : EditText
-    private lateinit var btAdicionar : Button
-    private lateinit var btCalcular : Button
-    private lateinit var txvValores : TextView
+    private val txvValoresParaT : TextView by lazy { findViewById<TextView>(R.id.actDIC_txvValoresParaT) }
+    private val edtxEntrada : EditText by lazy { findViewById<EditText>(R.id.actDIC_edtxEntrada) }
+    private val btAdicionar : Button by lazy { findViewById<Button>(R.id.actDIC_btAdicionar) }
+    private val btCalcular : Button by lazy { findViewById<Button>(R.id.actDIC_btCalcular) }
+    private val txvValores : TextView by lazy { findViewById<TextView>(R.id.actDIC_txvValores) }
 
     private var _K : Int = 0
     private var _N : Int = 0
     private var _ALFA : Float = 0f
     
-    private val LISTA: MutableList<FloatArray> = mutableListOf()
-    private val LISTA2: MutableList<List<Double>> = mutableListOf()
+    private val LISTA: MutableList<List<Double>> = mutableListOf()
 
     private var count : Int = 1
 
@@ -38,7 +37,7 @@ class DICEntrada2 : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v) {
             btAdicionar -> {
-                val entrada = trataEntrada2(edtxEntrada.text.toString())
+                val entrada = getValues(edtxEntrada.text.toString())
                 if (entrada.count() == _N) {
                     alert("Você digitou: ${entrada}.\n\nTodos os valores estão corretos?") {
                         title = "Só confirmando..."
@@ -57,7 +56,7 @@ class DICEntrada2 : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-    private fun trataEntrada2(entrada: String): List<Double> {
+    private fun getValues(entrada: String): List<Double> {
 
        val arrayList = ArrayList<String> (entrada.trim().split(";", "\n").sorted())
         arrayList.removeAll(listOf("", null))
@@ -76,7 +75,7 @@ class DICEntrada2 : AppCompatActivity(), View.OnClickListener {
 
     @SuppressLint("SetTextI18n")
     private fun addValues(entrada: List<Double>) {
-        LISTA2.add(entrada)
+        LISTA.add(entrada)
         txvValores.text = txvValores.text.toString() + "\n\nT${count} - $entrada"
         edtxEntrada.text.clear()
         edtxEntrada.onEditorAction(EditorInfo.IME_ACTION_DONE)
@@ -91,33 +90,21 @@ class DICEntrada2 : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun calcular() {
-        val DIC2 = DIC2(_K, _N, _ALFA, LISTA2.toList())
+        val dic = DIC(_K, _N, _ALFA, LISTA.toList())
 
-        println("k: ${DIC2.k}  -  n: ${DIC2.n}  -  alfa: ${DIC2.alfa}\n"
-            + "${DIC2.lista}")
+        println("k: ${dic.k}  -  n: ${dic.n}  -  alfa: ${dic.alfa}\n"
+            + "${dic.lista}")
 
         startActivity(
             Intent(this, DICResultado::class.java)
-                .putExtra("DIC", DIC2))
+                .putExtra("DIC", dic))
     }
 
     private fun initViews() {
-        txvValoresParaT = findViewById(R.id.actDIC_txvValoresParaT)
-        edtxEntrada = findViewById(R.id.actDIC_edtxEntrada)
-        btAdicionar = findViewById(R.id.actDIC_btAdicionar)
-        btCalcular = findViewById(R.id.actDIC_btCalcular)
-        txvValores = findViewById(R.id.actDIC_txvValores)
-
         _K = intent.getIntExtra("DIC_K", 0)
         _N = intent.getIntExtra("DIC_N", 0)
         _ALFA = intent.getFloatExtra("DIC_ALFA", 0f)
 
-        setListeners()
-    }
-
-
-
-    private fun setListeners() {
         btAdicionar.setOnClickListener(this)
         btCalcular.setOnClickListener(this)
     }

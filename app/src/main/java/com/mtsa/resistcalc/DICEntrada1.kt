@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.InputType
 import android.view.View
+import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.act_dic__entrada1.*
@@ -16,9 +17,14 @@ import kotlinx.android.synthetic.main.act_dic__entrada1.*
 */
 class DICEntrada1 : AppCompatActivity(), View.OnClickListener {
 
-    private lateinit var edtxK : EditText
-    private lateinit var edtxN : EditText
-    private lateinit var edtxALFA : EditText
+
+    private val edtxK : EditText by lazy { findViewById<EditText>(R.id.actADIC_edtxK) }
+    private val edtxN : EditText by lazy { findViewById<EditText>(R.id.actADIC_edtxN) }
+    private val edtxALFA : EditText by lazy { findViewById<EditText>(R.id.actADIC_edtxAlfa) }
+
+    private val btAvancar: Button by lazy { findViewById<Button>(R.id.actADIC_btAvancar) }
+    private val btExemplo: Button by lazy { findViewById<Button>(R.id.actADIC_btExemplo) }
+
     private var _K : Int = 1
     private var _N : Int = 1
     private var _ALFA : Float = 1f
@@ -31,18 +37,14 @@ class DICEntrada1 : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun initViews() {
-        edtxK = findViewById(R.id.actADIC_edtxK)
-        edtxN = findViewById(R.id.actADIC_edtxN)
-        edtxALFA = findViewById(R.id.actADIC_edtxAlfa)
 
         edtxALFA.inputType = InputType.TYPE_CLASS_NUMBER or
                 InputType.TYPE_NUMBER_FLAG_DECIMAL or
                 InputType.TYPE_NUMBER_FLAG_SIGNED
 
-        actADIC_btAvancar.setOnClickListener(this)
-        actADIC_btExemplo.setOnClickListener(this)
+        btAvancar.setOnClickListener(this)
+        btExemplo.setOnClickListener(this)
     }
-
 
     private fun getValues() {
         if (!edtxK.text.isNullOrBlank())
@@ -51,7 +53,6 @@ class DICEntrada1 : AppCompatActivity(), View.OnClickListener {
             _N = edtxN.text.toString().toInt()
         if (!edtxALFA.text.isNullOrBlank())
             _ALFA = edtxALFA.text.toString().toFloat()
-
     }
 
     override fun onClick(v: View?) {
@@ -75,11 +76,11 @@ class DICEntrada1 : AppCompatActivity(), View.OnClickListener {
                     listOf(22.4, 22.6, 34.6, 24.6, 22.6, 23.6, 18.6, 18.9, 19.6, 24.6)
                 )
 
-//                val DIC2 = DIC2(6, 10, 0.05F, lista)
+                val dic = DIC(6, 10, 0.05F, lista)
 
                 startActivity(
                     Intent(this, DICResultado::class.java)
-                        .putExtra("DIC", DIC2(6, 10, 0.05F, lista)))
+                        .putExtra("DIC", dic))
             }
         }
     }

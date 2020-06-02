@@ -1,9 +1,10 @@
 package com.mtsa.resistcalc
 
 import android.annotation.SuppressLint
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import com.mtsa.resistcalc.databinding.ActDicResultadoBinding
 import com.mtsa.utils.Utils
 import org.apache.commons.math3.distribution.FDistribution
 import kotlin.math.pow
@@ -15,12 +16,21 @@ class DICResultado : AppCompatActivity() {
 
     private var string = ""
 
-    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.act_dic__resultado)
 
-        val DIC = intent.getSerializableExtra("DIC") as DIC2
+        val binding = ActDicResultadoBinding.inflate(layoutInflater)
+
+
+        setContentView(binding.root)
+
+        calcularDIC(binding)
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun calcularDIC(b: ActDicResultadoBinding) {
+        val DIC = intent.getSerializableExtra("DIC") as DIC
 
         val k = DIC.k
         val n = DIC.n
@@ -65,9 +75,15 @@ class DICResultado : AppCompatActivity() {
 
         txvRes.text = "k: $k\nn: $n\nalfa: $alfa"
 
+//        -----------------------------------------------------------------
 
-//        txvRes.text = txvRes.text.toString() + ""
-//        txvTrat.text = getValues(lista2)
+
+        val teste = TextView(this)
+        teste.text = "$media"
+
+        b.trMedia.addView(teste)
+
+//        -----------------------------------------------------------------
 
         val results = "k: $k\nn: $n\nalfa: $alfa\n\n" +
                 "gl1: $gl1\ngl2: $gl2\nglTotal: $glTotal\n" +
@@ -88,8 +104,6 @@ class DICResultado : AppCompatActivity() {
 
         txvTrat.text = ""
         txvRes.text = results + "\n\n" + getValues(lista2) + "\n\n" + getHipotese(F_Calculado!!, F_Critico!!)
-
-
     }
     
     private fun getValues(lista: List<List<Double>>): String {

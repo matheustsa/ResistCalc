@@ -5,8 +5,8 @@
         android:layout_width="match_parent" android:layout_height="match_parent">
 
     <LinearLayout
-            android:layout_width="250dp"
-            android:layout_height="75dp"
+            android:layout_width="300dp"
+            android:layout_height="85dp"
             android:alpha="0.8"
             android:background="@drawable/square_yellow"
             android:gravity="center"
@@ -21,16 +21,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
+                android:fontFamily="@font/open_sans_bold"
                 android:padding="8dp"
-                android:text="Quantidade de\nTratamentos (k)" />
+                android:text="Quantidade de\nTratamentos (k)"
+                android:textSize="18sp" />
 
         <EditText
                 android:id="@+id/editText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
+                android:autofillHints=""
                 android:ems="3"
-                android:inputType="numberSigned|number"
-                android:padding="8dp" />
+                android:fontFamily="@font/open_sans_bold"
+                android:inputType="numberSigned|number|numberDecimal"
+                android:padding="8dp"
+                android:textAlignment="center" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

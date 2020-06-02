@@ -23,6 +23,11 @@ android {
         }
     }
     buildToolsVersion = '28.0.3'
+
+    // View Binding lib
+    viewBinding {
+        enabled = true
+    }
 }
 
 dependencies {

@@ -22,7 +22,6 @@ class Entrada : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
 
         OPERATION = intent.getStringExtra("OP")
-
         initViews(OPERATION)
     }
 
