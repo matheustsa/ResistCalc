@@ -76,13 +76,15 @@ class Entrada : AppCompatActivity(), View.OnClickListener {
 
     private fun showResults(user_input: Boolean) {
 
+        println(OPERATION)
+        val input = edtxEntradas.text.toString()
+
+        /**
         val activity = when (OPERATION) {
-            "FBK" -> ResultadoFBK::class.java
-            "FPK" -> ResultadoFPK::class.java
+            "FBK" -> ResultadoFBK::class
+            "FPK" -> ResultadoFPK::class
             else -> Utils.CustomException("Can't Load Activity int ENTRADA.kt")
         }
-
-        val input = edtxEntradas.text.toString()
 
         startActivity(
             Intent(this, activity::class.java).putExtra(
@@ -90,7 +92,26 @@ class Entrada : AppCompatActivity(), View.OnClickListener {
                 getValues(if (user_input) input else exemplo)
             )
         )
+        */
 
+        when (OPERATION) {
+            "FBK" -> {
+                startActivity(
+                    Intent(this, ResultadoFBK::class.java).putExtra(
+                        "AMOSTRAS",
+                        getValues(if (user_input) input else exemplo)
+                    )
+                )
+            }
+            "FPK" -> {
+                startActivity(
+                    Intent(this, ResultadoFPK::class.java).putExtra(
+                        "AMOSTRAS",
+                        getValues(if (user_input) input else exemplo)
+                    )
+                )
+            }
+        }
     }
 
     override fun onClick(v: View?) {

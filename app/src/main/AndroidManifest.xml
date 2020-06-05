@@ -13,7 +13,8 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ResultadoFBK"></activity>
+        <activity android:name=".DICResultado2"></activity>
+        <activity android:name=".ResultadoFBK" />
         <activity android:name=".ResultadoFPK" />
         <activity android:name=".DICResultado" />
         <activity android:name=".DICEntrada2" />

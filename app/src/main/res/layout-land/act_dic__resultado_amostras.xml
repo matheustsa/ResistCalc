@@ -25,9 +25,8 @@
 
         <TableLayout
                 android:id="@+id/table"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -35,13 +34,17 @@
             <TableRow
                     android:id="@+id/trMedia"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:showDividers="middle|beginning|end|none">
 
                 <TextView
                         android:id="@+id/textView32"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:paddingEnd="8dp"
                         android:text="média" />
+
             </TableRow>
 
             <TableRow
@@ -52,6 +55,8 @@
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:paddingEnd="8dp"
                         android:text="desvio padrão" />
             </TableRow>
 
@@ -64,6 +69,8 @@
                         android:id="@+id/textView34"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:paddingEnd="8dp"
                         android:text="variância" />
             </TableRow>
 
@@ -76,6 +83,8 @@
                         android:id="@+id/textView35"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:paddingEnd="8dp"
                         android:text="coef. variância" />
             </TableRow>
 
@@ -88,9 +97,30 @@
                         android:id="@+id/textView36"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:paddingEnd="8dp"
                         android:text="média global" />
             </TableRow>
         </TableLayout>
+
+        <TextView
+                android:id="@+id/txvAmostrasTitulo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/table"
+                app:layout_constraintTop_toBottomOf="@+id/table" />
+
+        <TextView
+                android:id="@+id/txvAmostrasValor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="TextView"
+                app:layout_constraintBottom_toBottomOf="@+id/txvAmostrasTitulo"
+                app:layout_constraintStart_toEndOf="@+id/txvAmostrasTitulo"
+                app:layout_constraintTop_toTopOf="@+id/txvAmostrasTitulo" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
