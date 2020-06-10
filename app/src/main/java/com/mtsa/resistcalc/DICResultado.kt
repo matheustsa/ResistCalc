@@ -24,8 +24,10 @@ class DICResultado : AppCompatActivity() {
 
 
 
-        calcularDIC()
+//        calcularDIC()
     }
+
+
     @SuppressLint("SetTextI18n")
     private fun calcularDIC() {
         val DIC = intent.getSerializableExtra("DIC") as DIC
@@ -68,8 +70,8 @@ class DICResultado : AppCompatActivity() {
         val F_Critico = Utils.roundDec(FDistribution(gl1.toDouble(), gl2.toDouble()).inverseCumulativeProbability(1.0 - alfa), 4)
 
 
-        txvRes = findViewById(R.id.actDIC_txvResultado)
-        txvTrat = findViewById(R.id.actDIC_txvTratamentos)
+//        txvRes = findViewById(R.id.actDIC_txvResultado)
+//        txvTrat = findViewById(R.id.actDIC_txvTratamentos)
 
         txvRes.text = "k: $k\nn: $n\nalfa: $alfa"
 

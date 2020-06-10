@@ -1,49 +1,73 @@
-package com.mtsa.resistcalc
+package com.mtsa.fragments
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.TableLayout
 import android.widget.TableRow
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
-import com.mtsa.fragments.DICResumo
-import com.mtsa.resistcalc.databinding.ActDicResultadoAmostrasBinding
-import com.mtsa.resistcalc.databinding.ActDicResultadoBinding
+import com.mtsa.resistcalc.DIC
+import com.mtsa.resistcalc.databinding.FragDicResumoBinding
 import com.mtsa.utils.Utils
-import com.mtsa.utils.ViewPagerFragmentAdapter
 import org.apache.commons.math3.distribution.FDistribution
+import org.jetbrains.annotations.NotNull
+import java.io.Serializable
 import kotlin.math.pow
 
+/*
+// TODO: Rename parameter arguments, choose names that match
+// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+private const val ARG_PARAM1 = "param1"
+private const val ARG_PARAM2 = "param2"
 
-class DICResultado2 : AppCompatActivity() {
+/**
+ * A simple [Fragment] subclass.
+ * Use the [DICResumo.newInstance] factory method to
+ * create an instance of this fragment.
+ */
 
-//    private val tab: TabLayout by lazy { findViewById<TabLayout>(R.id.tabLayout) }
-//    private val vpager: ViewPager2 by lazy { findViewById<ViewPager2>(R.id.viewPager) }
+ */
+class DICResumo : Fragment() {
+    // TODO: Rename and change types of parameters
+    private var param1: String? = null
+    private var param2: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.act_dic__resultado)
-        val b = ActDicResultadoBinding.inflate(layoutInflater)
-        setContentView(b.root)
-
-        val adapter = ViewPagerFragmentAdapter(supportFragmentManager)
-        b.viewPager.adapter = adapter
-        b.tabLayout.setupWithViewPager(b.viewPager)
-
-        val dic = intent.getSerializableExtra("DIC") as DIC
-        val bundle = Bundle()
-        bundle.putSerializable("DIC", dic)
-        val fragobj = DICResumo()
-        fragobj.arguments = bundle
+//        arguments?.let {
+//            param1 = it.getString(ARG_PARAM1)
+//            param2 = it.getString(ARG_PARAM2)
+//        }
 
 
+    }
 
-//        calcularDIC()
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
+        val dic = arguments?.getSerializable("DIC") as DIC
+        println(dic)
+
+        val b = FragDicResumoBinding.inflate(layoutInflater, container, false)
+
+        calcularDIC(dic, b)
+
+        return b.root
+
+//        return inflater.inflate(R.layout.frag_dic__resumo, container, false)
     }
 
     @SuppressLint("SetTextI18n")
-    private fun calcularDIC(b: ActDicResultadoAmostrasBinding) {
-        val dic = intent.getSerializableExtra("DIC") as DIC
+    private fun calcularDIC(
+        dic: DIC,
+        b: FragDicResumoBinding
+    ) {
+//        val dic = intent.getSerializableExtra("DIC") as DIC
 
         val k = dic.k
         val n = dic.n
@@ -82,16 +106,13 @@ class DICResultado2 : AppCompatActivity() {
         val F_Calculado = Utils.roundDec(QM_Entre / QM_Dentro, 4)
         val F_Critico = Utils.roundDec(FDistribution(gl1.toDouble(), gl2.toDouble()).inverseCumulativeProbability(1.0 - alfa), 4)
 
-//        val txvMedia = TextView(this)
-//        val txvDesvio = TextView(this)
-//        val txvVariancia = TextView(this)
-//        val txvCoefVariancia = TextView(this)
+
 
         for (i in 0 until k) {
-            val txvMedia = TextView(this)
-            val txvDesvio = TextView(this)
-            val txvVariancia = TextView(this)
-            val txvCoefVariancia = TextView(this)
+            val txvMedia = TextView(context)
+            val txvDesvio = TextView(context)
+            val txvVariancia = TextView(context)
+            val txvCoefVariancia = TextView(context)
 
             txvMedia.text = media[i].toString()
             txvDesvio.text = desvioPadrao[i].toString()
@@ -104,7 +125,7 @@ class DICResultado2 : AppCompatActivity() {
             b.trCoefVariancia?.addView(txvCoefVariancia)
         }
 
-        val txvMediaGlobal = TextView(this)
+        val txvMediaGlobal = TextView(context)
         txvMediaGlobal.text = mediaGlobal.toString()
         b.trMediaGlobal?.addView(txvMediaGlobal)
 
@@ -125,17 +146,17 @@ class DICResultado2 : AppCompatActivity() {
 //        buttonLayoutParams.setMargins(50, 10, 0, 0)
 //        button.setLayoutParams(buttonLayoutParams)
 
-        val tr = TableRow(this)
+        val tr = TableRow(context)
         val lp = TableLayout.LayoutParams(
             TableLayout.LayoutParams.WRAP_CONTENT,
             TableLayout.LayoutParams.WRAP_CONTENT
         )
         lp.setMargins(10,10,10,10)
         tr.layoutParams = lp
-        val txv1 = TextView(this)
-        val txv2 = TextView(this)
-        val txv3 = TextView(this)
-        val txv4 = TextView(this)
+        val txv1 = TextView(context)
+        val txv2 = TextView(context)
+        val txv3 = TextView(context)
+        val txv4 = TextView(context)
         txv1.text = "FUNCIONOU"
         txv2.text = "CARAIO"
         txv3.text = "DE"
@@ -157,4 +178,26 @@ class DICResultado2 : AppCompatActivity() {
         }
         return s
     }
+
+/*
+    companion object {
+        /**
+         * Use this factory method to create a new instance of
+         * this fragment using the provided parameters.
+         *
+         * @param param1 Parameter 1.
+         * @param param2 Parameter 2.
+         * @return A new instance of fragment DICResumo.
+         */
+        // TODO: Rename and change types and number of parameters
+        @JvmStatic
+        fun newInstance(param1: String, param2: String) =
+            DICResumo().apply {
+                arguments = Bundle().apply {
+                    putString(ARG_PARAM1, param1)
+                    putString(ARG_PARAM2, param2)
+                }
+            }
+    }
+ */
 }
