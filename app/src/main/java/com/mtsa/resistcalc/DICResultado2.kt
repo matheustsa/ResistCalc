@@ -6,7 +6,7 @@ import android.widget.TableLayout
 import android.widget.TableRow
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.mtsa.fragments.DICResumo
+import com.mtsa.fragments.FragDICAnalise
 import com.mtsa.resistcalc.databinding.ActDicResultadoAmostrasBinding
 import com.mtsa.resistcalc.databinding.ActDicResultadoBinding
 import com.mtsa.utils.Utils
@@ -15,10 +15,11 @@ import org.apache.commons.math3.distribution.FDistribution
 import kotlin.math.pow
 
 
-class DICResultado2 : AppCompatActivity() {
+class DICResultado2 : AppCompatActivity(), FragDICAnalise.FragmentInterface {
 
-//    private val tab: TabLayout by lazy { findViewById<TabLayout>(R.id.tabLayout) }
-//    private val vpager: ViewPager2 by lazy { findViewById<ViewPager2>(R.id.viewPager) }
+    private lateinit var dic: DIC
+    private lateinit var dic2: DIC2
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,15 +31,28 @@ class DICResultado2 : AppCompatActivity() {
         b.viewPager.adapter = adapter
         b.tabLayout.setupWithViewPager(b.viewPager)
 
-        val dic = intent.getSerializableExtra("DIC") as DIC
-        val bundle = Bundle()
-        bundle.putSerializable("DIC", dic)
-        val fragobj = DICResumo()
-        fragobj.arguments = bundle
+//        val bundle = Bundle()
+//        bundle.putString("text", "From Activity")
+//        val fragobj = FragDICAnalise()
+//        fragobj.arguments = bundle
+//        supportFragmentManager.beginTransaction()
+//            .replace(b.viewPager.fraga_txv.id, FragDICAnalise())
+//            .commit()
 
 
+        dic = intent.getSerializableExtra("DIC") as DIC
+        dic2 = DIC2(dic.k, dic.n, dic.alfa, dic.lista)
 
 //        calcularDIC()
+    }
+
+    override fun fragmentInterface(s: String?) {
+        // Código que interague com outros componentes, inclusive Fragments
+        println("onItemSelected() -> $s")
+    }
+
+    fun getValues(): DIC2 {
+        return dic2
     }
 
     @SuppressLint("SetTextI18n")
