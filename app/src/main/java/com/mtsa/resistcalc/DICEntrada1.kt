@@ -77,10 +77,11 @@ class DICEntrada1 : AppCompatActivity(), View.OnClickListener {
                 )
 
                 val dic = DIC(6, 10, 0.05F, lista)
+                val dic2 = DIC2(6, 10, 0.05F, lista)
 
                 startActivity(
                     Intent(this, DICResultado2::class.java)
-                        .putExtra("DIC", dic))
+                        .putExtra("DIC", dic2))
             }
         }
     }

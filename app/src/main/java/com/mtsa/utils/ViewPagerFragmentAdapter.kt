@@ -3,7 +3,7 @@ package com.mtsa.utils
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import com.mtsa.fragments.DICGraficos
+import com.mtsa.fragments.FragDICGraficos
 import com.mtsa.fragments.FragDICAnalise
 import com.mtsa.fragments.FragDICResumo
 
@@ -24,7 +24,7 @@ class ViewPagerFragmentAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
         return when (position) {
             0 -> FragDICResumo()
             1 -> FragDICAnalise()
-            2 -> DICGraficos()
+            2 -> FragDICGraficos()
             else -> null
         }!!
     }

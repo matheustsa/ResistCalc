@@ -44,9 +44,14 @@ class DIC2(val k: Int, val n: Int, val alfa: Float, val lista: List<List<Double>
         QM_Entre = Utils.roundDec(QM_Entre, 4)
     }
 
+    val SQ_Dentro = Utils.roundDec(QM_Dentro * gl1, 4)
+    val SQ_Entre = Utils.roundDec(QM_Entre * gl2, 4)
+    val SQ_Total = Utils.roundDec(SQ_Dentro + SQ_Entre, 4)
 
     val F_Calculado = Utils.roundDec(QM_Entre / QM_Dentro, 4)
     val F_Critico = Utils.roundDec(FDistribution(gl1.toDouble(), gl2.toDouble()).inverseCumulativeProbability(1.0 - alfa), 4)
+
+    val julgamento = if (F_Calculado > F_Critico) "Rejeita-se H0" else "Rejeita-se H1"
 
 }
 

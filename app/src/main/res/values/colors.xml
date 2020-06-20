@@ -9,8 +9,10 @@
 
     <color name="fbk_orange">#FF7042</color>
     <color name="fpk_green">#08A69E</color>
-    <color name="dic_yellow">#FDB050</color>
+    <color name="dic_yellow">#1E90FF</color>
     <color name="gray_darker">#4F4F4F</color>
+    <color name="dic_blue_light">#90CAF9</color>
+    <color name="dic_blue_dark">#64B5F6</color>
 
     
     <color name="white">#FFFFFF</color>
@@ -140,7 +142,7 @@
     <color name="sea_green">#2E8B57</color>
     <color name="forest_green">#228B22</color>
     <color name="light_sea_green">#20B2AA</color>
-    <color name="dodger_blue">#1E90FF</color>
+    <color name="dodger_blue"></color>
     <color name="midnight_blue">#191970</color>
     <color name="aqua">#00FFFF</color>
     <color name="cyan">#00FFFF</color>

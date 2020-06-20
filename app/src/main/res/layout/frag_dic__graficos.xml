@@ -2,12 +2,20 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.mtsa.fragments.DICGraficos">
+        tools:context="com.mtsa.fragments.FragDICGraficos">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <com.anychart.AnyChartView
+            android:id="@+id/anyChartView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Gráficos" />
+            android:visibility="gone"
+            />
+
+    <com.github.mikephil.charting.charts.BarChart
+            android:id="@+id/MPChart"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            />
 
 </FrameLayout>

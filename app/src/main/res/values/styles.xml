@@ -149,4 +149,74 @@
         <item name="android:textSize">28sp</item>
     </style>
 
+    <style name="table_dic_title">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">1dp</item>
+        <item name="android:background">#64B5F6</item>
+        <item name="android:fontFamily">@font/open_sans_bold</item>
+        <item name="android:foreground">@drawable/table_square_transparent_white</item>
+        <item name="android:paddingTop">16dp</item>
+        <item name="android:paddingBottom">16dp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="table_dic_header_light">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">#90CAF9</item>
+        <item name="android:fontFamily">@font/open_sans_light</item>
+        <item name="android:foreground">@drawable/table_square_transparent_white</item>
+        <item name="android:padding">4dp</item>
+        <item name="android:paddingStart">14dp</item>
+        <item name="android:paddingEnd">14dp</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="table_dic_header_dark">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">#64B5F6</item>
+        <item name="android:fontFamily">@font/open_sans_light</item>
+        <item name="android:foreground">@drawable/table_square_transparent_white</item>
+        <item name="android:padding">4dp</item>
+        <item name="android:paddingStart">14dp</item>
+        <item name="android:paddingEnd">14dp</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="table_dic_content_light">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">#90CAF9</item>
+        <item name="android:fontFamily">@font/open_sans_bold</item>
+        <item name="android:foreground">@drawable/table_square_transparent_white</item>
+        <item name="android:padding">4dp</item>
+        <item name="android:paddingStart">14dp</item>
+        <item name="android:paddingEnd">14dp</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="table_dic_content_dark">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">#64B5F6</item>
+        <item name="android:fontFamily">@font/open_sans_bold</item>
+        <item name="android:foreground">@drawable/table_square_transparent_white</item>
+        <item name="android:padding">4dp</item>
+        <item name="android:paddingStart">14dp</item>
+        <item name="android:paddingEnd">14dp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+
+
 </resources>

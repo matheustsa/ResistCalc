@@ -1,25 +1,28 @@
 package com.mtsa.resistcalc
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.os.Bundle
 import android.widget.TableLayout
 import android.widget.TableRow
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import com.mtsa.fragments.FragDICAnalise
+import com.mtsa.fragments.FragDICGraficos
+import com.mtsa.fragments.FragDICResumo
 import com.mtsa.resistcalc.databinding.ActDicResultadoAmostrasBinding
 import com.mtsa.resistcalc.databinding.ActDicResultadoBinding
+import com.mtsa.resistcalc.databinding.FragDicGraficosBinding
 import com.mtsa.utils.Utils
 import com.mtsa.utils.ViewPagerFragmentAdapter
+import kotlinx.android.synthetic.main.frag_dic__analise.view.*
 import org.apache.commons.math3.distribution.FDistribution
 import kotlin.math.pow
 
 
-class DICResultado2 : AppCompatActivity(), FragDICAnalise.FragmentInterface {
-
-    private lateinit var dic: DIC
-    private lateinit var dic2: DIC2
-
+class DICResultado2 : AppCompatActivity(), FragDICAnalise.FragmentInterface, FragDICResumo.FragmentInterface, FragDICGraficos.FragmentInterface {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,29 +33,21 @@ class DICResultado2 : AppCompatActivity(), FragDICAnalise.FragmentInterface {
         val adapter = ViewPagerFragmentAdapter(supportFragmentManager)
         b.viewPager.adapter = adapter
         b.tabLayout.setupWithViewPager(b.viewPager)
-
-//        val bundle = Bundle()
-//        bundle.putString("text", "From Activity")
-//        val fragobj = FragDICAnalise()
-//        fragobj.arguments = bundle
-//        supportFragmentManager.beginTransaction()
-//            .replace(b.viewPager.fraga_txv.id, FragDICAnalise())
-//            .commit()
-
-
-        dic = intent.getSerializableExtra("DIC") as DIC
-        dic2 = DIC2(dic.k, dic.n, dic.alfa, dic.lista)
-
-//        calcularDIC()
     }
 
-    override fun fragmentInterface(s: String?) {
+    override fun sendToActivity(s: String?) {
         // Código que interague com outros componentes, inclusive Fragments
         println("onItemSelected() -> $s")
     }
 
-    fun getValues(): DIC2 {
-        return dic2
+    override fun getFromActivity(): String {
+        return "-------------------------- MESSAGE FROM ACTIVITY"
+    }
+
+    // AS INTERFACES DOS 3 FRAGMENTOS TEM ESSE MESMO MÉTODO IDÊNTICO
+    // SERÁ QUE ISSO FUNCIONA PARA OS 3??
+    override fun getDICFromActivity(): DIC2 {
+        return intent.getSerializableExtra("DIC") as DIC2
     }
 
     @SuppressLint("SetTextI18n")
@@ -132,7 +127,7 @@ class DICResultado2 : AppCompatActivity(), FragDICAnalise.FragmentInterface {
         val a = getListValuesAsStrings(media)
 
         b.txvAmostrasTitulo?.text = "Média:\nDesvio Padrão:\nVariância:"
-        b.txvAmostrasValor?.text = getListValuesAsStrings(media) + "\n" + getListValuesAsStrings(desvioPadrao) + "\n" + getListValuesAsStrings(variancia)
+        b.txvAmostrasValor1?.text = getListValuesAsStrings(media) + "\n" + getListValuesAsStrings(desvioPadrao) + "\n" + getListValuesAsStrings(variancia)
 
 //        val buttonLayoutParams: LinearLayout.LayoutParams =
 //            LinearLayout.LayoutParams(TableLayout.LayoutParams.WRAP_CONTENT, TableLayout.LayoutParams.WRAP_CONTENT)

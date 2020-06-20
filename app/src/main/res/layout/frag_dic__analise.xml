@@ -1,26 +1,282 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/fragAnalise"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context="com.mtsa.fragments.FragDICAnalise">
 
-    <!-- TODO: Update blank fragment layout -->
-    <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+    <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <TextView
-                android:id="@+id/fraga_txv"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Amostras" />
-
-        <Button
-                android:id="@+id/fraga_bt"
+        <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Amostras" />
-    </LinearLayout>
+                android:layout_height="match_parent">
 
+
+            <ImageView
+                    android:id="@+id/imageView6"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:alpha="0.1"
+                    android:scaleType="centerCrop"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:srcCompat="@drawable/bg_city" />
+
+            <TableLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:showDividers="middle|beginning|end"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:foreground="@drawable/table_square_transparent_white">
+
+                    <TextView
+                            android:id="@+id/textView14"
+                            style="@style/table_dic_title"
+                            android:layout_span="7"
+                            android:text="Delineamento Inteiramente Casualizado (DIC)"
+                            android:textAllCaps="false" />
+                </TableRow>
+
+                <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:foreground="@drawable/table_square_transparent_white">
+
+                    <TextView
+                            android:id="@+id/textView19"
+                            style="@style/table_dic_header_light"
+                            android:text="Fonte da Variação" />
+
+                    <TextView
+                            android:id="@+id/textView33"
+                            style="@style/table_dic_content_light"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="SQ" />
+
+                    <TextView
+                            android:id="@+id/textView37"
+                            style="@style/table_dic_content_light"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="gl" />
+
+                    <TextView
+                            android:id="@+id/textView38"
+                            style="@style/table_dic_content_light"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="#90CAF9"
+
+                            android:fontFamily="@font/open_sans_light"
+                            android:foreground="@drawable/table_square_transparent_white"
+                            android:padding="4dp"
+                            android:paddingStart="14dp"
+                            android:paddingEnd="14dp"
+                            android:text="QM"
+                            android:textAlignment="center"
+                            android:textColor="#FFFFFF"
+                            android:textStyle="bold" />
+
+                    <TextView
+                            android:id="@+id/textView39"
+                            style="@style/table_dic_content_light"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="F Calculado" />
+
+                    <TextView
+                            android:id="@+id/textView40"
+                            style="@style/table_dic_content_light"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="F Crítico" />
+
+                    <TextView
+                            android:id="@+id/textView41"
+                            style="@style/table_dic_content_light"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Julgamento" />
+                </TableRow>
+
+                <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:foreground="@drawable/table_square_transparent_white">
+
+                    <TextView
+                            android:id="@+id/textView24"
+                            style="@style/table_dic_header_dark"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Dentro dos grupos" />
+
+                    <TextView
+                            android:id="@+id/SQDentro"
+                            style="@style/table_dic_content_dark"
+                            android:text="63,4453" />
+
+                    <TextView
+                            android:id="@+id/glDentro"
+                            style="@style/table_dic_content_dark"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="5" />
+
+                    <TextView
+                            android:id="@+id/QMDentro"
+                            style="@style/table_dic_content_dark"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="12,6890" />
+
+                    <TextView
+                            android:id="@+id/Fcalc"
+                            style="@style/table_dic_content_dark"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="27,07006" />
+
+                    <TextView
+                            android:id="@+id/Fcrit"
+                            style="@style/table_dic_content_dark"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2,38606" />
+
+                    <TextView
+                            android:id="@+id/julgamento"
+                            style="@style/table_dic_content_dark"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Rejeita-se H0" />
+                </TableRow>
+
+                <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:foreground="@drawable/table_square_transparent_white">
+
+                    <TextView
+                            android:id="@+id/textView28"
+                            style="@style/table_dic_header_light"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Entre os grupos" />
+
+                    <TextView
+                            android:id="@+id/SQEntre"
+                            style="@style/table_dic_content_light"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="18548,676" />
+
+                    <TextView
+                            android:id="@+id/glEntre"
+                            style="@style/table_dic_content_light"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="54" />
+
+                    <TextView
+                            android:id="@+id/QMEntre"
+                            style="@style/table_dic_content_light"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="343,494" />
+
+                    <TextView
+                            android:id="@+id/textView42"
+                            style="@style/table_dic_content_light"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                    <TextView
+                            android:id="@+id/textView43"
+                            style="@style/table_dic_content_light"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                    <TextView
+                            android:id="@+id/textView45"
+                            style="@style/table_dic_content_light"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                </TableRow>
+
+                <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#64B5F6"
+                        android:foreground="@drawable/table_square_transparent_white">
+
+                    <TextView
+                            android:id="@+id/textView30"
+                            style="@style/table_dic_header_dark"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Total" />
+
+                    <TextView
+                            android:id="@+id/SQTotal"
+                            style="@style/table_dic_content_dark"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="18612,1214" />
+
+                    <TextView
+                            android:id="@+id/glTotal"
+                            style="@style/table_dic_content_dark"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="59" />
+
+                    <TextView
+                            android:id="@+id/textView50"
+                            style="@style/table_dic_content_dark"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="alfa" />
+
+                    <TextView
+                            android:id="@+id/alfa"
+                            style="@style/table_dic_content_dark"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0,05" />
+                </TableRow>
+
+                <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:foreground="@drawable/table_square_transparent_white">
+
+                    <TextView
+                            android:id="@+id/textView31"
+                            style="@style/table_dic_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_span="7"
+                            android:text='Se o "F Calculado" for maior que o "F Crítico", então rejeita-se H0' />
+                </TableRow>
+            </TableLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </HorizontalScrollView>
 </FrameLayout>
