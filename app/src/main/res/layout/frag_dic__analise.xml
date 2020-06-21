@@ -8,7 +8,8 @@
 
     <HorizontalScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:fillViewport="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="wrap_content"
@@ -46,7 +47,7 @@
                             android:id="@+id/textView14"
                             style="@style/table_dic_title"
                             android:layout_marginBottom="1dp"
-                            android:layout_span="7"
+                            android:layout_span="6"
                             android:text="Delineamento Inteiramente Casualizado (DIC)"
                             android:textAllCaps="false" />
                 </TableRow>
@@ -80,23 +81,14 @@
                             style="@style/table_dic_content_light"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:background="#90CAF9"
-
-                            android:fontFamily="@font/open_sans_light"
-                            android:foreground="@drawable/table_square_transparent_white"
-                            android:padding="4dp"
-                            android:paddingStart="14dp"
-                            android:paddingEnd="14dp"
-                            android:text="QM"
-                            android:textAlignment="center"
-                            android:textColor="#FFFFFF"
-                            android:textStyle="bold" />
+                            android:text="QM" />
 
                     <TextView
                             android:id="@+id/textView39"
                             style="@style/table_dic_content_light"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginStart="2dp"
                             android:text="F Calculado" />
 
                     <TextView
@@ -106,12 +98,6 @@
                             android:layout_height="wrap_content"
                             android:text="F Crítico" />
 
-                    <TextView
-                            android:id="@+id/textView41"
-                            style="@style/table_dic_content_light"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Julgamento" />
                 </TableRow>
 
                 <TableRow
@@ -150,6 +136,7 @@
                             style="@style/table_dic_content_dark"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginStart="2dp"
                             android:text="27,07006" />
 
                     <TextView
@@ -159,12 +146,6 @@
                             android:layout_height="wrap_content"
                             android:text="2,38606" />
 
-                    <TextView
-                            android:id="@+id/julgamento"
-                            style="@style/table_dic_content_dark"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Rejeita-se H0" />
                 </TableRow>
 
                 <TableRow
@@ -201,18 +182,19 @@
                             android:text="343,494" />
 
                     <TextView
-                            android:id="@+id/textView42"
+                            android:id="@+id/textView41"
                             style="@style/table_dic_content_light"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_span="3" />
+                            android:layout_marginStart="2dp"
+                            android:layout_span="2"
+                            android:text="Julgamento" />
 
                 </TableRow>
 
                 <TableRow
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="#64B5F6"
                         android:foreground="@drawable/table_square_transparent_white">
 
                     <TextView
@@ -236,6 +218,21 @@
                             android:layout_height="wrap_content"
                             android:text="59" />
 
+                    <TextView
+                            android:id="@+id/textView15"
+                            style="@style/table_dic_content_dark"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                    <TextView
+                            android:id="@+id/julgamento"
+                            style="@style/table_dic_content_dark"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="2dp"
+                            android:layout_span="2"
+                            android:text="Rejeita-se H0" />
+
                 </TableRow>
 
                 <TableRow
@@ -245,31 +242,31 @@
 
                     <TextView
                             android:id="@+id/textView9"
+                            style="@style/table_dic_content_light"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="k"
-                            style="@style/table_dic_content_light" />
+                            android:text="k" />
 
                     <TextView
                             android:id="@+id/k"
+                            style="@style/table_dic_content_light"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="6"
-                            style="@style/table_dic_content_light" />
+                            android:text="6" />
 
                     <TextView
                             android:id="@+id/textView18"
+                            style="@style/table_dic_content_light"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="n"
-                            style="@style/table_dic_content_light" />
+                            android:text="n" />
 
                     <TextView
                             android:id="@+id/n"
+                            style="@style/table_dic_content_light"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="10"
-                            style="@style/table_dic_content_light" />
+                            android:text="10" />
 
                     <TextView
                             android:id="@+id/textView50"
@@ -298,7 +295,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="1dp"
-                            android:layout_span="7"
+                            android:layout_span="6"
                             android:text='Se o "F Calculado" for maior que o "F Crítico", então rejeita-se H0' />
                 </TableRow>
             </TableLayout>

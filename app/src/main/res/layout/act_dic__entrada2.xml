@@ -66,8 +66,8 @@
                 android:id="@+id/actDIC_edtxEntrada"
                 style="@style/entrada_fbk_fpk_dic"
                 android:layout_marginTop="16dp"
+                android:fontFamily="@font/open_sans_light"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.495"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/actDIC_txvValores" />
 

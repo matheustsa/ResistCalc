@@ -43,10 +43,12 @@
         <item name="android:hint">@string/fbk_example</item>
         <item name="android:lineSpacingExtra">6sp</item>
         <item name="android:layout_gravity">center</item>
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">14sp</item>
         <item name="android:textAlignment">textStart</item>
         <item name="android:background">@drawable/bg__input_entrada_2</item>
         <item name="android:textColorHint">@color/darker_gray</item>
+        <item name="android:fontFamily">@font/open_sans_light</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
     <!-- Description style -->

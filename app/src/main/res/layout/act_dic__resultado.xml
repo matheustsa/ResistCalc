@@ -11,13 +11,15 @@
             android:id="@+id/tabLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:alpha="0.8"
             app:tabGravity="fill"
             app:tabIndicator="@android:drawable/dialog_holo_light_frame"
-            app:tabIndicatorColor="#FF9800"
+            app:tabIndicatorColor="#42A5F5"
             app:tabIndicatorGravity="stretch"
             app:tabIndicatorHeight="8dp"
+            app:tabInlineLabel="true"
             app:tabSelectedTextColor="#FFFFFF"
-            app:tabTextColor="#FF9800" />
+            app:tabTextColor="#42A5F5" />
 
     <androidx.viewpager.widget.ViewPager
             android:id="@+id/viewPager"

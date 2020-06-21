@@ -1,25 +1,18 @@
 package com.mtsa.resistcalc
 
-import android.annotation.SuppressLint
-import android.content.Context
+import android.graphics.Typeface
 import android.os.Bundle
-import android.widget.TableLayout
-import android.widget.TableRow
+import android.view.View
+import android.view.ViewGroup
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
+import androidx.core.content.res.ResourcesCompat
+import com.google.android.material.tabs.TabLayout
 import com.mtsa.fragments.FragDICAnalise
 import com.mtsa.fragments.FragDICGraficos
 import com.mtsa.fragments.FragDICResumo
-import com.mtsa.resistcalc.databinding.ActDicResultadoAmostrasBinding
 import com.mtsa.resistcalc.databinding.ActDicResultadoBinding
-import com.mtsa.resistcalc.databinding.FragDicGraficosBinding
-import com.mtsa.utils.Utils
 import com.mtsa.utils.ViewPagerFragmentAdapter
-import kotlinx.android.synthetic.main.frag_dic__analise.view.*
-import org.apache.commons.math3.distribution.FDistribution
-import kotlin.math.pow
 
 
 class DICResultado2 : AppCompatActivity(), FragDICResumo.FragmentInterface, FragDICAnalise.FragmentInterface, FragDICGraficos.FragmentInterface {
@@ -33,6 +26,7 @@ class DICResultado2 : AppCompatActivity(), FragDICResumo.FragmentInterface, Frag
         val adapter = ViewPagerFragmentAdapter(supportFragmentManager)
         b.viewPager.adapter = adapter
         b.tabLayout.setupWithViewPager(b.viewPager)
+        setCustomFont(b.tabLayout)
     }
 
     override fun sendToActivity(s: String?) {
@@ -48,5 +42,22 @@ class DICResultado2 : AppCompatActivity(), FragDICResumo.FragmentInterface, Frag
     // SERÁ QUE ISSO FUNCIONA PARA OS 3??
     override fun getDICFromActivity(): DIC2 {
         return intent.getSerializableExtra("DIC") as DIC2
+    }
+
+    private fun setCustomFont(tabLayout: TabLayout) {
+        val vg = tabLayout.getChildAt(0) as ViewGroup
+        val tabsCount = vg.childCount
+        for (j in 0 until tabsCount) {
+            val vgTab = vg.getChildAt(j) as ViewGroup
+            val tabChildsCount = vgTab.childCount
+            for (i in 0 until tabChildsCount) {
+                val tabViewChild: View = vgTab.getChildAt(i)
+                if (tabViewChild is TextView) {
+                    //Put your font in assests folder
+                    //assign name of the font here (Must be case sensitive)
+                    tabViewChild.typeface = ResourcesCompat.getFont(applicationContext, R.font.open_sans_bold)
+                }
+            }
+        }
     }
 }
