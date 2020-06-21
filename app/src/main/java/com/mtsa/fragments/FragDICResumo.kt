@@ -94,6 +94,7 @@ class FragDICResumo : Fragment() {
                     txvMG.text = "${dic.mediaGlobal}"
                     binding.trMediaGlobal.addView(txvMG)
                 }
+                /*
                 1 -> {
                     val txvK = TextView(context)
                     txvK.text = "k"
@@ -115,6 +116,7 @@ class FragDICResumo : Fragment() {
                     binding.trMediaGlobal.addView(txvN)
                 }
 
+                 */
             }
         }
 

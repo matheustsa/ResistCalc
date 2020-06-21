@@ -45,6 +45,7 @@
                     <TextView
                             android:id="@+id/textView14"
                             style="@style/table_dic_title"
+                            android:layout_marginBottom="1dp"
                             android:layout_span="7"
                             android:text="Delineamento Inteiramente Casualizado (DIC)"
                             android:textAllCaps="false" />
@@ -203,19 +204,8 @@
                             android:id="@+id/textView42"
                             style="@style/table_dic_content_light"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
-
-                    <TextView
-                            android:id="@+id/textView43"
-                            style="@style/table_dic_content_light"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
-
-                    <TextView
-                            android:id="@+id/textView45"
-                            style="@style/table_dic_content_light"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
+                            android:layout_height="wrap_content"
+                            android:layout_span="3" />
 
                 </TableRow>
 
@@ -246,18 +236,54 @@
                             android:layout_height="wrap_content"
                             android:text="59" />
 
+                </TableRow>
+
+                <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="1dp">
+
+                    <TextView
+                            android:id="@+id/textView9"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="k"
+                            style="@style/table_dic_content_light" />
+
+                    <TextView
+                            android:id="@+id/k"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="6"
+                            style="@style/table_dic_content_light" />
+
+                    <TextView
+                            android:id="@+id/textView18"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="n"
+                            style="@style/table_dic_content_light" />
+
+                    <TextView
+                            android:id="@+id/n"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="10"
+                            style="@style/table_dic_content_light" />
+
                     <TextView
                             android:id="@+id/textView50"
-                            style="@style/table_dic_content_dark"
+                            style="@style/table_dic_content_light"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="alfa" />
 
                     <TextView
                             android:id="@+id/alfa"
-                            style="@style/table_dic_content_dark"
+                            style="@style/table_dic_content_light"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_span="2"
                             android:text="0,05" />
                 </TableRow>
 
@@ -271,6 +297,7 @@
                             style="@style/table_dic_title"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="1dp"
                             android:layout_span="7"
                             android:text='Se o "F Calculado" for maior que o "F Crítico", então rejeita-se H0' />
                 </TableRow>

@@ -1,11 +1,7 @@
 package com.mtsa.utils
 
-import android.content.Context
-import androidx.core.content.ContextCompat
-import com.mtsa.resistcalc.R
 import java.text.DecimalFormat
 import java.text.DecimalFormatSymbols
-import kotlin.coroutines.coroutineContext
 import kotlin.math.pow
 import kotlin.math.sqrt
 
@@ -111,21 +107,23 @@ object Utils {
      */
     class CustomException(message: String) : Exception(message)
 
-    /*
-    /**
-     * Thread Safe Active
-     * to remove it just delete "(LazyThreadSafetyMode.NONE)"
-     */
-    fun <T : View> Activity.bind(@IdRes res : Int) : Lazy<T> {
-        @Suppress("UNCHECKED_CAST")
-        return lazy(LazyThreadSafetyMode.NONE){ findViewById(res) }
+    fun listaExemplo(op: String): List<List<Double>> {
+
+        // TODO: 21/06/2020 CONERTAR ISSO DENTRO DA ENTRADA
+        when (op) {
+//            "fbk" -> return "12,4; 12,4; 12,4; 12,6; 13,5; 13,5; 13,9; 14,2; 14,2; 15,1; 15,4; 16,2; 16,4; 17,4"
+//            "fpk" -> return "12,4; 12,4; 12,6; 13,5; 15,4; 16,4; 17,4"
+
+            "dic" -> return listOf(
+                listOf(20.4, 22.6, 23.4, 24.6, 22.4, 22.6, 34.6, 25.6, 26.1, 29.2),
+                listOf(18.6, 18.9, 19.6, 19.2, 20.4, 24.6, 23.1, 22.1, 18.5, 19.1),
+                listOf(18.6, 18.9, 19.6, 22.4, 22.6, 26.4, 27.4, 26.4, 26.4, 22.4),
+                listOf(17.5, 18.5, 16.2, 14.3, 18.9, 19.6, 14.6, 22.5, 21.3, 19.5),
+                listOf(21.4, 21.8, 22.6, 22.4, 22.6, 34.6, 26.8, 24.6, 24.6, 24.5),
+                listOf(22.4, 22.6, 34.6, 24.6, 22.6, 23.6, 18.6, 18.9, 19.6, 24.6)
+            )
+
+            else -> throw CustomException("OPERAÇÃO NÃO RECONHECIDA")
+        }
     }
-    /**
-     * For custom Views
-     */
-    fun <T : View> View.bind(@IdRes res : Int) : Lazy<T> {
-        @Suppress("UNCHECKED_CAST")
-        return lazy(LazyThreadSafetyMode.NONE){ findViewById(res) }
-    }
-     */
 }

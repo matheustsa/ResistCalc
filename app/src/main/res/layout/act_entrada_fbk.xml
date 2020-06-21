@@ -13,14 +13,11 @@
 
     <ImageView
             android:id="@+id/imageView5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:alpha="0.3"
-            android:scaleType="centerCrop"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:srcCompat="@drawable/bg_city" />
+            app:srcCompat="@drawable/bg_city"
+            style="@style/image_background" />
 
     <TextView
             android:id="@+id/textView1"
@@ -55,11 +52,7 @@
 
     <EditText
             android:id="@+id/actENTRY_edtxEntradas_fbk"
-            style="@style/FBKP_FPK_edtxEntradas"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bg__input_entrada_2"
-            android:textColorHint="@color/darker_gray"
+            style="@style/entrada_fbk_fpk_dic"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView2" />
@@ -84,14 +77,9 @@
 
     <Button
             android:id="@+id/actENTRY_btExemplo_fbk"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="65dp"
-            android:layout_height="65dp"
+            style="@style/entrada_exemplo"
             android:layout_weight="2"
-            android:alpha="0.7"
-            android:background="@drawable/circle_gray"
             android:text="@string/interrogacao"
-            android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="@+id/actENTRY_btCalcular_fbk"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.20"

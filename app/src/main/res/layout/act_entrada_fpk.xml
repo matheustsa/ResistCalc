@@ -54,7 +54,7 @@
 
     <EditText
             android:id="@+id/actENTRY_edtxEntradas_fpk"
-            style="@style/FBKP_FPK_edtxEntradas"
+            style="@style/entrada_fbk_fpk_dic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/bg__input_entrada_2"

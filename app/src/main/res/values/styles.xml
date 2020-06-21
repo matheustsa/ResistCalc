@@ -32,7 +32,7 @@
     </style>
     
     <!-- Multiline EditText style -->
-    <style name="FBKP_FPK_edtxEntradas">
+    <style name="entrada_fbk_fpk_dic">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:inputType">textMultiLine|textNoSuggestions|number</item>
@@ -45,6 +45,8 @@
         <item name="android:layout_gravity">center</item>
         <item name="android:textSize">16sp</item>
         <item name="android:textAlignment">textStart</item>
+        <item name="android:background">@drawable/bg__input_entrada_2</item>
+        <item name="android:textColorHint">@color/darker_gray</item>
     </style>
 
     <!-- Description style -->
@@ -152,7 +154,6 @@
     <style name="table_dic_title">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_margin">1dp</item>
         <item name="android:background">#64B5F6</item>
         <item name="android:fontFamily">@font/open_sans_bold</item>
         <item name="android:foreground">@drawable/table_square_transparent_white</item>
@@ -217,6 +218,95 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="dic_entrada_k_n_alfa">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/open_sans_light</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="dic_entrada_valor_k_n_alfa">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:ems">3</item>
+        <item name="android:fontFamily">@font/open_sans_bold</item>
+        <item name="android:inputType">numberSigned|number|numberDecimal</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="dic_entrada_layout">
+        <item name="android:layout_width">300dp</item>
+        <item name="android:layout_height">120dp</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:alpha">0.8</item>
+        <item name="android:background">@drawable/bg__input_entrada_2</item>
+        <item name="android:gravity">center</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="entrada_exemplo" parent="Widget.AppCompat.Button.Colored">
+        <item name="android:layout_width">65dp</item>
+        <item name="android:layout_height">65dp</item>
+        <item name="android:alpha">0.7</item>
+        <item name="android:background">@drawable/circle_gray</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="image_background">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:alpha">0.3</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+
+    <style name="dic_entrada_title">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:fontFamily">@font/open_sans_bold</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Large</item>
+        <item name="android:textColor">#42A5F5</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="dic_entrada_subtitle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:fontFamily">@font/open_sans_bold</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Large</item>
+        <item name="android:textColor">#2196F3</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="dic_entrada_description">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:fontFamily">@font/open_sans_light</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Medium</item>
+    </style>
+
+    <style name="dic_entrada_layout_title">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+    </style>
+
+    <style name="dic_entrada_bt_avancar">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:layout_width">200dp</item>
+        <item name="android:layout_height">65dp</item>
+        <item name="android:layout_marginEnd">8dp</item>
+        <item name="android:alpha">0.8</item>
+        <item name="android:background">@drawable/square_yellow</item>
+        <item name="android:textSize">18sp</item>
+    </style>
 
 
 </resources>

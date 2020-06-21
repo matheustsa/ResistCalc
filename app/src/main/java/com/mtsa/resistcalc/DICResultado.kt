@@ -23,7 +23,6 @@ class DICResultado : AppCompatActivity() {
         setContentView(R.layout.act_dic__resultado)
 
 
-
 //        calcularDIC()
     }
 

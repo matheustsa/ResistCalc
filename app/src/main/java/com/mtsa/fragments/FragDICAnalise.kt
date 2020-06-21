@@ -75,6 +75,8 @@ class FragDICAnalise : Fragment(), View.OnClickListener {
         binding.Fcalc.text = dic.F_Calculado.toString()
         binding.Fcrit.text = dic.F_Critico.toString()
 
+        binding.k.text = dic.k.toString()
+        binding.n.text = dic.n.toString()
         binding.alfa.text = dic.alfa.toString()
 
         binding.julgamento.text = dic.julgamento

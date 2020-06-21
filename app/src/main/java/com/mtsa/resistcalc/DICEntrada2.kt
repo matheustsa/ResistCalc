@@ -19,11 +19,11 @@ class DICEntrada2 : AppCompatActivity(), View.OnClickListener {
     private val btCalcular : Button by lazy { findViewById<Button>(R.id.actDIC_btCalcular) }
     private val txvValores : TextView by lazy { findViewById<TextView>(R.id.actDIC_txvValores) }
 
-    private var _K : Int = 0
-    private var _N : Int = 0
-    private var _ALFA : Float = 0f
+    private var k : Int = 0
+    private var n : Int = 0
+    private var alfa : Float = 0f
     
-    private val LISTA: MutableList<List<Double>> = mutableListOf()
+    private val lista: MutableList<List<Double>> = mutableListOf()
 
     private var count : Int = 1
 
@@ -38,14 +38,14 @@ class DICEntrada2 : AppCompatActivity(), View.OnClickListener {
         when (v) {
             btAdicionar -> {
                 val entrada = getValues(edtxEntrada.text.toString())
-                if (entrada.count() == _N) {
+                if (entrada.count() == n) {
                     alert("Você digitou: ${entrada}.\n\nTodos os valores estão corretos?") {
                         title = "Só confirmando..."
                         positiveButton("Está correto") { addValues(entrada) }
                         negativeButton("Preciso corrigir") {}
                     }.show()
                 } else {
-                    alert("Você digitou ${entrada.count()} valores! Seu tratamento precisa ter exatamente $_N elementos.") {
+                    alert("Você digitou ${entrada.count()} valores! Seu tratamento precisa ter exatamente $n elementos.") {
                         title = "ERRO!"
                         positiveButton("CORRIGIR") {}
                     }.show()
@@ -75,35 +75,47 @@ class DICEntrada2 : AppCompatActivity(), View.OnClickListener {
 
     @SuppressLint("SetTextI18n")
     private fun addValues(entrada: List<Double>) {
-        LISTA.add(entrada)
-        txvValores.text = txvValores.text.toString() + "\n\nT${count} - $entrada"
+        lista.add(entrada)
+        if (count == 1)
+            txvValores.text = "T${count} - $entrada"
+        else
+            txvValores.text = txvValores.text.toString() + "\nT${count} - $entrada"
+
         edtxEntrada.text.clear()
         edtxEntrada.onEditorAction(EditorInfo.IME_ACTION_DONE)
 
         count++
+        println(count)
 
-        if (count > _K)
+        if (count > k) {
             btAdicionar.isEnabled = false
-        else
+            btAdicionar.visibility = View.GONE
+            btCalcular.visibility = View.VISIBLE
+            txvValoresParaT.text = "Tratamentos"
+            edtxEntrada.isEnabled = false
+            edtxEntrada.hint = "Amostras registradas com sucesso..\n\nClique em CALCULAR para prosseguir"
+        }
+        else {
             txvValoresParaT.text = "Valores para T${count}"
+        }
 
     }
 
     private fun calcular() {
-        val dic = DIC(_K, _N, _ALFA, LISTA.toList())
+        val dic = DIC2(k, n, alfa, lista.toList())
 
         println("k: ${dic.k}  -  n: ${dic.n}  -  alfa: ${dic.alfa}\n"
             + "${dic.lista}")
 
         startActivity(
-            Intent(this, DICResultado::class.java)
+            Intent(this, DICResultado2::class.java)
                 .putExtra("DIC", dic))
     }
 
     private fun initViews() {
-        _K = intent.getIntExtra("DIC_K", 0)
-        _N = intent.getIntExtra("DIC_N", 0)
-        _ALFA = intent.getFloatExtra("DIC_ALFA", 0f)
+        k = intent.getIntExtra("DIC_K", 0)
+        n = intent.getIntExtra("DIC_N", 0)
+        alfa = intent.getFloatExtra("DIC_ALFA", 0f)
 
         btAdicionar.setOnClickListener(this)
         btCalcular.setOnClickListener(this)
