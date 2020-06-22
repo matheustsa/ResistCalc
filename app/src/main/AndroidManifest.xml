@@ -13,8 +13,10 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".DICResultado2"
-                android:screenOrientation="landscape"></activity>
+        <activity android:name=".AboutMe"></activity>
+        <activity
+                android:name=".DICResultado2"
+                android:screenOrientation="landscape" />
         <activity android:name=".ResultadoFBK" />
         <activity android:name=".ResultadoFPK" />
         <activity android:name=".DICResultado" />
