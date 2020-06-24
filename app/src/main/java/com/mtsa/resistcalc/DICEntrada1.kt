@@ -8,7 +8,6 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import com.mtsa.utils.Utils
-import kotlinx.android.synthetic.main.act_dic__entrada1.*
 import org.jetbrains.anko.alert
 
 
@@ -19,13 +18,12 @@ import org.jetbrains.anko.alert
 */
 class DICEntrada1 : AppCompatActivity(), View.OnClickListener {
 
+    private val edtxK : EditText by lazy { findViewById<EditText>(R.id.edtxK) }
+    private val edtxN : EditText by lazy { findViewById<EditText>(R.id.edtxN) }
+    private val edtxALFA : EditText by lazy { findViewById<EditText>(R.id.edtxAlfa) }
 
-    private val edtxK : EditText by lazy { findViewById<EditText>(R.id.actADIC_edtxK) }
-    private val edtxN : EditText by lazy { findViewById<EditText>(R.id.actADIC_edtxN) }
-    private val edtxALFA : EditText by lazy { findViewById<EditText>(R.id.actADIC_edtxAlfa) }
-
-    private val btAvancar: Button by lazy { findViewById<Button>(R.id.actADIC_btAvancar) }
-    private val btExemplo: Button by lazy { findViewById<Button>(R.id.actADIC_btExemplo) }
+    private val btAvancar: Button by lazy { findViewById<Button>(R.id.btAvancar) }
+    private val btExemplo: Button by lazy { findViewById<Button>(R.id.btExemplo) }
 
     private var k : Int = 1
     private var n : Int = 1
@@ -55,7 +53,7 @@ class DICEntrada1 : AppCompatActivity(), View.OnClickListener {
 
         if (sK.isNullOrBlank() || sN.isNullOrBlank() || sALFA.isNullOrBlank())
             alert("Você precisa informar todos os campos antes de continuar") {
-                positiveButton("Vou crrigir"){}
+                positiveButton("Vou corrigir"){}
             }.show()
         else {
             k = sK.toString().toInt()
@@ -67,9 +65,9 @@ class DICEntrada1 : AppCompatActivity(), View.OnClickListener {
                 .putExtra("DIC_N", n)
                 .putExtra("DIC_ALFA", alfa))
         }
-
     }
 
+    /*
     private fun alertaCampoVazio(campo: Int) {
         alert(
             when (campo) {
@@ -82,21 +80,16 @@ class DICEntrada1 : AppCompatActivity(), View.OnClickListener {
             title = "Dados incompletos"
             positiveButton("Vou corrigir") {}
         }.show()
-
     }
+     */
 
     override fun onClick(v: View?) {
         when (v) {
-            actADIC_btAvancar -> getValues()
-
-            actADIC_btExemplo -> {
-                val lista = Utils.listaExemplo("dic")
-
-                val dic2 = DIC2(6, 10, 0.05F, lista)
-
-                startActivity(
-                    Intent(this, DICResultado2::class.java)
-                        .putExtra("DIC", dic2))
+            btAvancar -> getValues()
+            btExemplo -> {
+                startActivity(Intent(this, DICResultado2::class.java)
+                    .putExtra("DIC",
+                        DIC2(6, 10, 0.05F, Utils.listaExemplo("dic"))))
             }
         }
     }

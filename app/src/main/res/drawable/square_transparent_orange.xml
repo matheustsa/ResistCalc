@@ -11,6 +11,6 @@
     
     <stroke
             android:width="4dp"
-            android:color="@color/fbk_orange"
+            android:color="@color/fbk_primary"
     />
 </shape>

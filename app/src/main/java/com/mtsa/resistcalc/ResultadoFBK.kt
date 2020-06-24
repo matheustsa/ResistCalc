@@ -79,6 +79,7 @@ class ResultadoFBK : AppCompatActivity(), View.OnClickListener {
             1.02F,
             1.04F
         )
+        
         val menorLimite = if (n < 18)
             amostras[0] * tabela[n - 1]
         else

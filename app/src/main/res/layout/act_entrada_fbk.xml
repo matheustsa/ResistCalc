@@ -28,7 +28,7 @@
             android:text="@string/fbk_title"
             android:textAlignment="textStart"
             android:textAllCaps="false"
-            android:textColor="@color/fbk_orange"
+            android:textColor="@color/fbk_primary"
             android:textSize="32sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

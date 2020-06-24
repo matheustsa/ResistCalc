@@ -7,9 +7,9 @@
     <color name="fbk_main">#B22222</color>
     <color name="fbk_accent">#F00000</color>
 
-    <color name="fbk_orange">#FF7042</color>
-    <color name="fpk_green">#08A69E</color>
-    <color name="dic_yellow">#1E90FF</color>
+    <color name="fbk_primary">#FF7042</color>
+    <color name="fpk_primary">#08A69E</color>
+    <color name="dic_primary">#1E90FF</color>
     <color name="gray_darker">#4F4F4F</color>
     <color name="dic_blue_light">#90CAF9</color>
     <color name="dic_blue_dark">#64B5F6</color>

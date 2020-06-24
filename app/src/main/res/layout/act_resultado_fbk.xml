@@ -21,7 +21,7 @@
                 android:fontFamily="@font/open_sans_bold"
                 android:text="Amostras:"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-                android:textColor="@color/fbk_orange"
+                android:textColor="@color/fbk_primary"
                 android:textSize="40sp"
                 app:layout_constraintStart_toStartOf="@+id/actResFBK_txvAmostras"
                 app:layout_constraintTop_toTopOf="parent" />

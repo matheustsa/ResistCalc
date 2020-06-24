@@ -5,7 +5,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
-import org.jetbrains.anko.toast
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     
@@ -36,7 +35,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             actMain_btFBK -> startActivity(Intent(this, Entrada::class.java).putExtra("OP", "FBK"))
             actMain_btFPK -> startActivity(Intent(this, Entrada::class.java).putExtra("OP", "FPK"))
             actMain_btADIC -> startActivity(Intent(this, DICEntrada1::class.java))
-            actMain_btSobre -> startActivity(Intent(this, AboutMe::class.java))
+            actMain_btSobre -> startActivity(Intent(this, Sobre::class.java))
         }
     }
 }

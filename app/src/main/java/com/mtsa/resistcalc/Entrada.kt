@@ -61,7 +61,6 @@ class Entrada : AppCompatActivity(), View.OnClickListener {
 
         val lista = ArrayList<String>(entrada.trim().split(";", "\n").sorted())
         lista.removeAll(listOf("", null))
-        println(lista)
 
         val amostras = FloatArray(lista.count())
         for ((index, value) in lista.withIndex()) {

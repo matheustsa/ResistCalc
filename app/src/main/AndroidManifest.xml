@@ -13,7 +13,6 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".AboutMe"></activity>
         <activity
                 android:name=".DICResultado2"
                 android:screenOrientation="landscape" />
@@ -25,6 +24,7 @@
         <activity android:name=".DetalharFPK" />
         <activity android:name=".DetalharFBK" />
         <activity android:name=".Entrada" />
+        <activity android:name=".Sobre" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

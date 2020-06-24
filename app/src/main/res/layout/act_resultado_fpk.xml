@@ -31,7 +31,7 @@
                 android:fontFamily="@font/open_sans_bold"
                 android:text="Amostras:"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-                android:textColor="@color/fpk_green"
+                android:textColor="@color/fpk_primary"
                 android:textSize="40sp"
                 app:layout_constraintStart_toStartOf="@+id/actResFPK2_txvAmostras"
                 app:layout_constraintTop_toTopOf="parent" />
