@@ -51,37 +51,41 @@ class DICEntrada1 : AppCompatActivity(), View.OnClickListener {
         val sN = edtxN.text
         val sALFA = edtxALFA.text
 
+
         if (sK.isNullOrBlank() || sN.isNullOrBlank() || sALFA.isNullOrBlank())
             alert("Você precisa informar todos os campos antes de continuar") {
                 positiveButton("Vou corrigir"){}
             }.show()
         else {
-            k = sK.toString().toInt()
-            n = sN.toString().toInt()
-            alfa = sALFA.toString().toFloat()
+            val k = sK.toString().toInt()
+            val n = sN.toString().toInt()
+            val alfa = sALFA.toString().toFloat()
 
-            startActivity(Intent(this, DICEntrada2::class.java)
-                .putExtra("DIC_K", k)
-                .putExtra("DIC_N", n)
-                .putExtra("DIC_ALFA", alfa))
+            // TODO: 24/06/2020 testar se isso funciona
+            when {
+                k<2 -> alert("Você precisa de pelo menos 2 tratamentos (k) para um cálculo correto") {
+                    positiveButton("Vou corrigir"){}
+                }.show()
+
+                n<2 -> alert("Sua amostra deve ter pelo menos 2 repetições (n)") {
+                    positiveButton("Vou corrigir"){}
+                }.show()
+
+                alfa<0.05f -> alert("O nível de significância (alfa) mínimo é [0.05]") {
+                    positiveButton("Vou corrigir"){}
+                }.show()
+
+                else -> sendValues()
+            }
         }
     }
 
-    /*
-    private fun alertaCampoVazio(campo: Int) {
-        alert(
-            when (campo) {
-                1 -> "Você precisa informar a quantidade de tratamentos (k) no primeiro campo de texto"
-                2 -> "Você precisa informar a quantidade de repetições (n) no segundo campo de texto"
-                3 -> "Você precisa informar o nível de significância (alfa) no terceiro campo de texto"
-                else -> ""
-            }
-        ) {
-            title = "Dados incompletos"
-            positiveButton("Vou corrigir") {}
-        }.show()
+    private fun sendValues() {
+      startActivity(Intent(this, DICEntrada2::class.java)
+            .putExtra("DIC_K", edtxK.text.toString().toInt())
+            .putExtra("DIC_N", edtxN.text.toString().toInt())
+            .putExtra("DIC_ALFA", edtxALFA.text.toString().toFloat()))
     }
-     */
 
     override fun onClick(v: View?) {
         when (v) {

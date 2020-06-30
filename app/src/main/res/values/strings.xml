@@ -75,9 +75,8 @@
     <string name="interrogacao">\?</string>
     <string name="mpa">MPa</string>
     <string name="city_background">City background</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="sobre_mim">Estudante de Sistemas de Informação na Universidade Estadual do Tocantins (e se tudo der certo vou formar logo). \n\nApaixonado por jogos e qualquer coisa que envolva competição. Aspirante a desenvolvedor de jogos de RPG. Jogador de basquete e Jeepeiro nas horas vagas. \n\nAtualmenet trabalhando como desenvolvedor no setor público. \n\nSó quero ficar rico logo e comprar um iate.</string>
+    <string name="sobre_mim">Estudante de Sistemas de Informação na Universidade Estadual do Tocantins (e se tudo der certo vou formar logo). \n\nApaixonado por jogos e qualquer coisa que envolva competição. Aspirante à desenvolvedor de jogos de RPG. Jogador de basquete e Jipeiro nas horas vagas. \n\nAtualmente trabalhando como desenvolvedor no setor público. \n\nSó quero ficar rico logo e comprar um iate.</string>
 
 
 </resources>
