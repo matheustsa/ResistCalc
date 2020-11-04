@@ -310,5 +310,18 @@
         <item name="android:textSize">18sp</item>
     </style>
 
+    <style name="dic_spn_style">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginEnd">32dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:alpha">0.8</item>
+        <item name="android:dropDownWidth">match_parent</item>
+        <item name="android:entries">@array/dic_k_n</item>
+        <item name="android:minWidth">12dp</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:spinnerMode">dropdown</item>
+    </style>
+
 
 </resources>

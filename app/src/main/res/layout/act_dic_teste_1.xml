@@ -65,15 +65,16 @@
                         android:text="Quantidade de\nTratamentos (k)"
                         android:textAlignment="viewStart" />
 
+                <View
+                        android:id="@+id/divider"
+                        android:layout_width="3dp"
+                        android:layout_height="64dp"
+                        android:layout_weight="0"
+                        android:background="?android:attr/listDivider" />
+
                 <Spinner
                         android:id="@+id/spnK"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="32dp"
-                        android:layout_weight="1"
-                        android:entries="@array/dic_k_n"
-                        android:minWidth="12dp"
-                        android:padding="12dp" />
+                        style="@style/dic_spn_style" />
 
                 <EditText
                         android:id="@+id/edtxK"
@@ -83,32 +84,51 @@
 
             <LinearLayout
                     android:id="@+id/linearLayout3"
-                    style="@style/dic_entrada_layout">
+                    style="@style/dic_entrada_layout"
+                    android:paddingStart="36dp">
 
                 <TextView
                         android:id="@+id/textView10"
                         style="@style/dic_entrada_k_n_alfa"
                         android:text="Quantidade de\nRepetições (n)" />
 
-                <EditText
-                        android:id="@+id/edtxN"
-                        style="@style/dic_entrada_valor_k_n_alfa" />
+                <View
+                        android:id="@+id/divider2"
+                        android:layout_width="3dp"
+                        android:layout_height="64dp"
+                        android:layout_weight="0"
+                        android:background="?android:attr/listDivider" />
+
+                <Spinner
+                        android:id="@+id/spnN"
+                        style="@style/dic_spn_style" />
 
 
             </LinearLayout>
 
             <LinearLayout
                     android:id="@+id/linearLayout4"
-                    style="@style/dic_entrada_layout">
+                    style="@style/dic_entrada_layout"
+                    android:paddingStart="36dp">
 
                 <TextView
                         android:id="@+id/textView11"
                         style="@style/dic_entrada_k_n_alfa"
                         android:text="Nível de\nSignificância\n(alfa)" />
 
-                <EditText
-                        android:id="@+id/edtxAlfa"
-                        style="@style/dic_entrada_valor_k_n_alfa" />
+                <View
+                        android:id="@+id/divider3"
+                        android:layout_width="3dp"
+                        android:layout_height="64dp"
+                        android:layout_marginLeft="24dp"
+                        android:layout_weight="0"
+                        android:background="?android:attr/listDivider" />
+
+                <Spinner
+                        android:id="@+id/spnAlfa"
+                        style="@style/dic_spn_style"
+                        android:layout_marginEnd="24dp"
+                        android:entries="@array/dic_alfa" />
 
 
             </LinearLayout>
