@@ -306,7 +306,7 @@
         <item name="android:layout_height">65dp</item>
         <item name="android:layout_marginEnd">8dp</item>
         <item name="android:alpha">0.8</item>
-        <item name="android:background">@drawable/square_yellow</item>
+        <item name="android:background">@drawable/square_blue</item>
         <item name="android:textSize">18sp</item>
     </style>
 

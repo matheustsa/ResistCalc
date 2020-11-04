@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         when (v) {
             actMain_btFBK -> startActivity(Intent(this, Entrada::class.java).putExtra("OP", "FBK"))
             actMain_btFPK -> startActivity(Intent(this, Entrada::class.java).putExtra("OP", "FPK"))
-            actMain_btADIC -> startActivity(Intent(this, DICEntrada1::class.java))
+            actMain_btADIC -> startActivity(Intent(this, DICTeste1::class.java))
             actMain_btSobre -> startActivity(Intent(this, Sobre::class.java))
         }
     }

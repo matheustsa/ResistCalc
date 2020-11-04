@@ -8,7 +8,7 @@
             android:layout_width="300dp"
             android:layout_height="85dp"
             android:alpha="0.8"
-            android:background="@drawable/square_yellow"
+            android:background="@drawable/square_blue"
             android:gravity="center"
             android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"

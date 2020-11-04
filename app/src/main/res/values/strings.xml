@@ -78,5 +78,20 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="sobre_mim">Estudante de Sistemas de Informação na Universidade Estadual do Tocantins (e se tudo der certo vou formar logo). \n\nApaixonado por jogos e qualquer coisa que envolva competição. Aspirante à desenvolvedor de jogos de RPG. Jogador de basquete e Jipeiro nas horas vagas. \n\nAtualmente trabalhando como desenvolvedor no setor público. \n\nSó quero ficar rico logo e comprar um iate.</string>
 
+    <string-array name="dic_k_n">
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+    </string-array>
+
+    <string-array name="dic_alfa">
+        <item>0.05</item>
+        <item>0.1</item>
+        <item>0.5</item>
+        <item>1</item>
+    </string-array>
 
 </resources>
