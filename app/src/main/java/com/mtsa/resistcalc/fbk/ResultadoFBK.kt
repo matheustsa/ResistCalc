@@ -9,7 +9,6 @@ import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
 import com.mtsa.resistcalc.R
-import com.mtsa.utils.Utils.roundDec
 
 class ResultadoFBK : AppCompatActivity(), View.OnClickListener {
 
@@ -21,7 +20,7 @@ class ResultadoFBK : AppCompatActivity(), View.OnClickListener {
     private val btDetalhar: Button by lazy { findViewById<Button>(R.id.actResFBK_btDetalhar) }
 
     private lateinit var AMOSTRAS: FloatArray
-    private lateinit var FBK_CLASSE: FBK
+    private lateinit var FBK: FBK
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,12 +28,10 @@ class ResultadoFBK : AppCompatActivity(), View.OnClickListener {
         setContentView(R.layout.act_resultado_fbk)
 
         AMOSTRAS = intent.getFloatArrayExtra("AMOSTRAS")
-//        getFBK(AMOSTRAS)
-        FBK_CLASSE = FBK(AMOSTRAS)
+        FBK = FBK(AMOSTRAS)
 
         setListeners()
         setViews()
-
     }
 
     private fun setListeners() {
@@ -44,83 +41,13 @@ class ResultadoFBK : AppCompatActivity(), View.OnClickListener {
 
     @SuppressLint("SetTextI18n")
     private fun setViews(){
-        var sAmostras = ""
-        FBK_CLASSE.amostras.forEach { sAmostras += it.toString() + "\t\t" }
-        txvAmostras.text = "${sAmostras}\n\nQuantidade: ${FBK_CLASSE.sN} elementos"
-
-        txvFBK.text = FBK_CLASSE.sFbk
-        txvFBM.text = FBK_CLASSE.sFbm
-        txvResistLote.text = FBK_CLASSE.sResistencia
+        txvAmostras.text = "${FBK.sLista}\n\nQuantidade: ${FBK.sN} elementos"
+        txvFBK.text = FBK.sFbk
+        txvFBM.text = FBK.sFbm
+        txvResistLote.text = FBK.sResistencia
     }
 
     @SuppressLint("SetTextI18n")
-    private fun getFBK(amostras: FloatArray) {
-        // armazena a quantidade de amostras em “n”
-        val n = amostras.count()
-        // determina o valor de “i” dependendo da quantidade de amostras
-        // n/2, se for par;
-        // (n-1)/2, se for ímpar;
-        var i = if (n % 2 == 0) n / 2 else (n - 1) / 2
-
-        // como todos os valores utilizam o i-1, é mais prático já decremenatr agora
-        i--
-
-        // cria uma sublista do menor elemento da amostra, até a posição de "i" e soma todos esses valores
-        val soma = amostras.toList().subList(0, i).sum()
-        // "fbi" será o elemento na posição "i"
-        val fbi = amostras[i]
-
-        // nesta linha há o emprego da equação para obtenção da resistência à compressão estimada em blocos cerâmicos
-        val fbk = ((2 * soma) / i) - fbi
-
-        // o "fbm" é a média da resistência à compressão de todos os corpos-de-prova da amostra
-        val fbm = amostras.sum() / amostras.count()
-
-        // checa os valores de Ø em função da quantidade de blocos da amostra
-        val tabela = arrayOf(
-            0.89F,
-            0.89F,
-            0.89F,
-            0.89F,
-            0.89F,
-            0.89F,
-            0.91F,
-            0.93F,
-            0.94F,
-            0.96F,
-            0.97F,
-            0.98F,
-            0.99F,
-            1F,
-            1.01F,
-            1.02F,
-            1.02F,
-            1.04F
-        )
-        
-        val menorLimite = if (n < 18)
-            amostras[0] * tabela[n - 1]
-        else
-            amostras[0] * tabela.lastIndex
-
-        // verifica os requisítos para finalmente obter a resistência característica do lote (fbk)
-        val resistencia = when {
-            fbk >= fbm -> fbm
-            fbk < menorLimite -> menorLimite
-            else -> fbk
-        }
-
-        var sAmostras = ""
-        amostras.forEach { sAmostras += it.toString() + "\t\t" }
-        txvAmostras.text = sAmostras +
-                "\n\nQuantidade: $n elementos"
-
-
-        txvFBK.text = FBK_CLASSE.sFbk
-        txvFBM.text = FBK_CLASSE.sFbm
-        txvResistLote.text = FBK_CLASSE.sResistencia
-    }
-
     private fun shareResults() {
         val shareMsg = "-[ ResistCalc App ]-\n\n" +
                 "Os resultados obtidos foram:\n\n" +
@@ -143,7 +70,7 @@ class ResultadoFBK : AppCompatActivity(), View.OnClickListener {
         startActivity(
             Intent(this, DetalharFBK::class.java)
                 .putExtra("AMOSTRAS", amostras)
-                .putExtra("FBK", FBK_CLASSE))
+                .putExtra("FBK", FBK))
     }
 
     override fun onClick(v: View?) {

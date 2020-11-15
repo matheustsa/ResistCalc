@@ -65,6 +65,9 @@ class FBK (// Values as Strings
     }
 
     val sLista = lista.contentToString()
+        .replace(", ", "\t\t")
+        .replace("[","")
+        .replace("]","")
     val sN = n.toString()
     val sI = (i+1).toString()
     val sSoma = Utils.twoDec(soma)

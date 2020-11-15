@@ -16,6 +16,10 @@ object Utils {
         val df = DecimalFormat("#.##")
         return df.format(number)
     }
+    fun twoDec(number: Double): String? {
+        val df = DecimalFormat("#.##")
+        return df.format(number)
+    }
 
     fun roundDec(number: Double, decimals: Int): Double {
         var pattern = "#."
