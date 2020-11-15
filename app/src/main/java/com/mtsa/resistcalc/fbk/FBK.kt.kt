@@ -3,7 +3,9 @@ package com.mtsa.resistcalc.fbk
 import com.mtsa.utils.Utils
 import java.io.Serializable
 
-class FBK (amostras: FloatArray) : Serializable {
+class FBK (// Values as Strings
+    val amostras: FloatArray
+) : Serializable {
     
     val lista = amostras
     // armazena a quantidade de amostras em “n”
@@ -61,8 +63,7 @@ class FBK (amostras: FloatArray) : Serializable {
         fbk < menorLimite -> menorLimite
         else -> fbk
     }
-    
-    // Values as Strings
+
     val sLista = lista.contentToString()
     val sN = n.toString()
     val sI = (i+1).toString()

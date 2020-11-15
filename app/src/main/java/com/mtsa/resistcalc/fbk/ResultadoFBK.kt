@@ -29,11 +29,28 @@ class ResultadoFBK : AppCompatActivity(), View.OnClickListener {
         setContentView(R.layout.act_resultado_fbk)
 
         AMOSTRAS = intent.getFloatArrayExtra("AMOSTRAS")
-        getFBK(AMOSTRAS)
+//        getFBK(AMOSTRAS)
         FBK_CLASSE = FBK(AMOSTRAS)
 
+        setListeners()
+        setViews()
+
+    }
+
+    private fun setListeners() {
         btShare.setOnClickListener(this)
         btDetalhar.setOnClickListener(this)
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun setViews(){
+        var sAmostras = ""
+        FBK_CLASSE.amostras.forEach { sAmostras += it.toString() + "\t\t" }
+        txvAmostras.text = "${sAmostras}\n\nQuantidade: ${FBK_CLASSE.sN} elementos"
+
+        txvFBK.text = FBK_CLASSE.sFbk
+        txvFBM.text = FBK_CLASSE.sFbm
+        txvResistLote.text = FBK_CLASSE.sResistencia
     }
 
     @SuppressLint("SetTextI18n")
@@ -99,17 +116,18 @@ class ResultadoFBK : AppCompatActivity(), View.OnClickListener {
                 "\n\nQuantidade: $n elementos"
 
 
-//        txvFBM.text = roundDec(fbm.toDouble(),2).toString()
-//        txvFBK.text = roundDec(fbk.toDouble(), 2).toString()
         txvFBK.text = FBK_CLASSE.sFbk
-        txvFBM.text = roundDec(fbm.toDouble(),2).toString()
-        txvResistLote.text = resistencia.toString()
+        txvFBM.text = FBK_CLASSE.sFbm
+        txvResistLote.text = FBK_CLASSE.sResistencia
     }
 
     private fun shareResults() {
         val shareMsg = "-[ ResistCalc App ]-\n\n" +
                 "Os resultados obtidos foram:\n\n" +
                 txvAmostras.text.toString() +
+                "\n\nfbk,est: ${txvFBK.text} MPa" +
+                "\nfbm (resistência média): ${txvFBM.text} MPa" +
+                "\nResistência do lote: ${txvResistLote.text} MPa" +
                 "\n\nDownload via: \n" +
                 "https://play.google.com/store/apps/details?id=com.mtsa.resistcalc"
 
