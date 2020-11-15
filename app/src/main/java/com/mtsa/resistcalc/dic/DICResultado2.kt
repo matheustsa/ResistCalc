@@ -1,6 +1,5 @@
-package com.mtsa.resistcalc
+package com.mtsa.resistcalc.dic
 
-import android.graphics.Typeface
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +10,7 @@ import com.google.android.material.tabs.TabLayout
 import com.mtsa.fragments.FragDICAnalise
 import com.mtsa.fragments.FragDICGraficos
 import com.mtsa.fragments.FragDICResumo
+import com.mtsa.resistcalc.R
 import com.mtsa.resistcalc.databinding.ActDicResultadoBinding
 import com.mtsa.utils.ViewPagerFragmentAdapter
 
@@ -30,7 +30,7 @@ class DICResultado2 : AppCompatActivity(), FragDICResumo.FragmentInterface, Frag
     }
 
     override fun sendToActivity(s: String?) {
-        // Código que interague com outros componentes, inclusive Fragments
+        // Código que interage com outros componentes, inclusive Fragments
         println("onItemSelected() -> $s")
     }
 
@@ -55,7 +55,9 @@ class DICResultado2 : AppCompatActivity(), FragDICResumo.FragmentInterface, Frag
                 if (tabViewChild is TextView) {
                     //Put your font in assests folder
                     //assign name of the font here (Must be case sensitive)
-                    tabViewChild.typeface = ResourcesCompat.getFont(applicationContext, R.font.open_sans_bold)
+                    tabViewChild.typeface = ResourcesCompat.getFont(applicationContext,
+                        R.font.open_sans_bold
+                    )
                 }
             }
         }

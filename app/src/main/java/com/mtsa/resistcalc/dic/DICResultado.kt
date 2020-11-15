@@ -1,12 +1,10 @@
-package com.mtsa.resistcalc
+package com.mtsa.resistcalc.dic
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.mtsa.resistcalc.databinding.ActDicResultadoAmostrasBinding
-import com.mtsa.resistcalc.databinding.ActDicResultadoBinding
+import com.mtsa.resistcalc.R
 import com.mtsa.utils.Utils
 import org.apache.commons.math3.distribution.FDistribution
 import kotlin.math.pow
@@ -21,7 +19,6 @@ class DICResultado : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.act_dic__resultado)
-
 
 //        calcularDIC()
     }

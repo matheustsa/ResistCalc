@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import android.view.View
+import com.mtsa.resistcalc.dic.DICEntrada1
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
@@ -34,7 +35,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         when (v) {
             actMain_btFBK -> startActivity(Intent(this, Entrada::class.java).putExtra("OP", "FBK"))
             actMain_btFPK -> startActivity(Intent(this, Entrada::class.java).putExtra("OP", "FPK"))
-            actMain_btADIC -> startActivity(Intent(this, DICTeste1::class.java))
+            actMain_btADIC -> startActivity(Intent(this, DICEntrada1::class.java))
             actMain_btSobre -> startActivity(Intent(this, Sobre::class.java))
         }
     }

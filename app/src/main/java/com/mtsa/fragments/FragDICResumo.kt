@@ -2,9 +2,7 @@ package com.mtsa.fragments
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.content.res.AssetManager
 import android.graphics.Color
-import android.graphics.Typeface
 import android.os.Bundle
 import android.view.Gravity
 import android.view.LayoutInflater
@@ -14,12 +12,9 @@ import android.widget.TableRow
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import com.mtsa.resistcalc.DIC2
+import com.mtsa.resistcalc.dic.DIC2
 import com.mtsa.resistcalc.R
 import com.mtsa.resistcalc.databinding.FragDicResumoBinding
-import org.jetbrains.anko.custom.style
-import org.jetbrains.anko.firstChild
-import org.jetbrains.anko.internals.AnkoInternals.applyRecursively
 
 class FragDICResumo : Fragment() {
 

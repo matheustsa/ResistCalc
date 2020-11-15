@@ -1,4 +1,4 @@
-package com.mtsa.resistcalc
+package com.mtsa.resistcalc.dic
 
 import com.mtsa.utils.Utils
 import org.apache.commons.math3.distribution.FDistribution

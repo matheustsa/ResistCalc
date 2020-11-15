@@ -6,7 +6,7 @@
         android:layout_height="match_parent"
         android:background="@drawable/bg__gradient_gray"
         android:fillViewport="true"
-        tools:context=".DetalharFPK">
+        tools:context=".fpk.DetalharFPK">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout

@@ -1,4 +1,4 @@
-package com.mtsa.resistcalc
+package com.mtsa.resistcalc.fpk
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
+import com.mtsa.resistcalc.R
 import com.mtsa.utils.Utils
 import com.mtsa.utils.Utils.roundDec
 

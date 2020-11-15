@@ -1,4 +1,4 @@
-package com.mtsa.resistcalc
+package com.mtsa.resistcalc.dic
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -9,6 +9,7 @@ import android.view.inputmethod.EditorInfo
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import com.mtsa.resistcalc.R
 import org.jetbrains.anko.alert
 
 class DICEntrada2 : AppCompatActivity(), View.OnClickListener {
@@ -29,7 +30,7 @@ class DICEntrada2 : AppCompatActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.act_dic__entrada2)
+        setContentView(R.layout.act_dic__entrada_2)
 
         initViews()
     }

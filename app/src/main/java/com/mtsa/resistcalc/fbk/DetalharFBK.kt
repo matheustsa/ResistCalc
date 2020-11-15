@@ -1,9 +1,7 @@
-package com.mtsa.resistcalc
+package com.mtsa.resistcalc.fbk
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.text.BoringLayout
-import android.text.Html
 import androidx.appcompat.app.AppCompatActivity
 import android.view.View
 import android.view.animation.Animation
@@ -12,9 +10,8 @@ import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
+import com.mtsa.resistcalc.R
 import com.mtsa.utils.Utils
-import kotlinx.android.synthetic.main.act_detalhar_fbk2.*
-import kotlinx.android.synthetic.main.act_detalhar_fpk.*
 
 
 class DetalharFBK : AppCompatActivity(), View.OnClickListener {
@@ -63,7 +60,9 @@ class DetalharFBK : AppCompatActivity(), View.OnClickListener {
         FBK = intent.getSerializableExtra("FBK") as FBK
 
         // set text animation
-        fadeIn = AnimationUtils.loadAnimation(this, R.anim.fadein)
+        fadeIn = AnimationUtils.loadAnimation(this,
+            R.anim.fadein
+        )
 
         makeVisible(false, txvTitle, txvDescr, txvPassos, btPrev)
 
@@ -106,7 +105,10 @@ class DetalharFBK : AppCompatActivity(), View.OnClickListener {
                 txvDescr.text = getString(R.string.fbk_passo1_descr, FBK.sI)
             }
             2 -> {
-                changeText(fadeIn, R.string.fbk_passo2, R.string.fbk_passo2_descr)
+                changeText(fadeIn,
+                    R.string.fbk_passo2,
+                    R.string.fbk_passo2_descr
+                )
                 txvDescr.text = getString(R.string.fbk_passo2_descr, v1, v2 ,v3, FBK.sSoma, sSoma2)
             }
             3 -> {
@@ -128,7 +130,10 @@ class DetalharFBK : AppCompatActivity(), View.OnClickListener {
             }
             7 -> {
                 btNext.isEnabled = false
-                changeText(fadeIn, R.string.fbk_passo7, R.string.fbk_passo7_descr)
+                changeText(fadeIn,
+                    R.string.fbk_passo7,
+                    R.string.fbk_passo7_descr
+                )
 
             }
         }

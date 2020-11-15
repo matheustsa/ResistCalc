@@ -1,8 +1,7 @@
-package com.mtsa.resistcalc
+package com.mtsa.resistcalc.fpk
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
 import android.view.View
 import android.view.animation.Animation
@@ -10,6 +9,7 @@ import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
+import com.mtsa.resistcalc.R
 import kotlinx.android.synthetic.main.act_detalhar_fpk.*
 import kotlin.math.abs
 import kotlin.math.sqrt
@@ -61,7 +61,9 @@ class DetalharFPK : AppCompatActivity(), View.OnClickListener {
 
 //        slideFromLeft = AnimationUtils.loadAnimation(this, R.anim.slide_left_to_right)
 //        slideFromRight = AnimationUtils.loadAnimation(this, R.anim.slide_right_to_left)
-        fadeIn = AnimationUtils.loadAnimation(this, R.anim.fadein)
+        fadeIn = AnimationUtils.loadAnimation(this,
+            R.anim.fadein
+        )
 
 
 

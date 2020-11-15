@@ -1,8 +1,7 @@
-package com.mtsa.resistcalc
+package com.mtsa.resistcalc.fbk
 
 import com.mtsa.utils.Utils
 import java.io.Serializable
-import java.text.DecimalFormat
 
 class FBK (amostras: FloatArray) : Serializable {
     

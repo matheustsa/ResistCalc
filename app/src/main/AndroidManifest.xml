@@ -13,17 +13,16 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".DICTeste1"></activity>
+        <activity android:name=".dic.DICEntrada1" />
         <activity
-                android:name=".DICResultado2"
+                android:name=".dic.DICResultado2"
                 android:screenOrientation="landscape" />
-        <activity android:name=".ResultadoFBK" />
-        <activity android:name=".ResultadoFPK" />
-        <activity android:name=".DICResultado" />
-        <activity android:name=".DICEntrada2" />
-        <activity android:name=".DICEntrada1" />
-        <activity android:name=".DetalharFPK" />
-        <activity android:name=".DetalharFBK" />
+        <activity android:name=".fbk.ResultadoFBK" />
+        <activity android:name=".fpk.ResultadoFPK" />
+        <activity android:name=".dic.DICResultado" />
+        <activity android:name=".dic.DICEntrada2" />
+        <activity android:name=".fpk.DetalharFPK" />
+        <activity android:name=".fbk.DetalharFBK" />
         <activity android:name=".Entrada" />
         <activity android:name=".Sobre" />
         <activity android:name=".MainActivity">

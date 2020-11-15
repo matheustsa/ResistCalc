@@ -6,7 +6,8 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
-import com.mtsa.utils.Utils
+import com.mtsa.resistcalc.fbk.ResultadoFBK
+import com.mtsa.resistcalc.fpk.ResultadoFPK
 import org.jetbrains.anko.alert
 
 
@@ -77,21 +78,6 @@ class Entrada : AppCompatActivity(), View.OnClickListener {
 
         println(OPERATION)
         val input = edtxEntradas.text.toString()
-
-        /**
-        val activity = when (OPERATION) {
-            "FBK" -> ResultadoFBK::class
-            "FPK" -> ResultadoFPK::class
-            else -> Utils.CustomException("Can't Load Activity int ENTRADA.kt")
-        }
-
-        startActivity(
-            Intent(this, activity::class.java).putExtra(
-                "AMOSTRAS",
-                getValues(if (user_input) input else exemplo)
-            )
-        )
-        */
 
         when (OPERATION) {
             "FBK" -> {

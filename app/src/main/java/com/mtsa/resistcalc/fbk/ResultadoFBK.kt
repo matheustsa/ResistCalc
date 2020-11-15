@@ -1,4 +1,4 @@
-package com.mtsa.resistcalc
+package com.mtsa.resistcalc.fbk
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
+import com.mtsa.resistcalc.R
 import com.mtsa.utils.Utils.roundDec
 
 class ResultadoFBK : AppCompatActivity(), View.OnClickListener {
@@ -98,8 +99,9 @@ class ResultadoFBK : AppCompatActivity(), View.OnClickListener {
                 "\n\nQuantidade: $n elementos"
 
 
-        txvFBK.text = roundDec(fbk.toDouble(), 2).toString()
-        txvFBK.text = roundDec(fbk.toDouble(), 2).toString()
+//        txvFBM.text = roundDec(fbm.toDouble(),2).toString()
+//        txvFBK.text = roundDec(fbk.toDouble(), 2).toString()
+        txvFBK.text = FBK_CLASSE.sFbk
         txvFBM.text = roundDec(fbm.toDouble(),2).toString()
         txvResistLote.text = resistencia.toString()
     }
@@ -108,7 +110,8 @@ class ResultadoFBK : AppCompatActivity(), View.OnClickListener {
         val shareMsg = "-[ ResistCalc App ]-\n\n" +
                 "Os resultados obtidos foram:\n\n" +
                 txvAmostras.text.toString() +
-                "\n\nDownload via: * GooglePlay link *"
+                "\n\nDownload via: \n" +
+                "https://play.google.com/store/apps/details?id=com.mtsa.resistcalc"
 
         val sendIntent: Intent = Intent().apply {
             action = Intent.ACTION_SEND
@@ -125,11 +128,6 @@ class ResultadoFBK : AppCompatActivity(), View.OnClickListener {
                 .putExtra("FBK", FBK_CLASSE))
     }
 
-    /**
-     * Called when a view has been clicked.
-     *
-     * @param v The view that was clicked.
-     */
     override fun onClick(v: View?) {
         when (v) {
             btDetalhar -> detalharResultados(AMOSTRAS)

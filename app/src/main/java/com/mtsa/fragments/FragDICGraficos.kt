@@ -21,7 +21,7 @@ import com.anychart.enums.TooltipPositionMode
 //import com.github.mikephil.charting.data.BarDataSet
 //import com.github.mikephil.charting.data.BarEntry
 //import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
-import com.mtsa.resistcalc.DIC2
+import com.mtsa.resistcalc.dic.DIC2
 import com.mtsa.resistcalc.databinding.FragDicGraficosBinding
 
 

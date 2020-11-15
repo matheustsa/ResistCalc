@@ -1,4 +1,4 @@
-package com.mtsa.resistcalc
+package com.mtsa.resistcalc.dic
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,12 +6,18 @@ import android.view.View
 import android.widget.Button
 import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
+import com.mtsa.resistcalc.R
 import com.mtsa.utils.Utils
 
-class DICTeste1 : AppCompatActivity(), View.OnClickListener {
+/*
+     --------------------------------------------------------------------------
+     ANÁLISE DE VARIÂNCIA (ANOVA) - DELINEAMENTO INTEIRAMENTE CASUALIZADO (DIC)
+     --------------------------------------------------------------------------
+*/
+class DICEntrada1 : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.act_dic_teste_1)
+        setContentView(R.layout.act_dic__entrada_1)
 
         initViews()
     }
@@ -45,7 +51,12 @@ class DICTeste1 : AppCompatActivity(), View.OnClickListener {
                     Intent(this, DICResultado2::class.java)
                         .putExtra(
                             "DIC",
-                            DIC2(6, 10, 0.05F, Utils.listaExemplo("dic"))
+                            DIC2(
+                                6,
+                                10,
+                                0.05F,
+                                Utils.listaExemplo("dic")
+                            )
                         )
                 )
             }
