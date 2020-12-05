@@ -2,13 +2,15 @@ package com.mtsa.resistcalc.fbk
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import android.view.Gravity
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.mtsa.resistcalc.R
 import com.mtsa.utils.Utils
@@ -67,8 +69,8 @@ class DetalharFBK : AppCompatActivity(), View.OnClickListener {
         makeVisible(false, txvTitle, txvDescr, txvPassos, btPrev)
 
     }
-    
-    
+
+
     @SuppressLint("SetTextI18n")
     private fun changeStep(option: Boolean) {
 
@@ -96,12 +98,10 @@ class DetalharFBK : AppCompatActivity(), View.OnClickListener {
                 changeDescription(R.string.fbk_introducao_description)
             }
             1 -> {
-//                animate(fadeIn, btPrev, txvPassos)
                 makeVisible(true, btPrev, txvPassos)
                 btPrev.isEnabled = true
 
                 changeTitle(R.string.fbk_passo1)
-//                changeDescription(R.string.fbk_passo1_descr, FBK.sI)
                 txvDescr.text = getString(R.string.fbk_passo1_descr, FBK.sI)
             }
             2 -> {
@@ -125,11 +125,15 @@ class DetalharFBK : AppCompatActivity(), View.OnClickListener {
             }
             6 -> {
                 btNext.isEnabled = true
+//                btNext.text = "Avançar"
+                btNext.visibility = View.VISIBLE
                 changeText(fadeIn, R.string.fbk_passo6)
                 txvDescr.text = getString(R.string.fbk_passo6_descr, Utils.twoDec(FBK.lista.sum()), FBK.sN, FBK.sFbm)
             }
             7 -> {
                 btNext.isEnabled = false
+//                btNext.text = "---"
+                btNext.visibility = View.GONE
                 changeText(fadeIn,
                     R.string.fbk_passo7,
                     R.string.fbk_passo7_descr
@@ -167,8 +171,15 @@ class DetalharFBK : AppCompatActivity(), View.OnClickListener {
     }
 
     //  TODO: Precisa descobrir como utilizar um array para as variáveis
-    private fun changeDescription(stringXML: Int, vararg varibles: Any) {
-        txvDescr.text = getString(stringXML, varibles)
+    private fun changeDescription(stringXML: Int, vararg variables: Any) {
+        txvDescr.text = getString(stringXML, variables)
+
+//        val text: String = format(resources.getString(R.string.fbk_introducao_description))
+//                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+//                    txvDescr.text = Html.fromHtml(text, Html.FROM_HTML_MODE_COMPACT)
+//                };else {
+//                    txvDescr.text = Html.fromHtml(text)
+//                }
     }
     
     override fun onClick(v: View?) {

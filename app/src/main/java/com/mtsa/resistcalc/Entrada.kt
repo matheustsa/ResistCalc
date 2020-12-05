@@ -1,14 +1,18 @@
 package com.mtsa.resistcalc
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.mtsa.resistcalc.fbk.ResultadoFBK
 import com.mtsa.resistcalc.fpk.ResultadoFPK
 import org.jetbrains.anko.alert
+import org.jetbrains.anko.collections.forEachWithIndex
 
 
 class Entrada : AppCompatActivity(), View.OnClickListener {
@@ -59,19 +63,15 @@ class Entrada : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun getValues(entrada: String): FloatArray {
-
         val lista = ArrayList<String>(entrada.trim().split(";", "\n").sorted())
         lista.removeAll(listOf("", null))
 
         val amostras = FloatArray(lista.count())
-        for ((index, value) in lista.withIndex()) {
-            if (value.contains(","))
-                amostras[index] = value.replace(",", ".").toFloat()
-            else
-                amostras[index] = value.toFloat()
+        lista.forEachWithIndex { index, value ->
+            amostras[index] = value.replace(",", ".").toFloat()
         }
-        return amostras.sortedArray()
 
+        return amostras.sortedArray()
     }
 
     private fun showResults(user_input: Boolean) {
@@ -102,22 +102,33 @@ class Entrada : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v) {
             btCalcular -> {
-                val input = edtxEntradas.text.toString()
-                val quantidade = getValues(input).count()
-                if (quantidade > 5) {
-                    alert("Você digitou $quantidade elementos.\nEsse é o tamanho correto da sua amostra?") {
-                        title = "Só confirmando..."
-                        positiveButton("Está correto") { showResults(true) }
-                        negativeButton("Preciso corrigir") {}
-                    }.show()
-                } else {
-                    alert("Para um cálculo correto, você precisa informar pelo menos 6 valores...") {
-                        title = "ERRO!"
-                        positiveButton("CORRIGIR") {}
+                var amostras = floatArrayOf()
+                try {
+                    amostras = getValues(edtxEntradas.text.toString())
+                    if (amostras.count() > 5) {
+                        alert("Você digitou ${amostras.count()} elementos.\nEsse é o tamanho correto da sua amostra?") {
+                            title = "Só confirmando..."
+                            positiveButton("Está correto") { showResults(true) }
+                            negativeButton("Preciso corrigir") {}
+                        }.show().apply {
+                            getButton(AlertDialog.BUTTON_POSITIVE)?.setTextColor(ContextCompat.getColor(context, R.color.forest_green))
+                            getButton(AlertDialog.BUTTON_NEGATIVE)?.setTextColor(Color.RED)
+                        }
+                    } else {
+                        alert("Para um cálculo correto, você precisa informar pelo menos 6 valores...") {
+                            title = "ERRO!"
+                            positiveButton("CORRIGIR") {}
+                        }.show()
+                    }
+                } catch (e: NumberFormatException) {
+                    alert("Siga o modelo proposto na dica deste campo ou clique no botão '?' para ver um exemplo."){
+                        title = "Valores inválidos!"
+                        positiveButton("Ok"){}
                     }.show()
                 }
             }
-            btExemplo -> showResults(false)
+//            btExemplo -> showResults(false)
+            btExemplo -> edtxEntradas.setText(exemplo)
         }
     }
 }

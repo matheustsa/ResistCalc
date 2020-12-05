@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
 
@@ -10,91 +10,95 @@
         android:fillViewport="true"
         tools:context=".Entrada">
 
-
-    <ImageView
-            android:id="@+id/imageView5"
+    <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:alpha="0.3"
-            android:scaleType="centerCrop"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:srcCompat="@drawable/bg_city" />
-
-    <TextView
-            android:id="@+id/textView1"
-            style="@style/FBK_FPK_Title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/open_sans_bold"
-            android:text="@string/fpk_title"
-            android:textAlignment="textStart"
-            android:textColor="@color/fpk_primary"
-            android:textSize="29sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_height="wrap_content">
 
 
-    <TextView
-            android:id="@+id/textView2"
-            style="@style/FBK_FPK_description"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="1dp"
-            android:fontFamily="@font/open_sans_light"
-            android:text="@string/act_entrada_description"
-            android:textAlignment="textStart"
-            android:textColor="@color/darker_gray"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView1" />
+        <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="0.3"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/bg_city" />
 
-    <EditText
-            android:id="@+id/actENTRY_edtxEntradas_fpk"
-            style="@style/entrada_fbk_fpk_dic"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bg__input_entrada_2"
-            android:textColorHint="@color/darker_gray"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        <TextView
+                android:id="@+id/textView1"
+                style="@style/FBK_FPK_Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans_bold"
+                android:text="@string/fpk_title"
+                android:textAlignment="textStart"
+                android:textColor="@color/fpk_primary"
+                android:textSize="29sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-            android:id="@+id/actENTRY_btCalcular_fpk"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="200dp"
-            android:layout_height="65dp"
-            android:layout_marginTop="16dp"
-            android:layout_weight="1"
-            android:alpha="0.8"
-            android:background="@drawable/square_green"
-            android:text="@string/calcular"
-            android:textAllCaps="true"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.30"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/actENTRY_edtxEntradas_fpk" />
 
-    <Button
-            android:id="@+id/actENTRY_btExemplo_fpk"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="65dp"
-            android:layout_height="65dp"
-            android:layout_weight="2"
-            android:alpha="0.7"
-            android:background="@drawable/circle_gray"
-            android:text="@string/interrogacao"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="@+id/actENTRY_btCalcular_fpk"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.20"
-            app:layout_constraintStart_toEndOf="@+id/actENTRY_btCalcular_fpk"
-            app:layout_constraintTop_toTopOf="@+id/actENTRY_btCalcular_fpk" />
+        <TextView
+                android:id="@+id/textView2"
+                style="@style/FBK_FPK_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:fontFamily="@font/open_sans_light"
+                android:text="@string/act_entrada_description"
+                android:textAlignment="textStart"
+                android:textColor="@color/darker_gray"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView1" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <EditText
+                android:id="@+id/actENTRY_edtxEntradas_fpk"
+                style="@style/entrada_fbk_fpk_dic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg__input_entrada_2"
+                android:textColorHint="@color/darker_gray"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+        <Button
+                android:id="@+id/actENTRY_btCalcular_fpk"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="200dp"
+                android:layout_height="65dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="24dp"
+                android:layout_weight="1"
+                android:alpha="0.8"
+                android:background="@drawable/square_green"
+                android:text="@string/calcular"
+                android:textAllCaps="true"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.25"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/actENTRY_edtxEntradas_fpk" />
+
+        <Button
+                android:id="@+id/actENTRY_btExemplo_fpk"
+                style="@style/entrada_exemplo"
+                android:layout_width="100dp"
+                android:layout_weight="2"
+                android:text="@string/exemplo"
+                app:layout_constraintBottom_toBottomOf="@+id/actENTRY_btCalcular_fpk"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.20"
+                app:layout_constraintStart_toEndOf="@+id/actENTRY_btCalcular_fpk"
+                app:layout_constraintTop_toTopOf="@+id/actENTRY_btCalcular_fpk" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
+

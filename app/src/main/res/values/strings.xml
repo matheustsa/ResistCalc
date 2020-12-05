@@ -14,20 +14,20 @@
     <string name="mainact_bt_fbk">FBK estimado</string>
     <string name="mainact_bt_fpk">FPK estimado</string>
 
-
-    <string name="fbk_introducao_description">Para calcular o valor de fbk,est precisamos apenas utlizar a fórmula:\n\nfbk,est  =  2 X ( (soma dos valores até i) / i-1 ) - fbi</string>
+    <string name="fbk_introducao_description_test"><![CDATA[<strong> bold? </strong><br>not bold]]> </string>
+    <string name="fbk_introducao_description">Para calcular o valor de fbk,est precisamos apenas utlizar a fórmula:\n\nfbk,est  =  2 X ( (soma dos valores até i) / i-1 ) - fbi\n\nCalma, parece complicado, mas vou te mostrar como é simples nos passos a seguir, utilizando os valores que você digitou.</string>
     <string name="fbk_passo1">Passo 1 - Determinar o valor de \'i\'</string>
-    <string name="fbk_passo1_descr">Este valor depende da quantidade de amostras.\nquantidade / 2, se for par\n(quantidade - 1) / 2, se for ímpar.\n\n-> No nosso caso:\n i = %1$s</string>
+    <string name="fbk_passo1_descr">Este valor depende da quantidade de amostras.\nquantidade / 2, se for par\n(quantidade - 1) / 2, se for ímpar.\n\n________________________\n\nNo nosso caso:\ni = %1$s</string>
     <string name="fbk_passo2">Passo 2 - Somar valores até a posição de \'i\' e multiplicar o total por 2</string>
-    <string name="fbk_passo2_descr"><![CDATA[Crie uma sublista somando os valores do primeiro elemento da lista até o que está na posição de \'i\', obtido no passo anterior\n\n-> Para a nossa amostra, seria:\nsoma = amostra 1 + amostra 2 + amostra 3 + …\nsoma = %1$s + %2$s + %3$s + …\nsoma = %4$s\n(multiplique por 2)\nsoma = %5$s]]></string>
+    <string name="fbk_passo2_descr"><![CDATA[Crie uma sublista somando os valores do primeiro elemento da lista até o que está na posição de \'i\', obtido no passo anterior\n\n________________________\n\nPara a nossa amostra, seria:\nsoma = amostra 1 + amostra 2 + amostra 3 + …\nsoma = %1$s + %2$s + %3$s + …\nsoma = %4$s\n(multiplique por 2)\nsoma = %5$s]]></string>
     <string name="fbk_passo3">Passo 3 - dividir os valores da sublista por i-1</string>
-    <string name="fbk_passo3_descr">Divida o valor da sublista (obtido no passo anterior) pelo valor de \'i\', obtido no PASSO 1\n\n-> Portanto:\nsoma / i-1\n%1$s / %2$s\n%3$.2f</string>
+    <string name="fbk_passo3_descr">Divida o valor da sublista (obtido no passo anterior) pelo valor de \'i\', obtido no PASSO 1\n\n________________________\n\nPortanto:\nsoma / i-1\n%1$s / %2$s\n%3$.2f</string>
     <string name="fbk_passo4">Passo 4 - Determinar o \'fbi\'</string>
-    <string name="fbk_passo4_descr">O nosso fbi será o elemento na posição de \'i\'\n\n-> %1$s</string>
+    <string name="fbk_passo4_descr">O nosso fbi será o elemento na posição de \'i\'\n\n________________________\n\n%1$s</string>
     <string name="fbk_passo5">Passo 5 - Calcular o fbk</string>
-    <string name="fbk_passo5_descr">Agora, só precisamos subtrair o valor de fbi da nossa sublista.\nPronto, temos o valor do nosso fbk,est.\n\n-> fbk = soma - fbi\nfbk= %1$s - %2$s\nfbk=%3$s</string>
+    <string name="fbk_passo5_descr">Agora, só precisamos subtrair o valor de fbi da nossa sublista.\nPronto, temos o valor do nosso fbk,est.\n\n________________________\n\nfbk = soma - fbi\nfbk= %1$s - %2$s\nfbk=%3$s</string>
     <string name="fbk_passo6">Passo 6 - Calcular o fbm</string>
-    <string name="fbk_passo6_descr">Precisamos do valor médio das nossas amostrar para prosseguir, então, some todos os valores da lista e divida pela quantidade de elementos.\n\n-> Neste exemplo, temos:\nfbm = soma das amostras / quantidade de elementos\nfbm = %1$s / %2$s\nfbm = %3$s</string>
+    <string name="fbk_passo6_descr">Precisamos do valor médio das nossas amostrar para prosseguir, então, some todos os valores da lista e divida pela quantidade de elementos.\n\n________________________\n\nNeste exemplo, temos:\nfbm = soma das amostras / quantidade de elementos\nfbm = %1$s / %2$s\nfbm = %3$s</string>
     <string name="fbk_passo7">Passo 7 (final) - Comparar o fbk com a tabela de valores Ø</string>
     <string name="fbk_passo7_descr">Após o cálculo do fbk,est deve-se proceder à seguinte análise:\n\na) se o valor do fbk for MAIOR ou IGUAL ao fbm, adota-se o fbm como a resistência característica do lote (fbk)\n\nb) se o valor do fbk for menor que o valor correspondente na tabela Ø X fb(1) (menor valor da amostra), adota-se o valor de Ø X fb(1) como a resistência característica do lote (fbk)\n\nc) se o valor do fbk estiver entre os limites mencionados acima (Ø X fb(1)  e  fbm), adota-se este valor como a resistência característica do lote (fbk)</string>
 
@@ -44,7 +44,8 @@
         v2 = (%4$.2f - %5$.2f)² = %6$.2f\n
         v3 = (%7$.2f - %8$.2f)² = %9$.2f\n…\n\n
         variância total = %10$.2f + %11$.2f + %12$.2f + …\n
-        -> variância total = %13$.2f]]></string>
+        ________________________\n\n
+        variância total = %13$.2f]]></string>
 
     <string name="fpk_passo3">Passo 3 - Adquirir o desvio padrão</string>
     <string name="fpk_passo3_descr">O desvio padrão é a raiz quadrada da variância total\n
