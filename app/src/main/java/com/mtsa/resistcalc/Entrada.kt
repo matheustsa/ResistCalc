@@ -105,7 +105,7 @@ class Entrada : AppCompatActivity(), View.OnClickListener {
                 var amostras = floatArrayOf()
                 try {
                     amostras = getValues(edtxEntradas.text.toString())
-                    if (amostras.count() > 5) {
+                    if (amostras.count() > 4) {
                         alert("Você digitou ${amostras.count()} elementos.\nEsse é o tamanho correto da sua amostra?") {
                             title = "Só confirmando..."
                             positiveButton("Está correto") { showResults(true) }

@@ -33,6 +33,27 @@ class FBK (// Values as Strings
     
     // checa os valores de Ø em função da quantidade de blocos da amostra
     val tabela = arrayOf(
+//        3.0777F,
+//        1.8856F,
+//        1.8856F,
+//        1.5332F,
+//        1.4759F,
+//        1.4398F,
+//        1.4149F,
+//        1.3968F,
+//        1.3830F,
+//        1.3722F,
+//        1.3634F,
+//        1.3562F,
+//        1.3502F,
+//        1.3450F,
+//        1.3406F,
+//        1.3368F,
+//        1.3334F,
+//        1.3304F,
+//        1.3277F,
+//        1.3253F
+
         0.89F,
         0.89F,
         0.89F,
@@ -53,9 +74,9 @@ class FBK (// Values as Strings
         1.04F
     )
     val menorLimite = if (n < 18)
-        amostras[0] * tabela[n - 1]
+        fbk * tabela[n-1]
     else
-        amostras[0] * tabela.lastIndex
+        fbk * tabela.lastIndex
     
     // verifica os requisítos para finalmente obter a resistência característica do lote (fbk)
     val resistencia = when {

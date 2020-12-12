@@ -8,6 +8,29 @@ class FPK (
 ) : Serializable {
     val gl = amostras.count()
     //        val alpha = 0.2     //valor fixo
+    val t_student  = doubleArrayOf(
+        3.0777,
+        1.8856,
+        1.8856,
+        1.5332,
+        1.4759,
+        1.4398,
+        1.4149,
+        1.3968,
+        1.3830,
+        1.3722,
+        1.3634,
+        1.3562,
+        1.3502,
+        1.3450,
+        1.3406,
+        1.3368,
+        1.3334,
+        1.3304,
+        1.3277,
+        1.3253
+    )
+    /**
     val t_student = doubleArrayOf(
         1.3764,
         1.0607,
@@ -40,7 +63,7 @@ class FPK (
         0.8542,
         0.8538
     )
-
+*/
     // Calcular Desvio Padrão
     // Passo 1 - Calcular a Média
     val media = amostras.average()

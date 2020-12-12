@@ -55,8 +55,14 @@ class DICEntrada1 : AppCompatActivity(), View.OnClickListener {
                                 6,
                                 10,
                                 0.05F,
-                                Utils.listaExemplo("dic")
+                                Utils.listaExemplo("anova_dic")
                             )
+//                            DIC2(
+//                                3,
+//                                10,
+//                                0.05F,
+//                                Utils.listaExemplo("anova_dic2")
+//                            )
                         )
                 )
             }

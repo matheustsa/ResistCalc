@@ -86,13 +86,17 @@
         <item>5</item>
         <item>6</item>
         <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
     </string-array>
 
     <string-array name="dic_alfa">
+        <item>0.01</item>
+<!--        <item>0.025</item>-->
         <item>0.05</item>
         <item>0.1</item>
-        <item>0.5</item>
-        <item>1</item>
+<!--        <item>0.25</item>-->
     </string-array>
 
 </resources>

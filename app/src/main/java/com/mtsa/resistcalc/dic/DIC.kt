@@ -2,8 +2,12 @@ package com.mtsa.resistcalc.dic
 
 import com.mtsa.utils.Utils
 import org.apache.commons.math3.distribution.FDistribution
+import org.apache.commons.math3.stat.descriptive.moment.Mean
+import org.apache.commons.math3.stat.descriptive.moment.StandardDeviation
+import org.apache.commons.math3.stat.descriptive.moment.Variance
 import java.io.Serializable
 import kotlin.math.pow
+
 
 class DIC(val k: Int, val n: Int, val alfa: Float, val lista: List<List<Double>>) : Serializable
 
@@ -17,11 +21,18 @@ class DIC2(val k: Int, val n: Int, val alfa: Float, val lista: List<List<Double>
     val variancia = mutableListOf<Double>()
     val coeficienteVariacao = mutableListOf<Double>()
 
+//    var stdDev = StandardDeviation()
+//    val desvq = mutableListOf<Double>()
+//    val ssw = mutableListOf<Double>()
+//    var sst = 0.0
+
+
 
     init {
         for ((index, T) in lista.withIndex()) {
             media.add(Utils.roundDec(T.average(), 4))
             desvioPadrao.add(Utils.desvioPadrao(T))
+//            ssw.add(stdDev.evaluate(T.toDoubleArray()))
             variancia.add(Utils.variancia(T))
             coeficienteVariacao.add(Utils.coefVariacao(media[index], desvioPadrao[index]))
         }
@@ -54,4 +65,3 @@ class DIC2(val k: Int, val n: Int, val alfa: Float, val lista: List<List<Double>
     val julgamento = if (F_Calculado > F_Critico) "Rejeita-se H0" else "Rejeita-se H1"
 
 }
-
